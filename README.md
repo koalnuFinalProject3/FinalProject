@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Final Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📦 프로젝트 개요
 
-## Available Scripts
+-   작성예정.
 
-In the project directory, you can run:
+## ⚙️ 개발 환경
 
-### `npm start`
+-   **React**: 19.0.0 (`react`, `react-dom`)
+-   **Vite**: 6.3.1
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 📋 주요 라이브러리
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+| 범주            | 라이브러리                      | 버전          |
+| --------------- | ------------------------------- | ------------- |
+| 빌드 툴         | Vite + Vite React 플러그인      | 6.3.1 + 4.3.4 |
+| 프레임워크      | React, React DOM                | 19.0.0        |
+| 라우팅          | React Router DOM                | 6.30.0        |
+| 상태 관리       | Zustand                         | 5.0.3         |
+| 서버 상태 관리  | @tanstack/react-query, devtools | 5.74.9        |
+| 캘린더          | @fullcalendar/react + plugins   | 6.1.17        |
+| 데이터 시각화   | chart.js, react-chartjs-2       | 4.4.9, 5.3.0  |
+| 캘린더 컴포넌트 | react-calendar                  | 5.1.0         |
+| UI 프레임워크   | Bootstrap, React Bootstrap      | 5.3.5, 2.10.9 |
 
-### `npm test`
+## 📁 디렉터리 구조
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
 
-### `npm run build`
+├─ public/                # 정적 파일 (favicon 등)
+├─ src/
+│  ├─ assets/             # 이미지, 폰트 등 리소스
+│  ├─ common/             # 공통 컴포넌트
+│  ├─ layout/             # 레이아웃 컴포넌트
+│  ├─ pages/              # 라우팅 페이지 컴포넌트
+│  ├─ hooks/              # 커스텀 훅
+│  ├─ utils/              # 유틸 함수
+│  ├─ App.css             # 테마와 레이아웃 스타일
+│  ├─ App.jsx             # 라우터 설정
+│  ├─ main.jsx            # 진입점 (ReactDOM, CSS import 등)
+│  └─ index.css           # 폰트 선언, 리셋 스타일
+├─ .eslintrc.js           # ESLint 설정
+├─ vite.config.js         # Vite 설정
+├─ package.json
+└─ README.md
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+_이 README는 팀원 모두가 개발 환경과 주요 라이브러리를 빠르게 이해하는 데 도움을 주기 위해 작성되었습니다._

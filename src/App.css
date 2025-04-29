@@ -1,0 +1,33 @@
+:root {
+    --site-width: 1920px;
+    --site-height: 1080px;
+
+    /* Off-white */
+    --color-off-white: #f4f2ee;
+
+    /* Greens */
+    --color-green-light: #b7d589;
+    --color-green: #61af72;
+    --color-green-dark: #3a7751;
+
+    /* Accent / Warning */
+    --color-yellow: #fae68d;
+
+    /* Neutral */
+    --color-gray: #6b7773;
+
+    /* Very light gray */
+    --color-lighter-gray: #fefefe;
+
+    /* Light gray */
+    --color-lighter: #efefef;
+
+    /* Dark */
+    --color-black: #000000;
+}
+#root {
+    max-width: var(--site-width);
+    max-height: var(--site-height);
+    margin: 0 auto;
+    text-align: center;
+}
