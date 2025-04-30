@@ -19,6 +19,7 @@
     "@tanstack/react-query-devtools": "^5.74.9",
     "bootstrap": "^5.3.5",
     "chart.js": "^4.4.9",
+    "motion": "^12.9.2",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",
     "react-calendar": "^5.1.0",
