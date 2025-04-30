@@ -4,7 +4,9 @@
   height: 100vh;
   background-color: #818A84;
 
-  display: flex;
+  position: sticky;
+  left: 0;
+  top:0;
   justify-content: center;
 
   /* font style */
@@ -12,8 +14,9 @@
 }
 
 .sideNavInner{
+    margin: auto;
     /* background-color: blue; */
-    width: 60%;
+    width: 80%;
     font-size: 32px;
 }
 
@@ -21,10 +24,15 @@
     height: auto;
     margin: 39px 0;
     color: #FFEB94;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    cursor: pointer;
 }
 .sideNavTitle>img{
     width: 40px;
     height: 40px;
+    margin-right: 0.5rem;
 }
 .navProfileImageArea{
     /* background-color: aqua; */
@@ -47,23 +55,32 @@
     /* background-color: palegoldenrod; */
     color: #E5F2D7;
     font-size: 25px;
+    padding-left: 2rem;
 }
 /* 버튼 요소 */
-.btnArea>div{
+.btnArea>a{
     margin-bottom: 29px; 
     cursor: pointer;
 }
-.btnArea>div:hover{color: #FFEB94;}
+.btnArea>a:hover{color: #FFEB94;}
 
 /* 아이콘 margint-left*/
-.btnArea>div>img{margin-right: 19px;}
-.btnAreaa>div>img:hover{color: #FFEB94;}
-/*------------------- display ---------------------*/
-.sbCenter{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.btnArea>a>img{margin-right: 19px;}
+.btnAreaa>a>img:hover{color: #FFEB94;}
+
+
+/* footer */
+.footer{
+    font-family: var( --font-chosun);
+    font-size: 0.8rem;
+    margin-top: 10rem;
+    color: #E5F2D7;
 }
+.footerName{
+    margin-left: 4em;
+}
+
+/*------------------- display ---------------------*/
 .acCenter{
     display: flex;
     flex-direction: column;
@@ -73,18 +90,3 @@
     display: flex;
     align-items: center;
 }
-/* -------------------- color ---------------------- */
-:root {
-    /* 진한 녹색 */
-    --forestGreen: #3A7751;
-    /* 회색빛 녹색 */
-    --sage: #818A84;
-    /* 옅은 연두색 */
-    --mint: #E5F2D7;
-    /* 옅은 노랑색 */
-    --lemon: #FFEB94;
-    /* 옅은 베이지색 */
-    --linen: #F4F2EE;
-    /* 옅은 황갈색 */
-    --camel: #BFA57F;
-  }
