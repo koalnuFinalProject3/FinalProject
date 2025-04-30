@@ -1,6 +1,6 @@
 .container {
-    /* 색상코드 적용되는지 테스트 진행 */
-    background-color: var(--color-lighter);
-    padding: 2rem;
-    border-radius: 1rem;
+  /* 색상코드 적용되는지 테스트 진행 */
+  background-color: var(--color-lighter);
+  padding: 2rem;
+  border-radius: 1rem;
 }

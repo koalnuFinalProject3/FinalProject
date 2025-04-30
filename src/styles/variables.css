@@ -1,19 +1,19 @@
 :root {
-    /* Dimensions */
-    --site-width: 1920px;
-    --site-height: 1080px;
+  /* Dimensions */
+  --site-width: 1920px;
+  --site-height: 1080px;
 
-    /* Colors */
-    --color-off-white: #f4f2ee;
-    --color-green-light: #b7d589;
-    --color-green: #61af72;
-    --color-green-dark: #3a7751;
-    --color-yellow: #fae68d;
-    --color-gray: #6b7773;
-    --color-lighter: #efefef;
-    --color-lighter-gray: #fefefe;
-    --color-black: #000000;
+  /* Colors */
+  --color-off-white: #f4f2ee;
+  --color-green-light: #b7d589;
+  --color-green: #61af72;
+  --color-green-dark: #3a7751;
+  --color-yellow: #fae68d;
+  --color-gray: #6b7773;
+  --color-lighter: #efefef;
+  --color-lighter-gray: #fefefe;
+  --color-black: #000000;
 
-    --font-chosun: "ChosunGu", sans-serif;
-    --font-kotra: "KOTRAHOPE", monospace;
+  --font-chosun: 'ChosunGu', sans-serif;
+  --font-kotra: 'KOTRAHOPE', monospace;
 }
