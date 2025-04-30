@@ -1,5 +1,5 @@
 import React from "react";
-import "./DiaryPage.style.css";
+// import styles from "./DiaryPage.module.css";
 const DiaryPage = () => {
     return (
         <div>

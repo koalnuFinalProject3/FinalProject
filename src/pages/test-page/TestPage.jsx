@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "./TestPage.module.css"; // 모듈 CSS import
 import {
     Chart as ChartJS,
     BarElement,
@@ -10,7 +11,7 @@ import {
 import { Bar } from "react-chartjs-2";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import "./TestPage.style.css";
+
 // Chart.js 플러그인 등록
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
@@ -49,12 +50,12 @@ const TestPage = () => {
     };
 
     return (
-        <div className="container mt-5">
-            <h1 className="mb-4">Bootstrap 테스트</h1>
+        <div className={styles.container}>
+            <h1>폰트 및 컴포넌트 테스트</h1>
             <button className="btn btn-primary mb-4">부트스트랩 버튼</button>
 
             <h2 className="mb-3">Chart.js 테스트</h2>
-            <div style={{ maxWidth: "600px", marginBottom: "2rem" }}>
+            <div className={styles.chartWrapper}>
                 <Bar data={chartData} options={chartOptions} />
             </div>
 

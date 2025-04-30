@@ -5,7 +5,6 @@ import MainPage from "./pages/main-page/MainPage";
 import MyPage from "./pages/my-page/MyPage";
 import DiaryPage from "./pages/diary-page/DiaryPage";
 import TestPage from "./pages/test-page/TestPage";
-import "./App.css";
 
 const App = () => {
     return (
