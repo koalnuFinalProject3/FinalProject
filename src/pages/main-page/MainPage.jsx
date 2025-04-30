@@ -1,10 +1,11 @@
 import React from 'react';
+import Header from '../../layout/Header/Header';
 // import styles from "./MyPage.module.css";
 
 const MainPage = () => {
   return (
     <div>
-      <h1>MainPage</h1>
+        <Header/>
     </div>
   );
 };
