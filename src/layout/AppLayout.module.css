@@ -3,13 +3,16 @@
   color: var(--color-green-light);
 }
 
-.appLayout{
-    display: flex;
-  }
-  
-  /* App에서 가운데 요소 */
-  .appLayoutCenter{
-    /* background-color: pink; */
-    width: 1200px;
-    margin-left: 90px;
-  }
+.appLayout {
+  display: flex;
+}
+
+/* App에서 가운데 요소 */
+.appLayoutCenter {
+  width: 100vw;
+  height: 100vh;
+
+  /* background-color: pink; */
+  /* width: 1200px; */
+  /* margin-left: 90px; */
+}
