@@ -1,8 +1,10 @@
 .container {
-  background-color: rgb(255, 244, 244);
   height: 100vh;
-  /* height: 100%; */
   width: 100%;
   padding: 0;
   margin: 0;
+  display: flex;
+  /* justify-content: space-between; */
+  gap: 6rem;
+  background-color: #f4f2ee;
 }
