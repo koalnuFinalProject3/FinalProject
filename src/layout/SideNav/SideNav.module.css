@@ -1,92 +1,97 @@
-.sideNavArea{
+.sideNavArea {
   /* margin: 0; padding: 0; */
   width: 300px;
   height: 100vh;
-  background-color: #818A84;
+  background-color: #818a84;
 
   position: sticky;
   left: 0;
-  top:0;
+  top: 0;
   justify-content: center;
 
   /* font style */
-  font-family: 'KOTRAHOPE';/* 코트라 희망체 */
+  font-family: 'KOTRAHOPE'; /* 코트라 희망체 */
 }
 
-.sideNavInner{
-    margin: auto;
-    /* background-color: blue; */
-    width: 80%;
-    font-size: 32px;
+.sideNavInner {
+  margin: auto;
+  /* background-color: blue; */
+  width: 80%;
+  font-size: 32px;
 }
 
-.sideNavTitle{
-    height: auto;
-    margin: 39px 0;
-    color: #FFEB94;
-    display: flex;
-    justify-content: center;
-    align-items: center;    
-    cursor: pointer;
+.sideNavTitle {
+  height: auto;
+  margin: 39px 0;
+  color: #ffeb94;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
-.sideNavTitle>img{
-    width: 40px;
-    height: 40px;
-    margin-right: 0.5rem;
+.sideNavTitle > img {
+  width: 40px;
+  height: 40px;
+  margin-right: 0.5rem;
 }
-.navProfileImageArea{
-    /* background-color: aqua; */
-    margin: 86px 0 70px;
-    width: auto;
-    color: #E5F2D7;
-    font-size: 30px;
+.navProfileImageArea {
+  /* background-color: aqua; */
+  margin: 86px 0 70px;
+  width: auto;
+  color: #e5f2d7;
+  font-size: 30px;
 }
-.navProfileImageArea>img{
-    border: 3px solid #E5F2D7;
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
+.navProfileImageArea > img {
+  border: 3px solid #e5f2d7;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
 
-    margin-bottom: 14px;
+  margin-bottom: 14px;
 }
 
-.btnArea{
-    /* background-color: palegoldenrod; */
-    color: #E5F2D7;
-    font-size: 25px;
-    padding-left: 2rem;
+.btnArea {
+  /* background-color: palegoldenrod; */
+  color: #e5f2d7;
+  font-size: 25px;
+  padding-left: 2rem;
 }
 /* 버튼 요소 */
-.btnArea>a{
-    margin-bottom: 29px; 
-    cursor: pointer;
+.btnArea > a {
+  margin-bottom: 29px;
+  cursor: pointer;
 }
-.btnArea>a:hover{color: #FFEB94;}
+.btnArea > a:hover {
+  color: #ffeb94;
+}
 
 /* 아이콘 margint-left*/
-.btnArea>a>img{margin-right: 19px;}
-.btnAreaa>a>img:hover{color: #FFEB94;}
-
+.btnArea > a > img {
+  margin-right: 19px;
+}
+.btnAreaa > a > img:hover {
+  color: #ffeb94;
+}
 
 /* footer */
-.footer{
-    font-family: var( --font-chosun);
-    font-size: 0.8rem;
-    margin-top: 10rem;
-    color: #E5F2D7;
+.footer {
+  font-family: var(--font-chosun);
+  font-size: 0.8rem;
+  margin-top: 10rem;
+  color: #e5f2d7;
 }
-.footerName{
-    margin-left: 4em;
+.footerName {
+  margin-left: 4em;
 }
 
 /*------------------- display ---------------------*/
-.acCenter{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.acCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.aCenter{
-    display: flex;
-    align-items: center;
+.aCenter {
+  display: flex;
+  align-items: center;
 }
