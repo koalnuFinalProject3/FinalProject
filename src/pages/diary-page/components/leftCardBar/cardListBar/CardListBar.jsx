@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import styles from './CardListBar.module.css';
 import CardForm from '../cardForm/CardForm';
 import CardBanner from '../cardBanner/CardBanner';
-import DiaryFilter from '../../rightCard/diaryFilter/DiaryFilter';
+import DiaryFilter from '../diaryFilter/DiaryFilter';
 
 const CardListBar = () => {
   const [isOpen, setIsOpen] = useState(true);

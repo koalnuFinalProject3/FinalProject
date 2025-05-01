@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styles from './DiaryFilter.module.css';
 
 const DiaryFilter = ({ type, handleChange, selected }) => {
