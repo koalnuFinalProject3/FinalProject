@@ -11,7 +11,7 @@
 .appLayoutCenter {
   width: 100vw;
   min-height: 100vh;
-  background-color: pink;
+  /* background-color: pink; */
   /* width: 1200px; */
   /* margin-left: 90px; */
 }
