@@ -5,11 +5,10 @@ import CardForm from '../cardForm/CardForm';
 import CardBanner from '../cardBanner/CardBanner';
 import DiaryFilter from '../diaryFilter/DiaryFilter';
 
-const CardListBar = () => {
+const CardListBar = ({ handleClickCard }) => {
   const [isOpen, setIsOpen] = useState(true);
   const [selectedEmotion, setSelectedEmotion] = useState('');
   const [selectedOrder, setSelectedOrder] = useState('');
-
   const handleClickClose = () => {
     setIsOpen((prev) => !prev);
   };
@@ -46,7 +45,7 @@ const CardListBar = () => {
           </div>
           <div className={styles.innerContainer}>
             {[...Array(13)].map((_, i) => (
-              <CardForm key={i} />
+              <CardForm key={i} onClick={handleClickCard} />
             ))}
           </div>
         </>

@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './CardForm.module.css';
 import arrowIcon from '../../../../../assets/icons/caretCircleRight.svg';
 
-const CardForm = () => {
+const CardForm = ({ onClick }) => {
   return (
     <div className={styles.cardBox}>
       <div className={styles.cardAvatar}>여기에 감정이모지</div>
@@ -11,7 +11,12 @@ const CardForm = () => {
         <div className={styles.cardIndicator}>
           <span className={styles.text}>여기는 내용을 적는 부분</span>
 
-          <img className={styles.arrow} src={arrowIcon} alt="arrow" />
+          <img
+            className={styles.arrow}
+            src={arrowIcon}
+            alt="arrow"
+            onClick={onClick}
+          />
         </div>
       </div>
     </div>

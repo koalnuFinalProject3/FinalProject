@@ -1,0 +1,74 @@
+.cardContainer {
+  border: 0.2rem solid var(--color-green-dark);
+  border-radius: 8px;
+  padding: 3rem;
+
+  flex: 1;
+  margin: 6rem 5rem 6rem 0;
+  background-color: #f4f2ee;
+  position: relative;
+}
+.icon {
+  color: #222;
+  background-color: var(--color-green-dark);
+  border-radius: 100%;
+  padding: 0.3rem;
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  cursor: pointer;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-lighter-gray);
+  border-radius: 16px;
+  padding: 1rem;
+  margin-bottom: 18px;
+  justify-content: start;
+  gap: 12px;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  background-color: lightgray;
+  margin: 0 20px;
+}
+
+.date {
+  font-size: 2rem;
+  color: #2a5c39;
+  font-weight: 800;
+}
+
+.body {
+  background-color: var(--color-lighter-gray);
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.editButton {
+  background-color: #d9f2de;
+  color: #2a5c39;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-bottom: 8px;
+}
+
+.content {
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: center;
+  color: #222;
+  word-break: keep-all;
+}
