@@ -5,8 +5,6 @@ import CardDefault from './components/rightCard/cardDefault/CardDefault';
 const DiaryPage = () => {
   return (
     <div className={styles.container}>
-      {/* <h1>다이어리 페이지</h1> */}
-      {/* <Header /> */}
       <CardListBar />
       <CardDefault />
     </div>

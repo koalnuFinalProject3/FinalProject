@@ -3,12 +3,23 @@ import { motion } from 'motion/react';
 import styles from './CardListBar.module.css';
 import CardForm from '../cardForm/CardForm';
 import CardBanner from '../cardBanner/CardBanner';
+import DiaryFilter from '../../rightCard/diaryFilter/DiaryFilter';
 
 const CardListBar = () => {
   const [isOpen, setIsOpen] = useState(true);
+  const [selectedEmotion, setSelectedEmotion] = useState('');
+  const [selectedOrder, setSelectedOrder] = useState('');
 
   const handleClickClose = () => {
     setIsOpen((prev) => !prev);
+  };
+
+  const handleEmotionChange = (e) => {
+    setSelectedEmotion(e.target.value);
+  };
+
+  const handleOrderChange = (e) => {
+    setSelectedOrder(e.target.value);
   };
 
   return (
@@ -21,7 +32,18 @@ const CardListBar = () => {
       <CardBanner handleClickClose={handleClickClose} isOpen={isOpen} />
       {isOpen && (
         <>
-          <h1>다이어리 필터</h1>
+          <div className={styles.diaryFilterContainer}>
+            <DiaryFilter
+              type="emotion"
+              handleChange={handleEmotionChange}
+              selected={selectedEmotion}
+            />
+            <DiaryFilter
+              type="order"
+              handleChange={handleOrderChange}
+              selected={selectedOrder}
+            />
+          </div>
           <div className={styles.innerContainer}>
             {[...Array(13)].map((_, i) => (
               <CardForm key={i} />

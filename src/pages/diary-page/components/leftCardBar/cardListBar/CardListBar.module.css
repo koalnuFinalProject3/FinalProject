@@ -18,8 +18,8 @@
 .innerContainer {
   overflow-y: auto;
 
-  padding: 3rem;
-  margin-bottom: 3rem;
+  padding: 0 3rem;
+  margin: 1rem 0 2rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,4 +28,8 @@
   scrollbar-width: thin;
   scrollbar-color: #ccc transparent;
   overflow-x: hidden;
+}
+.diaryFilterContainer {
+  display: flex;
+  justify-content: end;
 }
