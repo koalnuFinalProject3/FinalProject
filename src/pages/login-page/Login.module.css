@@ -4,41 +4,84 @@
   grid-template-columns: 1fr 2fr;
   grid-template-rows: repeat(2, 1fr);
   background: linear-gradient(to bottom, #d2f6c5 60%, #a0e7a0 100%);
+  position: relative;
+  overflow: hidden;
 }
 
-.formContainer {
-  width: 100%;
+.icon {
+  grid-column: 1;
+  grid-row: 1;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: end;
   justify-content: center;
-  form {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    input {
-      height: 3rem;
-      background-color: white;
-    }
-  }
+  align-items: center;
+  z-index: 1;
 }
 
-.landingContainer {
+.icon img {
+  width: 50%;
+  aspect-ratio: 1/1;
+}
+
+/* 인트로 화면의 중앙 컨테이너 */
+.introContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: end;
   gap: 1.5rem;
+  z-index: 20;
+}
+
+/* 로그인 화면의 오른쪽 컨테이너 */
+.landingContainer {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  justify-content: center;
+  z-index: 1;
+}
+
+.formContainer {
+  grid-column: 1;
+  grid-row: 2;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.formContainer form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formContainer input {
+  height: 3rem;
+  background-color: white;
+  padding: 0 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
-  h1 {
-    font-size: 7rem;
-    color: #3a7751;
-    font-weight: 900;
-  }
-  h3 {
-    color: #3a7751;
-  }
+  background-color: rgba(210, 246, 197, 0.9);
+  z-index: 10;
 }
 
 .startButton {
@@ -46,27 +89,21 @@
   color: #e2f9c6;
   padding: 1rem 2rem;
   border-radius: 3rem;
+  cursor: pointer;
+  margin-top: 1rem;
 }
 
 .btn {
   background-color: #3a7751;
+  color: #e2f9c6;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.icon {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  img {
-    width: 50%;
-    aspect-ratio: 1/1;
-  }
+h1,
+h3 {
+  color: #3a7751;
+  text-align: center;
 }
