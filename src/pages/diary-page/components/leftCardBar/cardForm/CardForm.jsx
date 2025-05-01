@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './CardForm.module.css';
-import arrowIcon from '../../../../assets/icons/caretCircleRight.svg';
+import arrowIcon from '../../../../../assets/icons/caretCircleRight.svg';
 
 const CardForm = () => {
   return (
