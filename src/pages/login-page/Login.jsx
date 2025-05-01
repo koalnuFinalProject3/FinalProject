@@ -41,8 +41,8 @@ const Login = () => {
 
             <motion.div
               className={styles.formContainer}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 1 }}
             >
               <form onSubmit={handleLogin}>
