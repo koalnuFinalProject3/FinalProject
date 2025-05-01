@@ -35,7 +35,7 @@ const Modal = ({ isOpen, onClose, children, title }) => {
             onClick={(e) => e.stopPropagation()}
           >
             <div className={styles.modalHeader}>
-              {title && <h2>{title}</h2>}
+              {title && <h2 className={styles.modalTitle}>{title}</h2>}
               <button
                 onClick={onClose}
                 className={styles.closeButton}

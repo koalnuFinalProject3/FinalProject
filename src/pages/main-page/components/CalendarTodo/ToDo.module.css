@@ -1,0 +1,107 @@
+.modalcontainer{
+  width: 100vw;
+  max-width: 50rem;
+  height: 88vh;
+}
+.progressContainerContainer{
+  width: 80%;
+  /* border : 3px solid red; */
+  max-width: 30rem;
+  height: 1rem;
+  position: relative;
+}
+.progressContainer {
+  max-width: 10rem;
+  position: absolute;
+  width:80vw;
+  height: 1.2rem;
+  background-color: #f3f3f3;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.progressBar {
+  height: 100%;
+  background-color: #4caf50;  /* 진행률에 따라 색상 변경 */
+  border-radius: 5px;
+} 
+.progressText{
+  font-family: var(--font-kotra);
+  padding-left: 1rem;
+  line-height: 1.2rem;
+  font-size: 70%;
+  position: absolute;
+}
+.buttonPlus{
+  background-color: #56AC68;
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+}
+ul{
+  padding: 0;
+}
+li{
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+.editIcon{
+  display: flex;
+}
+
+/* 체크박스 시작 */
+.checkboxContainer {
+  display: inline-block;
+  position: relative;
+  padding-left: 24px;
+  cursor: pointer;
+  font-size: 16px;
+  user-select: none;
+}
+
+/* 기본 체크박스 숨김 */
+.checkboxContainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* 커스텀 체크박스 */
+.checkmark {
+  position: absolute;
+  top: -0.7rem;
+  left: -1rem;
+  height: 18px;
+  width: 18px;
+  background-color: #eee;
+  border-radius: 4px;
+}
+
+/* 체크되었을 때 스타일 */
+.checkboxContainer input:checked ~ .checkmark {
+  background-color: #4caf50;
+  border-color: #4caf50;
+}
+
+/* 체크 아이콘 표시 */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* 체크되었을 때 체크 표시 보이기 */
+.checkboxContainer input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* 체크 아이콘 모양 (✔) */
+.checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
