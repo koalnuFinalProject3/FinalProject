@@ -1,14 +1,13 @@
 body {
   font-family: var(--font-chosun);
-  font-size: 10px;
-
   background-color: #ffffff;
   color: #000000;
   min-width: 320px;
   min-height: 100vh;
-
+  font-size: 10px;
   margin: 0;
   padding: 0;
+  /* box-sizing: border-box; */
 }
 
 a {

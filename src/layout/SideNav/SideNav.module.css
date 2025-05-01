@@ -49,6 +49,8 @@
   object-fit: cover;
 
   margin-bottom: 14px;
+  background-color: white;
+  padding: 0.8rem;
 }
 
 .btnArea {
