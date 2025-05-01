@@ -1,33 +1,25 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBackward, faPlay, faForward } from '@fortawesome/free-solid-svg-icons';
 import useEmotionStore from '../../stores/useEmotionStore';
-import useMusicStore from '../../stores/useMusicStore';
+import useRecommendedMusic from '../../hooks/useRecommendedMusic';
 
-// 음악추천
 const RecommendedMusic = () => {
-  const { emotionToday } = useEmotionStore();
-  const { recommendedMusic, setRecommendedMusicByEmotion } = useMusicStore();
-
-  // 감정이 바뀔 때마다 음악을 추천
-  useEffect(() => {
-    if (emotionToday.text) {
-      setRecommendedMusicByEmotion(emotionToday.text);
-    }
-  }, [emotionToday.text]);
+  const { emotionId } = useEmotionStore();
+  const recommendedMusic = useRecommendedMusic(emotionId);
 
   return (
-    <div className="text-center mt-4">
-      <h6 className="mb-2">추천음악</h6>
+    <div className="text-center mt-1">
+      <p className="mb-2">🎵 추천 음악</p>
 
-      {/* 음악 정보 표시 */}
-      {recommendedMusic && (
-        <p className="fw-bold mb-2">
+      {recommendedMusic ? (
+        <p className="fw-bold mb-1">
           {recommendedMusic.title} - {recommendedMusic.artist}
         </p>
+      ) : (
+        <p className="text-muted">감정에 맞는 추천 음악이 없습니다.</p>
       )}
 
-      {/* 컨트롤 버튼 */}
       <div className="d-flex justify-content-center align-items-center gap-3">
         <button className="btn btn-light btn-sm">
           <FontAwesomeIcon icon={faBackward} />
@@ -35,10 +27,7 @@ const RecommendedMusic = () => {
         <button className="btn btn-light btn-sm">
           <FontAwesomeIcon icon={faPlay} />
         </button>
-        <button
-          className="btn btn-light btn-sm"
-          onClick={() => setRecommendedMusicByEmotion(emotionToday.text)}
-        >
+        <button className="btn btn-light btn-sm">
           <FontAwesomeIcon icon={faForward} />
         </button>
       </div>

@@ -1,36 +1,57 @@
+// src/pages/my-page/EmotionChart.jsx
+import React from 'react';
+import { Pie } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
   ArcElement,
   Tooltip,
   Legend,
 } from 'chart.js';
-import React from 'react'
-import { Pie } from 'react-chartjs-2'
 import useEmotionChart from '../../hooks/useEmotionChart';
-
-// 감정차트
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const EmotionChart = ({ period }) => {
-  const { data = [], isLoading } = useEmotionChart(period);
+const EmotionChart = ({ startDate, endDate }) => {
+  const { labels, data } = useEmotionChart(startDate, endDate);
 
-  if (isLoading) return <p className="text-center">로딩 중...</p>;
-
-  const chartData = {
-    labels: data.map((d) => d.label),
-    datasets: [
-      {
-        data: data.map((d) => d.value),
-        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#6FCF97', '#9B51E0'],
-      },
-    ],
-  };
+  // 데이터가 비어있을 경우 처리
+  const isEmpty = data.every((value) => value === 0);
 
   return (
     <div>
-      <h6 className="text-center mb-2">감정 분포도</h6>
-      <Pie data={chartData} />
+      <p className="mb-3">감정 분포도</p>
+      <p className="text-muted mb-3" style={{ fontSize: '0.9rem' }}>
+        {startDate} ~ {endDate}
+      </p>
+
+      {isEmpty ? (
+        <p className="text-muted">해당 기간에 감정 데이터가 없습니다. <br />
+        오늘 하루의 감정을 기록해보세요 😊
+        </p>
+      ) : (
+        <Pie
+          data={{
+            labels,
+            datasets: [
+              {
+                label: '감정 횟수',
+                data,
+                backgroundColor: ['#FFD93D', '#A1E3A1', '#7FD5A3', '#4F9D92', '#6E6E6E'],
+                borderColor: '#ffffff',
+                borderWidth: 2,
+              },
+            ],
+          }}
+          options={{
+            responsive: true,
+            plugins: {
+              legend: {
+                position: 'bottom',
+              },
+            },
+          }}
+        />
+      )}
     </div>
   );
 };

@@ -8,8 +8,8 @@
   }
   
   /* App에서 가운데 요소 */
-  .appLayoutCenter{
-    /* background-color: pink; */
-    width: 1200px;
-    margin-left: 90px;
+  .appLayoutCenter {
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
   }

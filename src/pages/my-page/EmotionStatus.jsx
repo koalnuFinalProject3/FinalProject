@@ -1,17 +1,24 @@
-import React from 'react'
-import useEmotionStore from '../../stores/useEmotionStore'
-
-// 오늘 감정 + 감정에 해당하는 글귀
+// EmotionStatus.jsx
+import useEmotionStore from '../../stores/useEmotionStore';
+import useEmotions from '../../hooks/useEmotions';
+import profile from '../../assets/images/profile.png';
 
 const EmotionStatus = () => {
-    const { emotionToday } = useEmotionStore();
+  const { emotionId } = useEmotionStore();
+  const emotions = useEmotions();
+
+  const matchedEmotion = emotions.find((e) => e.id === emotionId);
+  const emoji = matchedEmotion
+    ? require(`../../assets/images/${matchedEmotion.image}`)
+    : profile;
+
+  const text = matchedEmotion?.text || '감정이 선택되지않았습니다.';
 
   return (
-    <div className="text-center">
-      <img src={emotionToday.emoji} alt="감정 이모지" width={60} />
-      <p className="text-muted mt-2">{emotionToday.text}</p>
+    <div className="text-center mt-4">
+      <span>{text}</span>
     </div>
-  )
-}
+  );
+};
 
-export default EmotionStatus
+export default EmotionStatus;
