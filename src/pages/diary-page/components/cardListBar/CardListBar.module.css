@@ -15,7 +15,16 @@
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
 }
 .innerContainer {
-  padding: 3rem 0rem 3rem 3rem;
+  overflow-y: auto;
+
+  padding: 3rem;
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   background-color: aliceblue;
-  height: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+  overflow-x: hidden;
 }
