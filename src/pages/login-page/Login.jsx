@@ -36,7 +36,10 @@ const Login = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1 }}
             >
-              <img src="public/Group_68.png" alt="캐릭터 이미지" />
+              <img
+                src="src/assets/images/Img_landing.png"
+                alt="캐릭터 이미지"
+              />
             </motion.div>
 
             <motion.div
