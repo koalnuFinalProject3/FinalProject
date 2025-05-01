@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { D } from './constant';
 import styles from './Login.module.css';
 import { AnimatePresence, motion } from 'motion/react';
+import { useNavigate } from 'react-router-dom';
 
 const svg = {
   start: { pathLength: 0, fill: 'rgba(23, 124, 61, 0)' },
@@ -13,6 +14,11 @@ const svg = {
 
 const Login = () => {
   const [isIntro, setIsIntro] = useState(true);
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    navigate('/main');
+  };
 
   const handleStartClick = () => {
     setIsIntro(false);
@@ -39,7 +45,7 @@ const Login = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1 }}
             >
-              <form>
+              <form onSubmit={handleLogin}>
                 <input
                   type="text"
                   placeholder="아이디를 입력해주세요.."
@@ -96,6 +102,7 @@ const Login = () => {
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
+            <img src="public/Group_68.png" />
             나의 조각 모으기
           </motion.div>
         )}
