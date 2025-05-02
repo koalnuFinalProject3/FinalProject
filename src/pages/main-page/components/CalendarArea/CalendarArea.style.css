@@ -2,6 +2,7 @@
   width: 70rem;
   margin: auto;
   margin-top: 4.0rem;
+  position: relative;
 }
 
 /* 전체 캘린더 */
@@ -32,7 +33,7 @@
 .fc-toolbar-title{
   position: absolute;
   margin: auto;
-  top:6rem;
+  top:-3rem;
 }
 
 /* 캘린더 today <> 영역 */
@@ -48,4 +49,9 @@
 /* 버튼 영역 margin bottom */
 .fc .fc-toolbar.fc-header-toolbar {
   margin: 0;
+}
+
+/* 일일 박스 크기 설정 */
+.fc-daygrid-day-frame.fc-scrollgrid-sync-inner{
+  height: 100px;
 }

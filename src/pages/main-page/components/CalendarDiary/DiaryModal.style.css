@@ -1,0 +1,61 @@
+body > div._overlay_1m32p_1 > div{
+    width: 40rem;
+    height: 65rem;
+    font-family: var(--font-kotra);
+    font-size: 1.6rem;
+}
+.diaryModalTopArea{
+    border-top: 0.1rem  solid var(--color-gray);
+    border-bottom: 0.1rem  solid var(--color-gray);
+    padding: 0 10px;
+}
+.seletedDate{
+    color: var( --color-gray);
+}
+/* 제목 영역 */
+.diaryModalTitle{
+    margin-right: 0.5rem;
+}
+.diaryModalTitleInput{
+    outline: none;
+    border: none;
+    height: 100%;
+    width: 90%;
+    font-family: var(--font-chosun);
+}
+/* 본문 영역 */
+.diaryModalContextArea{
+    padding: 1.8rem 2.5rem;
+    height: 50%;
+    border-bottom: 1px solid var(--color-gray);
+}
+.diaryModalContext{
+    resize: none;
+    border: 0;
+    outline: 0;
+    height: 38rem;
+    width: 100%;
+    font-family: var(--font-chosun);
+    line-height: 1.8rem;
+}
+/* 버튼 영역 */
+.diaryModalBtnArea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8rem;
+}
+.diaryModalBtnArea>button{
+    color: white;
+    background-color: var(--color-green);
+    border: 1px solid var( --color-green-dark);
+    border-radius: 1rem;
+    transition: background-color 0.2s;
+    padding: 1rem 13rem;
+}
+.diaryModalBtnArea>button:hover{
+    background-color: #81c690;
+}
+.diaryModalBtnArea>button:active{
+    background-color: var(--color-green-dark);
+}

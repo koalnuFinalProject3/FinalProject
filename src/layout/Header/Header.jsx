@@ -10,8 +10,8 @@ const Header = () => {
         오늘의 날씨: <img src={sun} alt="sun" />
       </div>
       <div className={`${styles.logoutArea} ${styles.aCenter}`}>
-        <img src={profile} alt="profile" />
-        <span>로그아웃</span>
+        {/* <img src={profile} alt="profile" />
+        <span>로그아웃</span> */}
       </div>
     </div>
   );
