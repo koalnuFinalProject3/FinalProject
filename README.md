@@ -32,11 +32,11 @@
 ├─ public/                # 정적 파일 (favicon 등)
 ├─ src/
 │  ├─ assets              # 이미지, 폰트 등 리소스
-│  ├─ common              # 공통 컴포넌트
+│  ├─ components/common   # 공통 컴포넌트
 │  ├─ hooks               # 커스텀 훅
 │  ├─ layout              # 레이아웃 컴포넌트
 │  ├─ pages               # 라우팅 페이지 컴포넌트
-│  ├─ store               # 전역 상태 관리
+│  ├─ stores              # 전역 상태 관리
 │  ├─ styles              # 테마와 레이아웃 스타일
 │  ├─ utils               # 유틸 함수
 │  ├─ App.jsx             # 라우터 설정
