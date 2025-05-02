@@ -1,9 +1,6 @@
-// src/stores/useUserStore.js
 import { create } from 'zustand';
 
 //로그인 시 해당 유저 데이터 setUser를 통해 넣어주면 됨.
-//수정할예정
-
 
 const useUserStore = create((set) => ({
   user: {
@@ -11,13 +8,15 @@ const useUserStore = create((set) => ({
     nickname: '',
     profileImage: '',
   },
-  isLoggedIn: false, //로그인 여부
+  isLoggedIn: false,
 
-  setUser: (userData) =>
+  setUser: (userData) => {
+    console.log('로그인한 유저:', userData);
     set({
       user: userData,
       isLoggedIn: true,
-    }),
+    });
+  },
 
   resetUser: () =>
     set({

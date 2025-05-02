@@ -1,7 +1,7 @@
-// EmotionStatus.jsx
 import useEmotionStore from '../../stores/useEmotionStore';
 import useEmotions from '../../hooks/useEmotions';
-import profile from '../../assets/images/profile.png';
+import profile from '../../assets/images/Img_landing.png';
+import styles from './MyPage.module.css';
 
 const EmotionStatus = () => {
   const { emotionId } = useEmotionStore();
@@ -15,7 +15,7 @@ const EmotionStatus = () => {
   const text = matchedEmotion?.text || '감정이 선택되지않았습니다.';
 
   return (
-    <div className="text-center mt-4">
+    <div className={styles.emotionStatus}>
       <span>{text}</span>
     </div>
   );

@@ -6,11 +6,9 @@ const getPeriodRange = (label, baseDateStr) => {
   const base = new Date(baseDateStr);
 
   if (label === '일간') {
-    const start = new Date(base);
-    const end = new Date(base);
     return {
-      startDate: start.toISOString().split('T')[0],
-      endDate: end.toISOString().split('T')[0],
+      startDate: baseDateStr,
+      endDate: baseDateStr,
     };
   }
 
@@ -19,10 +17,8 @@ const getPeriodRange = (label, baseDateStr) => {
     const diffToMonday = (day + 6) % 7;
     const start = new Date(base);
     start.setDate(base.getDate() - diffToMonday);
-
-    const end = new Date(start); // 새로운 객체로 복사
+    const end = new Date(start);
     end.setDate(start.getDate() + 6);
-
     return {
       startDate: start.toISOString().split('T')[0],
       endDate: end.toISOString().split('T')[0],
@@ -32,7 +28,6 @@ const getPeriodRange = (label, baseDateStr) => {
   if (label === '월간') {
     const start = new Date(base.getFullYear(), base.getMonth(), 1);
     const end = new Date(base.getFullYear(), base.getMonth() + 1, 0);
-
     return {
       startDate: start.toISOString().split('T')[0],
       endDate: end.toISOString().split('T')[0],
@@ -61,36 +56,31 @@ const PeriodTabs = ({ onChange }) => {
   };
 
   return (
-    <div className={`${styles.tabButtons} d-flex align-items-center gap-3 flex-wrap`}>
-    {/* 기간 선택 탭 */}
-    <div className="d-flex gap-2">
-      {['일간', '주간', '월간'].map((label) => (
-        <button
-          key={label}
-          className={selected === label ? styles.active : ''}
-          onClick={() => handleTabClick(label)}
-        >
-          {label}
-        </button>
-      ))}
-    </div>
+    <div className={styles.tabWrapper}>
+      {/* 기간 탭 */}
+      <div className={styles.tabButtons}>
+        {['일간', '주간', '월간'].map((label) => (
+          <button
+            key={label}
+            className={`${styles.tabButton} ${selected === label ? styles.active : ''}`}
+            onClick={() => handleTabClick(label)}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
 
-    {/* 기준 날짜 라벨 + 달력 */}
-    <div className="d-flex align-items-center gap-2">
-      <label style={{ fontSize: '14px', fontWeight: '500' }}>기준 날짜 :</label>
-      <input
-        type="date"
-        value={baseDate}
-        onChange={handleDateChange}
-        style={{
-          padding: '6px 12px',
-          borderRadius: '8px',
-          border: '1px solid #ccc',
-          fontSize: '14px',
-        }}
-      />
+      {/* 기준 날짜 선택 */}
+      <div className={styles.dateInputGroup}>
+        <label className={styles.dateLabel}>기준 날짜 :</label>
+        <input
+          type="date"
+          value={baseDate}
+          onChange={handleDateChange}
+          className={styles.dateInput}
+        />
+      </div>
     </div>
-  </div>
   );
 };
 

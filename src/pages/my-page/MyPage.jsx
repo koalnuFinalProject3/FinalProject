@@ -5,12 +5,10 @@ import RecommendedMusic from './RecommendedMusic';
 import PeriodTabs from './PeriodTabs';
 import EmotionChart from './EmotionChart';
 import TodoChart from './TodoChart';
-import Header from '../../layout/Header/Header';
-
 import useEmotionStore from '../../stores/useEmotionStore';
 import useEmotions from '../../hooks/useEmotions';
 
-import profile from '../../assets/images/profile.png';
+import profile from '../../assets/images/Img_landing.png';
 import styles from './MyPage.module.css';
 
 const MyPage = () => {
