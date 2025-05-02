@@ -4,11 +4,16 @@ import styles from './CardListBar.module.css';
 import CardForm from '../cardForm/CardForm';
 import CardBanner from '../cardBanner/CardBanner';
 import DiaryFilter from '../diaryFilter/DiaryFilter';
+import { useEmotionsAndDiaries } from '../../../../../hooks/useEmotionsAndDiaries';
 
 const CardListBar = ({ handleClickCard }) => {
   const [isOpen, setIsOpen] = useState(true);
   const [selectedEmotion, setSelectedEmotion] = useState('');
   const [selectedOrder, setSelectedOrder] = useState('');
+
+  // 커스텀 훅으로 데이터 가져오기
+  const { emotions, diaries, loading } = useEmotionsAndDiaries();
+
   const handleClickClose = () => {
     setIsOpen((prev) => !prev);
   };
@@ -20,6 +25,10 @@ const CardListBar = ({ handleClickCard }) => {
   const handleOrderChange = (e) => {
     setSelectedOrder(e.target.value);
   };
+
+  if (loading) {
+    return <div>Loading...</div>; // 로딩 중일 때
+  }
 
   return (
     <motion.div
@@ -44,9 +53,20 @@ const CardListBar = ({ handleClickCard }) => {
             />
           </div>
           <div className={styles.innerContainer}>
-            {[...Array(13)].map((_, i) => (
-              <CardForm key={i} onClick={handleClickCard} />
-            ))}
+            {emotions.map((emotion) => {
+              const relatedDiary = diaries.find(
+                (diary) => diary.selectedDate === emotion.selectedDate
+              );
+              return (
+                <CardForm
+                  key={emotion.id}
+                  date={emotion.selectedDate}
+                  emotion={emotion.emotion}
+                  diaryContent={relatedDiary ? relatedDiary.title : '내용 없음'} // 다이어리 내용도 같이 넘기기
+                  onClick={handleClickCard}
+                />
+              );
+            })}
           </div>
         </>
       )}
