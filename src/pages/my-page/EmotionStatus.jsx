@@ -1,7 +1,7 @@
 // EmotionStatus.jsx
 import useEmotionStore from '../../stores/useEmotionStore';
 import useEmotions from '../../hooks/useEmotions';
-import profile from '../../assets/images/profile.png';
+import profile from '../../assets/images/Img_landing.png';
 
 const EmotionStatus = () => {
   const { emotionId } = useEmotionStore();
