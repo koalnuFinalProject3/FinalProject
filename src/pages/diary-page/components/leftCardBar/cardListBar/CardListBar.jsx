@@ -70,6 +70,9 @@ const CardListBar = ({ handleClickCard }) => {
                       diaryContent: relatedDiary
                         ? relatedDiary.contents
                         : '내용 없음',
+                      diaryTitle: relatedDiary
+                        ? relatedDiary.title
+                        : '내용 없음',
                     })
                   }
                 />

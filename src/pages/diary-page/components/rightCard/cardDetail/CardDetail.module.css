@@ -7,6 +7,9 @@
   margin: 6rem 5rem 6rem 0;
   background-color: #f4f2ee;
   position: relative;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .icon {
   color: #222;
@@ -24,7 +27,7 @@
   align-items: center;
   background-color: var(--color-lighter-gray);
   border-radius: 16px;
-  padding: 1rem;
+  padding: 2rem 1rem;
   margin-bottom: 18px;
   justify-content: start;
   gap: 12px;
@@ -44,6 +47,12 @@
   font-size: 2rem;
   color: #2a5c39;
   font-weight: 800;
+}
+.title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin-top: 2rem;
 }
 
 .body {
@@ -68,9 +77,9 @@
 }
 
 .content {
-  font-size: 14px;
+  font-size: 2rem;
   line-height: 1.6;
   text-align: center;
   color: #222;
-  word-break: keep-all;
+  /* word-break: keep-all; */
 }

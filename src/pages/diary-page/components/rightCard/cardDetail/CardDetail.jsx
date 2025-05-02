@@ -25,8 +25,10 @@ const CardDetail = ({ selectedCard, handleClickBack }) => {
             className={styles.avatarImg}
           />
         </div>
-
-        <span className={styles.date}>{selectedCard.date}</span>
+        <div>
+          <span className={styles.date}>{selectedCard.date}</span>
+          <div className={styles.title}>{selectedCard.diaryTitle}</div>
+        </div>
       </div>
 
       <div className={styles.body}>
