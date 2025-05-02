@@ -79,6 +79,31 @@
       "endYn": false
     }
   ],
-  "emotion": [],
-  "dairy": []
-}
+    "emotion": [
+      {
+        "id": 1,
+        "text": "우울해요",
+        "image": "/assets/images/depressedChar.png"
+      },
+      {
+        "id": 2,
+        "text": "슬퍼요",
+        "image": "/assets/images/sadChar.png"
+      },
+      {
+        "id": 3,
+        "text": "그냥 그래요",
+        "image": "/assets/images/sosoChar.png"
+      },
+      {
+        "id": 4,
+        "text": "기뻐요",
+        "image": "/assets/images/joyChar.png"
+      },
+      {
+        "id": 5,
+        "text": "행복해요",
+        "image": "/assets/images/happyChar.png"
+      }
+    ]
+  }
