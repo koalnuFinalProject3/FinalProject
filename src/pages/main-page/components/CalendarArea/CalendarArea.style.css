@@ -20,12 +20,15 @@
   border: none !important;
 }
 /* 캘린더 첫번째 행 선 */
-#root > div._appLayout_t3qwd_11 > div._appLayoutCenter_t3qwd_21 > div > div:nth-child(2) > div > div > div.fc-view-harness.fc-view-harness-active > div > table > thead > tr > th > div{
+#root > div._appLayout_lr6lw_11 > div._appLayoutCenter_lr6lw_21 > div > div:nth-child(2) > div > div > div.fc-view-harness.fc-view-harness-active > div > table > thead > tr > th > div{
   border-top: 1px solid var( --color-gray);
   border-bottom: 1px solid var( --color-gray);
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
 }
 /* 캘린더 아래부분 선 */
-#root > div._appLayout_t3qwd_11 > div._appLayoutCenter_t3qwd_21 > div > div:nth-child(2) > div > div > div.fc-view-harness.fc-view-harness-active > div > table > tbody > tr > td > div > div > div{
+#root > div._appLayout_lr6lw_11 > div._appLayoutCenter_lr6lw_21 > div > div:nth-child(2) > div > div > div.fc-view-harness.fc-view-harness-active{
   border-bottom: 1px solid var( --color-gray);
 }
 
@@ -35,6 +38,11 @@
   margin: auto;
   top:-3rem;
 }
+#root > div._appLayout_cspmu_11 > div._appLayoutCenter_cspmu_21 > div > div:nth-child(2) > div > div.fc.fc-media-screen.fc-direction-ltr.fc-theme-standard > div.fc-header-toolbar.fc-toolbar > div:nth-child(2){
+  display: flex;
+
+}
+
 
 /* 캘린더 today <> 영역 */
 #root > div._appLayout_t3qwd_11 > div._appLayoutCenter_t3qwd_21 > div > div:nth-child(2) > div > div > div.fc-header-toolbar.fc-toolbar > div:nth-child(3){
@@ -49,6 +57,28 @@
 /* 버튼 영역 margin bottom */
 .fc .fc-toolbar.fc-header-toolbar {
   margin: 0;
+}
+/* 버튼 스타일 */
+.fc .fc-button {
+  background-color: #56AC68;
+  border:  1px solid #3A7751;
+  border-radius: 5px 5px 0 0;
+  /* padding: 5px 50px;
+  margin-bottom: 0; */
+}
+/* 왼쪽 버튼 스타일 */
+.fc-todo-button:nth-of-type(1),
+.fc-diary-button:nth-of-type(2){
+  background-color: #56AC68;
+  border:  1px solid #3A7751;
+  border-radius: 5px 5px 0 0;
+  padding: 5px 50px;
+  margin-bottom: -4px;
+}
+
+
+.fc .fc-button:hover{
+  background-color: #7ece8f !important;
 }
 
 /* 일일 박스 크기 설정 */

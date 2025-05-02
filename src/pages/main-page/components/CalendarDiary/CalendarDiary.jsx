@@ -133,7 +133,7 @@ const CalendarDiary = ({ setCalendarType }) => {
         headerToolbar={{
           start: 'todo diary',
           center: 'title',
-          end: ''
+          end: 'today prev,next'
         }}
         height={700}
         contentHeight={500}
