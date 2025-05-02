@@ -26,6 +26,11 @@
   margin-bottom: 16px;
 }
 
+/* 여기 바꿨어요...  */
+.modalTitle{
+  font-family: var(--font-kotra);
+}
+
 .closeButton {
   position: absolute;
   right: 2rem;
