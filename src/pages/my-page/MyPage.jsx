@@ -5,9 +5,6 @@ import RecommendedMusic from './RecommendedMusic';
 import PeriodTabs from './PeriodTabs';
 import EmotionChart from './EmotionChart';
 import TodoChart from './TodoChart';
-import Header from '../../layout/Header/Header';
-//import 'bootstrap/dist/css/bootstrap.min.css';
-
 import useEmotionStore from '../../stores/useEmotionStore';
 import useEmotions from '../../hooks/useEmotions';
 

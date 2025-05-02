@@ -3,6 +3,8 @@ import { D } from './constant';
 import styles from './Login.module.css';
 import { AnimatePresence, motion } from 'motion/react';
 import { useNavigate } from 'react-router-dom';
+import useUserStore from '../../stores/useUserStore';
+import profileImage from '../../assets/images/Img_landing.png';
 
 const svg = {
   start: { pathLength: 0, fill: 'rgba(23, 124, 61, 0)' },
@@ -13,10 +15,26 @@ const svg = {
 };
 
 const Login = () => {
+
   const [isIntro, setIsIntro] = useState(true);
   const navigate = useNavigate();
 
-  const handleLogin = () => {
+  const [id, setId] = useState('');
+  //나중에 마이페이지 password입력받아 들어가고싶다면 store에 패스워드도 같이보내는것 고려.
+  const [password, setPassword] = useState('');
+  const setUser = useUserStore((state) => state.setUser);
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    const userData = {
+      id: id,
+      nickname: `${id} 님`,
+      profileImage: profileImage,
+    };
+
+    setUser(userData);
+
     navigate('/main');
   };
 
@@ -49,15 +67,21 @@ const Login = () => {
               transition={{ duration: 1, delay: 1 }}
             >
               <form onSubmit={handleLogin}>
-                <input
-                  type="text"
-                  placeholder="아이디를 입력해주세요.."
-                ></input>
-                <input
-                  type="password"
-                  placeholder="비밀번호를 입력해주세요.."
-                ></input>
-                <motion.button className={styles.btn}>로그인</motion.button>
+              <input
+                type="text"
+                placeholder="아이디를 입력해주세요.."
+                value={id}
+                onChange={(e) => setId(e.target.value)}
+                required='true'
+              />
+              <input
+                type="password"
+                placeholder="비밀번호를 입력해주세요.."
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required='true'
+              />
+                <motion.button type="submit" className={styles.btn}>로그인</motion.button>
               </form>
             </motion.div>
           </>

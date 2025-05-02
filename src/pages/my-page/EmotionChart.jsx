@@ -1,27 +1,28 @@
-// src/pages/my-page/EmotionChart.jsx
 import React from 'react';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import useEmotionChart from '../../hooks/useEmotionChart';
+import styles from './MyPage.module.css'; // 공통 스타일 적용
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const EmotionChart = ({ startDate, endDate }) => {
   const { labels, data } = useEmotionChart(startDate, endDate);
 
-  // 데이터가 비어있을 경우 처리
   const isEmpty = data.every((value) => value === 0);
 
   return (
-    <div>
-      <p className="mb-3">감정 분포도</p>
-      <p className="text-muted mb-3" style={{ fontSize: '0.9rem' }}>
+    <div className={styles.chartContainer}>
+      <p className={styles.chartTitle}>감정 분포도</p>
+      <br/>
+      <p className={styles.chartDate}>
         {startDate} ~ {endDate}
       </p>
 
       {isEmpty ? (
-        <p className="text-muted">
-          해당 기간에 감정 데이터가 없습니다. <br />
+        <p className={styles.chartEmpty}>
+          해당 기간에 감정 데이터가 없습니다.
+          <br />
           오늘 하루의 감정을 기록해보세요 😊
         </p>
       ) : (
