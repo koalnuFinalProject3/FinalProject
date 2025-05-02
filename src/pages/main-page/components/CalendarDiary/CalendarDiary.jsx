@@ -11,22 +11,67 @@ import sad from '../../../../assets/images/sadChar.png';
 import soso from '../../../../assets/images/sosoChar.png';
 import happy from '../../../../assets/images/joyChar.png';
 import joy from '../../../../assets/images/happyChar.png';
+import axios from 'axios';
+import useDiaryStore from '../../../../stores/useDiaryStore';
 
 
 const CalendarDiary = ({ setCalendarType }) => {
 
-  const [events, setEvents] = useState([
-    { title: '회의', date: '2025-05-02', context: '회의 내용입니다.' ,emotion: '0'},
-    { title: '테스트', date: '2025-05-10', context: '회의 내용입니다.',emoion: '0' },
-  ]);
+  //일기
+  const { diary, setDiary, emotions, setEmotions } = useDiaryStore();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
+  const [diaryObj, setDiaryobj] = useState({});
+  // json 데이터 가져오기
+  //로컬: http://localhost:5000/diary
+  // git: https://my-json-server.typicode.com/koalnuFinalProject3/FinalProject/diary
+  useEffect(() => {
+    Promise.all([
+      axios.get('http://localhost:5000/diary'),
+      axios.get('http://localhost:5000/emotion')
+    ])
+      .then(([diaryRes, emotionRes]) => {
+        setDiary(diaryRes.data);
+        setEmotions(emotionRes.data);
+        console.log(diary);
+        console.log(emotions);
+      })
+      .catch(error => {
+        console.error('데이터 가져오기 실패:', error);
+      });
+  }, [isModalOpen]);
 
-  const filteredEvents = events.filter((event) => event.date === selectedDate);
+  /* ----------------------------------------------------------- */
+  //YYYY-MM-DD 반환환
+  function getTodayDate() {
+    const today = new Date();
 
+    // 연도, 월, 일 추출
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+
+    // 'YYYYMMDD' 형식으로 반환
+    return parseInt(`${year}${month}${day}`);
+  }
+  /* --------------------------------------------------------------- */
+  // const filteredEvents = diary.filter((event) => event.date === selectedDate);
+
+  // 특정 날짜를 클릭할 시시
   const handleDateClick = (info) => {
-    console.log(info);
+    const clickDate = parseInt(info.dateStr.replace(/-/g, ""));
+    const today = getTodayDate();
+
+    if (clickDate > today) {// 오늘 이후 날짜를 클릴 할 경우
+      alert('오늘 이후의 일기 작성은 미래의 자신만 가능합니다!');
+      return;
+    }
+
+    const clickEvent = diary.find((item) => item.selectedDate == info.dateStr);
+
+    // console.log("클릭된 이벤트 ID:", clickEvent);
+    setDiaryobj(clickEvent); // 객체 담기
     setSelectedDate(info.dateStr);
     setIsModalOpen(true);
   };
@@ -51,28 +96,28 @@ const CalendarDiary = ({ setCalendarType }) => {
 
   // 드랍시 발생 이벤트!
   const handleDrop = (info) => {
+    //이미지 드랍 했을 때, 
     console.log(info.draggedEl.getAttribute('data-id')); // 날짜 문자열 반환
     console.log(info.dateStr);
-
-    const dropDateData = events.filter((event) => event.date === info.dateStr);
-    let copyEvents = events;
-    console.log('복사한 배열',copyEvents)
+    const dropDateData = diary.filter((event) => event.date === info.dateStr);
+    let copyEvents = diary;
+    console.log('복사한 배열', copyEvents)
     // const copyEventsList = events.filter((event) =>event.date === info.dateStr);
     // 일기가 작성되어 있는 경우
-    if(dropDateData.length > 0){
+    if (dropDateData.length > 0) {
       // 삭제!
-      copyEvents =events.filter((event) => event.date !== info.dateStr);
+      copyEvents = diary.filter((event) => event.date !== info.dateStr);
       console.log(copyEvents);
-      setEvents(copyEvents);
-      console.log('제거완료',events)
+      setDiary(copyEvents);
+      console.log('제거완료', diary)
 
       // 이모지 추가
       dropDateData[0].emotion = info.draggedEl.getAttribute('data-id');
       console.log(dropDateData[0]);
-      setEvents([...events, ...dropDateData])
-      console.log("이모지 추가", events);
-    }else{
-      
+      setDiary([...diary, ...dropDateData])
+      console.log("이모지 추가", diary);
+    } else {
+
     }
     // console.log(2,dropDateData )
   };
@@ -85,9 +130,9 @@ const CalendarDiary = ({ setCalendarType }) => {
       <div className={styles.dateArea}>
         {title && <div className={styles.title}>{title}</div>}
         {image &&
-        <div className={styles.emotionItem}>
-          <img src={image} alt="이모지" style={{ width: '30px', height: '30px' }} /> {/* 이모지 이미지 표시 */}
-        </div>
+          <div className={styles.emotionItem}>
+            <img src={image} alt="이모지" style={{ width: '30px', height: '30px' }} /> {/* 이모지 이미지 표시 */}
+          </div>
         }
       </div>
     )
@@ -109,7 +154,13 @@ const CalendarDiary = ({ setCalendarType }) => {
 
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}
-        events={events}
+        events={diary.map(item => ({
+          id: item.id,
+          title: item.title,
+          start: item.selectedDate,        // 날짜
+          contents: item.contents,  // 커스텀 데이터
+          // emotion: item.emotion     // 커스텀 데이터
+        }))}
         dateClick={handleDateClick}
         droppable={true}
         drop={handleDrop}
@@ -151,8 +202,9 @@ const CalendarDiary = ({ setCalendarType }) => {
           onClose={() => setIsModalOpen(false)}
         >
           <CalendarDiaryModal
-            filteredEvents={filteredEvents}
+            diaryObj={diaryObj}
             selectedDate={selectedDate}
+            setIsModalOpen={setIsModalOpen}
           />
         </Modal>
       )}

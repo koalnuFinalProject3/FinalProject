@@ -35,8 +35,8 @@
 /* 캘린더 제목 */
 .fc-toolbar-title{
   position: absolute;
-  margin: auto;
-  top:-3rem;
+  top:-4.5rem;
+  left: 33rem;
 }
 #root > div._appLayout_cspmu_11 > div._appLayoutCenter_cspmu_21 > div > div:nth-child(2) > div > div.fc.fc-media-screen.fc-direction-ltr.fc-theme-standard > div.fc-header-toolbar.fc-toolbar > div:nth-child(2){
   display: flex;

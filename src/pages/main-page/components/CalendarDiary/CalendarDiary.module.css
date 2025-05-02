@@ -1,8 +1,9 @@
 .emotionArea {
     width: 25rem;
-    position: absolute;
-    top: 0px;
-    right: 0;
+    position: fixed;
+    top: 5rem;
+    /* left: 300px; */
+    right: 11rem;
     /* background-color: pink; */
     padding: 10px 0 10px 10px;
 }
