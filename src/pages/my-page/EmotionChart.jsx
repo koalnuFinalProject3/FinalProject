@@ -1,11 +1,6 @@
 import React from 'react';
 import { Pie } from 'react-chartjs-2';
-import {
-  Chart as ChartJS,
-  ArcElement,
-  Tooltip,
-  Legend,
-} from 'chart.js';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import useEmotionChart from '../../hooks/useEmotionChart';
 import styles from './MyPage.module.css'; // 공통 스타일 적용
 
@@ -38,7 +33,13 @@ const EmotionChart = ({ startDate, endDate }) => {
               {
                 label: '감정 횟수',
                 data,
-                backgroundColor: ['#FFD93D', '#A1E3A1', '#7FD5A3', '#4F9D92', '#6E6E6E'],
+                backgroundColor: [
+                  '#FFD93D',
+                  '#A1E3A1',
+                  '#7FD5A3',
+                  '#4F9D92',
+                  '#6E6E6E',
+                ],
                 borderColor: '#ffffff',
                 borderWidth: 2,
               },

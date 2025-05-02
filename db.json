@@ -1,30 +1,115 @@
 {
-    "emotion": [
-      {
-        "id": 1,
-        "text": "우울해요",
-        "image": "/assets/images/depressedChar.png"
-      },
-      {
-        "id": 2,
-        "text": "슬퍼요",
-        "image": "/assets/images/sadChar.png"
-      },
-      {
-        "id": 3,
-        "text": "그냥 그래요",
-        "image": "/assets/images/sosoChar.png"
-      },
-      {
-        "id": 4,
-        "text": "기뻐요",
-        "image": "/assets/images/joyChar.png"
-      },
-      {
-        "id": 5,
-        "text": "행복해요",
-        "image": "/assets/images/happyChar.png"
-      }
-    ]
-  }
-  
+  "todos": [
+    {
+      "id": "1",
+      "selectedDate": "2025-05-01",
+      "contents": "회의",
+      "endYn": false
+    },
+    {
+      "id": "6e79",
+      "contents": "놀기",
+      "selectedDate": "2025-05-01",
+      "endYn": false
+    },
+    {
+      "id": "5500",
+      "contents": "실패하기",
+      "selectedDate": "2025-05-01",
+      "endYn": false
+    },
+    {
+      "id": "cb9a",
+      "contents": "아.. 망했네",
+      "selectedDate": "2025-05-01",
+      "endYn": false
+    },
+    {
+      "id": "96ce",
+      "contents": "저렇게 나오네",
+      "selectedDate": "2025-05-01",
+      "endYn": false
+    },
+    {
+      "id": "ad2a",
+      "contents": "ㄹㅇㅋㅋ",
+      "selectedDate": "2025-05-01",
+      "endYn": false
+    },
+    {
+      "id": "4524",
+      "contents": "이제 삭제랑 수정도 넣어야겠지?",
+      "selectedDate": "2025-05-01",
+      "endYn": false
+    },
+    {
+      "id": "e148",
+      "contents": "삭제랑 수정은 어떻게 하냐.. 그리고 이거 디자인은 어떻게 하냐",
+      "selectedDate": "2025-05-01",
+      "endYn": false
+    },
+    {
+      "id": "7b70",
+      "contents": "이거 맞음? ㄹㅇㅋㅋ",
+      "selectedDate": "2025-05-01",
+      "endYn": false
+    },
+    {
+      "id": "31b0",
+      "contents": "늘어나라~",
+      "selectedDate": "2025-05-09",
+      "endYn": false
+    },
+    {
+      "id": "2fd5",
+      "contents": "안녕하세요",
+      "selectedDate": "2025-05-02",
+      "endYn": false
+    },
+    {
+      "id": "9f61",
+      "contents": "데이터가",
+      "selectedDate": "2025-05-02",
+      "endYn": false
+    },
+    {
+      "id": "51f5",
+      "contents": "이렇게 추가됩니다.",
+      "selectedDate": "2025-05-02",
+      "endYn": false
+    },
+    {
+      "id": "06f6",
+      "contents": "안녕하세요",
+      "selectedDate": "2025-05-01",
+      "endYn": false
+    }
+  ],
+  "emotion": [
+    {
+      "id": "1",
+      "text": "우울해요",
+      "image": "/assets/images/depressedChar.png"
+    },
+    {
+      "id": "2",
+      "text": "슬퍼요",
+      "image": "/assets/images/sadChar.png"
+    },
+    {
+      "id": "3",
+      "text": "그냥 그래요",
+      "image": "/assets/images/sosoChar.png"
+    },
+    {
+      "id": "4",
+      "text": "기뻐요",
+      "image": "/assets/images/joyChar.png"
+    },
+    {
+      "id": "5",
+      "text": "행복해요",
+      "image": "/assets/images/happyChar.png"
+    }
+  ]
+}

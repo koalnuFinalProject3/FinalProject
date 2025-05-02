@@ -1,0 +1,36 @@
+.emotionArea {
+    width: 25rem;
+    position: absolute;
+    top: 0px;
+    right: 0;
+    /* background-color: pink; */
+    padding: 10px 0 10px 10px;
+}
+
+.emotionSlide{
+    border-radius: 5rem;
+    background-color: white;
+    border: 1px solid #0000003e;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.emotionStick {
+    width: 35px;
+    height: 35px;
+    margin: 4px 0;
+}
+
+/* 일일 표시 방법 */
+.dateArea{
+    /* height: 7.6rem; */
+}
+.dateArea>.emotionItem>img{
+    position: absolute;
+    bottom: -4.5rem;
+    margin: auto;
+    right: 0; left: 0;    
+}
+.title{
+    background-color: green;
+}

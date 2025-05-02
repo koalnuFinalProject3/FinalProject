@@ -1,0 +1,31 @@
+.banner {
+  background-color: var(--color-green-light);
+  display: flex;
+  align-items: center;
+  padding: 1rem 1rem;
+  color: white;
+  position: relative;
+  margin-top: 3rem;
+
+  height: 60px;
+  transition: all 0.3s ease-in-out;
+}
+
+.title {
+  flex: 1;
+  /* font-size: large; */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 3rem;
+
+  margin: 0;
+  font-family: var(--font-kotra);
+  font-weight: 100;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}

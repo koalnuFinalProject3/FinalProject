@@ -6,6 +6,7 @@ import '../CalendarArea/CalendarArea.style.css'
 
 const CalendarArea = () => {
     const [calendarType, setCalendarType] = useState(true); 
+    
   return (
     <div>
         {calendarType?(
