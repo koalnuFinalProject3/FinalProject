@@ -37,7 +37,9 @@
   background-color: lightgray;
   margin: 0 20px;
 }
-
+.avatarImg {
+  width: 100%;
+}
 .date {
   font-size: 2rem;
   color: #2a5c39;

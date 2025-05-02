@@ -63,7 +63,15 @@ const CardListBar = ({ handleClickCard }) => {
                   date={emotion.selectedDate}
                   emotion={emotion.emotion}
                   diaryContent={relatedDiary ? relatedDiary.title : '내용 없음'} // 다이어리 내용도 같이 넘기기
-                  onClick={handleClickCard}
+                  onClick={() =>
+                    handleClickCard({
+                      date: emotion.selectedDate,
+                      emotion: emotion.emotion,
+                      diaryContent: relatedDiary
+                        ? relatedDiary.contents
+                        : '내용 없음',
+                    })
+                  }
                 />
               );
             })}

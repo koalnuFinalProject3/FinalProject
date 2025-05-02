@@ -1,20 +1,26 @@
 import { useState } from 'react';
 import CardListBar from './components/leftCardBar/cardListBar/CardListBar';
-import styles from './DiaryPage.module.css';
 import CardDefault from './components/rightCard/cardDefault/CardDefault';
 import CardDetail from './components/rightCard/cardDetail/CardDetail';
+import styles from './DiaryPage.module.css';
+
 const DiaryPage = () => {
-  const [selectedCard, setSelectedCard] = useState(true);
-  const handleClickCard = () => {
-    setSelectedCard((prev) => !prev);
+  const [selectedCard, setSelectedCard] = useState(null); // 선택된 카드 데이터 저장
+
+  const handleClickCard = (cardData) => {
+    setSelectedCard(cardData); // 카드 클릭 시 데이터 저장
   };
+
   return (
     <div className={styles.container}>
       <CardListBar handleClickCard={handleClickCard} />
       {selectedCard ? (
-        <CardDefault />
+        <CardDetail
+          selectedCard={selectedCard}
+          handleClickBack={() => setSelectedCard(null)}
+        />
       ) : (
-        <CardDetail handleClickCard={handleClickCard} />
+        <CardDefault />
       )}
     </div>
   );
