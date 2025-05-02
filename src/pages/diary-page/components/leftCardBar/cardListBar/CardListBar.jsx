@@ -11,7 +11,6 @@ const CardListBar = ({ handleClickCard }) => {
   const [selectedEmotion, setSelectedEmotion] = useState('');
   const [selectedOrder, setSelectedOrder] = useState('');
 
-  // 커스텀 훅으로 데이터 가져오기
   const { emotions, diaries, loading } = useEmotionsAndDiaries();
 
   const handleClickClose = () => {
@@ -26,9 +25,22 @@ const CardListBar = ({ handleClickCard }) => {
     setSelectedOrder(e.target.value);
   };
 
-  if (loading) {
-    return <div>Loading...</div>; // 로딩 중일 때
-  }
+  if (loading) return <div>Loading...</div>;
+
+  // 🔽 감정 필터 적용
+  const filteredEmotions = selectedEmotion
+    ? emotions.filter(
+        (emotion) => Number(emotion.emotion) === Number(selectedEmotion)
+      )
+    : emotions;
+
+  // 🔽 정렬 필터 적용
+  const sortedEmotions = [...filteredEmotions].sort((a, b) => {
+    const dateA = new Date(a.selectedDate);
+    const dateB = new Date(b.selectedDate);
+    if (selectedOrder === 'oldest') return dateA - dateB;
+    return dateB - dateA; // 기본: 최신순
+  });
 
   return (
     <motion.div
@@ -53,7 +65,7 @@ const CardListBar = ({ handleClickCard }) => {
             />
           </div>
           <div className={styles.innerContainer}>
-            {emotions.map((emotion) => {
+            {sortedEmotions.map((emotion) => {
               const relatedDiary = diaries.find(
                 (diary) => diary.selectedDate === emotion.selectedDate
               );
@@ -62,7 +74,7 @@ const CardListBar = ({ handleClickCard }) => {
                   key={emotion.id}
                   date={emotion.selectedDate}
                   emotion={emotion.emotion}
-                  diaryContent={relatedDiary ? relatedDiary.title : '내용 없음'} // 다이어리 내용도 같이 넘기기
+                  diaryContent={relatedDiary ? relatedDiary.title : '내용 없음'}
                   onClick={() =>
                     handleClickCard({
                       date: emotion.selectedDate,
