@@ -10,15 +10,15 @@ import Header from '../../layout/Header/Header';
 import useEmotionStore from '../../stores/useEmotionStore';
 import useEmotions from '../../hooks/useEmotions';
 
-import profile from '../../assets/images/profile.png';
+import profile from '../../assets/images/Img_landing.png';
 import styles from './MyPage.module.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 const MyPage = () => {
- 
   const [periodInfo, setPeriodInfo] = useState({
     type: '일간',
     startDate: '2025-05-01',
-    endDate: '2025-05-01'
+    endDate: '2025-05-01',
   });
 
   const handlePeriodChange = (type, startDate, endDate) => {
@@ -39,12 +39,8 @@ const MyPage = () => {
       <div className={styles.topSection}>
         {/* 감정 이미지 */}
         <div className={styles.emojiBox}>
-        <p className={styles.emojiLabel}>오늘의 감정</p>
-          <img
-            src={emoji}
-            alt="오늘의 감정"
-            className={styles.emojiImage}
-          />
+          <p className={styles.emojiLabel}>오늘의 감정</p>
+          <img src={emoji} alt="오늘의 감정" className={styles.emojiImage} />
         </div>
 
         {/* 감정 텍스트 + 추천 음악 */}
@@ -60,10 +56,16 @@ const MyPage = () => {
       {/* 하단 통계 영역 */}
       <div className={styles.chartRow}>
         <div className={styles.chartCol}>
-        <EmotionChart startDate={periodInfo.startDate} endDate={periodInfo.endDate} />
+          <EmotionChart
+            startDate={periodInfo.startDate}
+            endDate={periodInfo.endDate}
+          />
         </div>
         <div className={styles.chartCol}>
-        <TodoChart startDate={periodInfo.startDate} endDate={periodInfo.endDate} />
+          <TodoChart
+            startDate={periodInfo.startDate}
+            endDate={periodInfo.endDate}
+          />
         </div>
       </div>
     </div>
