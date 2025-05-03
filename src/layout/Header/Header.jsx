@@ -8,12 +8,12 @@ import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const { isLoggedIn, resetUser } = useUserStore();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const handleLogout = () => {
-    resetUser();           // Zustand에서 사용자 정보 초기화
-    navigate('/');        // 로그인 페이지 이동
-  };
+  // const handleLogout = () => {
+  //   resetUser();           // Zustand에서 사용자 정보 초기화
+  //   navigate('/');        // 로그인 페이지 이동
+  // };
 
   const handleLogin = () => {
     navigate('/');
@@ -25,8 +25,10 @@ const Header = () => {
       {/* <div className={`${styles.weatherArea} ${styles.aCenter}`}>
         오늘의 날씨: <img src={sun} alt="sun" />
       </div>
+
        */}
       {/* <div className={`${styles.logoutArea} ${styles.aCenter}`}>
+
 
         <img src={profile} alt="profile" />
 

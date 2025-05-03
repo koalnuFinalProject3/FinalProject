@@ -34,7 +34,7 @@
 }
 .navProfileImageArea {
   /* background-color: aqua; */
-  margin: 86px 0 70px;
+  margin: 86px 0 50px;
   width: auto;
   color: #e5f2d7;
   font-size: 30px;
@@ -54,12 +54,12 @@
 .btnArea {
   /* background-color: palegoldenrod; */
   color: #e5f2d7;
-  font-size: 25px;
+  font-size: 20px;
   padding-left: 2rem;
 }
 /* 버튼 요소 */
 .btnArea > a {
-  margin-bottom: 29px;
+  margin-bottom: 20px;
   cursor: pointer;
 }
 .btnArea > a:hover {
@@ -67,18 +67,20 @@
 }
 
 /* 아이콘 margint-left*/
-.btnArea > a > img {
+.btnArea > a > img, .btnArea > div> img {
   margin-right: 19px;
 }
-.btnAreaa > a > img:hover {
+.btnAreaa > a > img:hover, .btnArea > div> span:hover {
   color: #ffeb94;
 }
-
+.btnArea > div>span{
+cursor: pointer;
+}
 /* footer */
 .footer {
   font-family: var(--font-chosun);
   font-size: 0.8rem;
-  margin-top: 10rem;
+  margin-top: 6.5rem;
   color: #e5f2d7;
 }
 .footerName {
@@ -123,10 +125,15 @@
   justify-content: center;
   margin-top: 6px;
 }
-
+.userNickArea{
+  position: relative;
+}
 .nicknameEditBtn {
+  position: absolute;
+  right: -42px;
   background: none;
   border: none;
+  padding: 5px;
   font-size: 18px;
   cursor: pointer;
   color: #e5f2d7;

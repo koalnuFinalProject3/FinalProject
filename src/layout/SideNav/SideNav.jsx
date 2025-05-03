@@ -1,18 +1,27 @@
-import React, {useState } from 'react';
+import React, { useState } from 'react';
 import styles from './SideNav.module.css';
 import logo from '../../assets/images/FeelPiece.png';
 import profile from '../../assets/images/happyChar.png';
 import my from '../../assets/icons/user.svg';
 import diary from '../../assets/icons/diary.svg';
 import setting from '../../assets/icons/Settings.svg';
+import logout from '../../assets/icons/logout.svg';
 import { Link } from 'react-router-dom';
 import useUserStore from '../../stores/useUserStore';
+import { useNavigate } from 'react-router-dom';
 
 const SideNav = () => {
-  const { user, setUser  } = useUserStore();
+  const { user, setUser, resetUser } = useUserStore();
 
   const [editingType, setEditingType] = useState(null); // 'nickname' or 'image'
   const [inputValue, setInputValue] = useState('');
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    resetUser();           // Zustand에서 사용자 정보 초기화
+    navigate('/');        // 로그인 페이지 이동
+  };
 
   const openEditModal = (type) => {
     setEditingType(type);
@@ -22,7 +31,7 @@ const SideNav = () => {
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (!file) return;
-  
+
     const reader = new FileReader();
     reader.onloadend = () => {
       const base64 = reader.result;
@@ -64,7 +73,7 @@ const SideNav = () => {
             이미지 수정
           </button>
 
-          <div>
+          <div className={styles.userNickArea}>
             {user?.nickname || 'unknown'}
             <button
               className={styles.nicknameEditBtn}
@@ -89,6 +98,10 @@ const SideNav = () => {
             <img src={setting} alt="setting" />
             <span>설정하기</span>
           </Link>
+          <div className={styles.aCenter} onClick={handleLogout}>
+            <img src={logout} alt="logout" />
+            <span>로그아웃</span>
+          </div>
         </div>
 
         {/* footer */}
