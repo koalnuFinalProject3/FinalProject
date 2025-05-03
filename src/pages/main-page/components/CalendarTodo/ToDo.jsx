@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styles from '../CalendarTodo/Todo.module.css';
 
-const ToDo = ({ selectedDate, filteredEvents, updateEvents }) => {
+
+const ToDo = ({ updateEvents, isLoading, setNewTodoContent, newTodoContent, handleAddTodo, selectedDate, filteredEvents, setFilteredEvents }) => {
   console.log(filteredEvents, 'filteredEvent');
   // filteredEvents에 checked 상태를 추가한 새로운 배열 상태 관리
   const [todoList, setTodoList] = useState(
@@ -40,11 +41,28 @@ const ToDo = ({ selectedDate, filteredEvents, updateEvents }) => {
         </div>
         <div className={styles.progressText}>{progress}%</div>
       </div>
+      <form onSubmit={handleAddTodo}>
+            <div>
+              <input
+                type="text"
+                value={newTodoContent}
+                onChange={(e) => setNewTodoContent(e.target.value)}
+                placeholder="write a todo here"
+                disabled={isLoading}
+              />
+              <button
+                type="submit"
+                disabled={isLoading || !newTodoContent.trim()}
+              >
+                {isLoading ? 'Adding...' : 'Add Task'}
+              </button>
+            </div>
+          </form>
       {/* <div>todo:</div> */}
       <ul>
         {filteredEvents.map((event, index) => (
           <li key={index}>
-            <div>{event.title}</div>
+            <div>{event.contents}</div>
             <div className={styles.editIcon}>
               <div>
                 <label className={styles.checkboxContainer}>

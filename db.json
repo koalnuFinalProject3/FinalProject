@@ -77,33 +77,51 @@
       "contents": "이렇게 추가됩니다.",
       "selectedDate": "2025-05-02",
       "endYn": false
+    },
+    {
+      "contents": "fgsdfg",
+      "selectedDate": "2025-05-02",
+      "endYn": false,
+      "id": "DeiTsyf"
+    },
+    {
+      "contents": "프로젝트 완성",
+      "selectedDate": "2025-05-02",
+      "endYn": false,
+      "id": "fVp-8lN"
+    },
+    {
+      "contents": "ㅏㅏㅏㅏ",
+      "selectedDate": "2025-05-01",
+      "endYn": false,
+      "id": "0nCj9X-"
     }
   ],
-    "emotion": [
-      {
-        "id": 1,
-        "text": "우울해요",
-        "image": "/assets/images/depressedChar.png"
-      },
-      {
-        "id": 2,
-        "text": "슬퍼요",
-        "image": "/assets/images/sadChar.png"
-      },
-      {
-        "id": 3,
-        "text": "그냥 그래요",
-        "image": "/assets/images/sosoChar.png"
-      },
-      {
-        "id": 4,
-        "text": "기뻐요",
-        "image": "/assets/images/joyChar.png"
-      },
-      {
-        "id": 5,
-        "text": "행복해요",
-        "image": "/assets/images/happyChar.png"
-      }
-    ]
-  }
+  "emotion": [
+    {
+      "id": 1,
+      "text": "우울해요",
+      "image": "/assets/images/depressedChar.png"
+    },
+    {
+      "id": 2,
+      "text": "슬퍼요",
+      "image": "/assets/images/sadChar.png"
+    },
+    {
+      "id": 3,
+      "text": "그냥 그래요",
+      "image": "/assets/images/sosoChar.png"
+    },
+    {
+      "id": 4,
+      "text": "기뻐요",
+      "image": "/assets/images/joyChar.png"
+    },
+    {
+      "id": 5,
+      "text": "행복해요",
+      "image": "/assets/images/happyChar.png"
+    }
+  ]
+}
