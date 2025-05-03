@@ -22,11 +22,11 @@ const Header = () => {
   return (
     <div className={styles.Header}>
     
-      <div className={`${styles.weatherArea} ${styles.aCenter}`}>
+      {/* <div className={`${styles.weatherArea} ${styles.aCenter}`}>
         오늘의 날씨: <img src={sun} alt="sun" />
       </div>
-      
-      <div className={`${styles.logoutArea} ${styles.aCenter}`}>
+       */}
+      {/* <div className={`${styles.logoutArea} ${styles.aCenter}`}>
 
         <img src={profile} alt="profile" />
 
@@ -39,7 +39,7 @@ const Header = () => {
             로그인
           </button>
         )}
-      </div>
+      </div> */}
       
     </div>
   );

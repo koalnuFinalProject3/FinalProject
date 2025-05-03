@@ -177,9 +177,7 @@
   ],
   "emotionTypes": [
     {
-
       "id": 1,
-
       "text": "우울해요",
       "image": "depressedChar.png"
     },
@@ -223,14 +221,11 @@
     {
 
       "id": 2,
-
       "selectedDate": "2025-05-02",
       "emotionId": 5
     },
     {
-
       "id": 3,
-
       "selectedDate": "2025-05-03",
       "emotionId": 4
     }
