@@ -1,5 +1,3 @@
-// zustand에서 useEmotionStore에 전역으로 오늘의 감정을 다루는 방식으로 변경도 가능
-// 단, 로그인 시 감정을 바로 등록하고 활동을 하는 것으로 수정해야함
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -8,33 +6,32 @@ const useTodayEmotion = () => {
 
   useEffect(() => {
     const today = new Date().toISOString().split('T')[0];
-    
-
+    console.log("today:!!!",today);
     const fetchTodayEmotion = async () => {
-        try {
-          const today = new Date().toISOString().split('T')[0];
-          const res = await axios.get(`http://localhost:3000/dailyEmotions?selectedDate=${today}`);
-          const daily = res.data[0];
-          console.log("today!",today);
-          console.log("daily!",daily);
+      try {
+        const res = await axios.get(`http://localhost:3000/emotion?selectedDate=${today}`);
+        const daily = res.data[0]; // ✅ 여기서 정의
 
-          if (!daily) {
-            setEmotion(null); // 선택된 감정 없음
-            return;
-          }
-      
-          const typeRes = await axios.get(`http://localhost:3000/emotionTypes/${Number(daily.emotionId)}`);
-          setEmotion(typeRes.data);
-        } catch (err) {
-          console.error('감정 데이터 에러:', err);
-          setEmotion(null); // 에러가 나도 안전하게 초기화
+        console.log("daily==>",daily.emotion);//값 잘나옴
+
+        if (!daily) {
+          setEmotion(null); // 감정이 등록되지 않은 경우
+          return;
         }
-      };
+
+        const typeRes = await axios.get(`http://localhost:3000/emotionTypes/${Number(daily.emotion)}`);
+        console.log("typeRes????",typeRes)
+        setEmotion(typeRes.data); // { id, text, image }
+      } catch (err) {
+        console.error('오늘의 감정 데이터 에러:', err);
+        setEmotion(null);
+      }
+    };
 
     fetchTodayEmotion();
   }, []);
 
-  return emotion; // { id, text, image }
+  return emotion;
 };
 
 export default useTodayEmotion;

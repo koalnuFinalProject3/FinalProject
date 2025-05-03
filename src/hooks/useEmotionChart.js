@@ -12,22 +12,22 @@ const useEmotionChart = (startDate, endDate) => {
 
     const fetchEmotionStats = async () => {
       try {
-        const [typesRes, dailyRes] = await Promise.all([
+        const [typesRes, emotionRes] = await Promise.all([
           axios.get('http://localhost:3000/emotionTypes'),
-          axios.get('http://localhost:3000/dailyEmotions'),
+          axios.get('http://localhost:3000/emotion'),
         ]);
 
         const emotionTypes = typesRes.data;
-        const dailyEmotions = dailyRes.data;
+        const emotionData = emotionRes.data;
 
-        const filtered = dailyEmotions.filter((item) =>
+        const filtered = emotionData.filter((item) =>
           item.selectedDate >= startDate && item.selectedDate <= endDate
         );
 
-        const counts = Array(emotionTypes.length).fill(0); // e.g., [0, 0, 0, 0, 0]
+        const counts = Array(emotionTypes.length).fill(0); // [0, 0, 0, 0, 0]
 
         filtered.forEach((item) => {
-          const idx = item.emotionId - 1;
+          const idx = item.emotion - 1; // emotionId -> emotion
           if (idx >= 0 && idx < counts.length) counts[idx]++;
         });
 
