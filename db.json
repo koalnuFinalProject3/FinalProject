@@ -153,79 +153,79 @@
     {
       "contents": "ㅍㅍㅍ",
       "selectedDate": "2025-05-07",
-      "endYn": false,
+      "endYn": true,
       "id": "pC7pXCC"
     },
     {
       "contents": "ㅇ",
       "selectedDate": "2025-05-03",
-      "endYn": false,
+      "endYn": true,
       "id": "iHDm__P"
     },
     {
       "contents": "ㄳㅈ",
       "selectedDate": "2025-05-03",
-      "endYn": false,
+      "endYn": true,
       "id": "CKKKUJ_"
     },
     {
       "contents": "ㄷㅈㄳ",
       "selectedDate": "2025-05-03",
-      "endYn": false,
+      "endYn": true,
       "id": "BsXUi_z"
     },
     {
       "contents": "ㅈㄷㄳ",
       "selectedDate": "2025-05-03",
-      "endYn": false,
+      "endYn": true,
       "id": "lKSrtn6"
     },
     {
       "contents": "ㅈㄷ",
       "selectedDate": "2025-05-03",
-      "endYn": false,
+      "endYn": true,
       "id": "uuMzJRl"
     },
     {
       "contents": "ㄱㄷㅈ",
       "selectedDate": "2025-05-03",
-      "endYn": false,
+      "endYn": true,
       "id": "QWZfvH9"
     },
     {
       "contents": "ㅈㄷㄳ",
       "selectedDate": "2025-05-03",
-      "endYn": false,
+      "endYn": true,
       "id": "7u1yLj6"
     },
     {
       "contents": "ㅈㄷㄳ",
       "selectedDate": "2025-05-03",
-      "endYn": false,
+      "endYn": true,
       "id": "Z1TlpyA"
     },
     {
       "contents": "ㅈㄷㄳ",
       "selectedDate": "2025-05-03",
-      "endYn": false,
+      "endYn": true,
       "id": "qWOuByH"
     },
     {
       "contents": "ㅈㄷㄳ",
       "selectedDate": "2025-05-03",
-      "endYn": false,
+      "endYn": true,
       "id": "uxjh14C"
     },
     {
       "contents": "ㅈㄷㄳ",
       "selectedDate": "2025-05-03",
-      "endYn": false,
+      "endYn": true,
       "id": "-Dhgs1M"
     },
     {
       "contents": "ㄷㅈㄳ",
       "selectedDate": "2025-05-03",
-      "endYn": false,
+      "endYn": true,
       "id": "jgcbfNt"
     },
     {
@@ -351,14 +351,26 @@
     {
       "contents": "ss",
       "selectedDate": "2025-04-28",
-      "endYn": false,
+      "endYn": true,
       "id": "9gggNO5"
     },
     {
       "contents": "ss",
       "selectedDate": "2025-04-28",
-      "endYn": false,
+      "endYn": true,
       "id": "LpNFqzO"
+    },
+    {
+      "contents": "66",
+      "selectedDate": "2025-04-28",
+      "endYn": true,
+      "id": "fBd6LA3"
+    },
+    {
+      "contents": "66",
+      "selectedDate": "2025-04-27",
+      "endYn": false,
+      "id": "kj0IxSQ"
     }
   ],
   "emotion": [
