@@ -31,8 +31,8 @@ const CalendarDiary = ({ setCalendarType }) => {
   // useEffect(() => {
   //   resetEmotions();
   //   const fetchData = async () => {
-  //     const diaryRes = await axios.get('http://localhost:5000/diary');
-  //     const emotionRes = await axios.get('http://localhost:5000/emotion');
+  //     const diaryRes = await axios.get('http://localhost:3000/diary');
+  //     const emotionRes = await axios.get('http://localhost:3000/emotion');
   //     setDiary(diaryRes.data);
   //     setEmotions(emotionRes.data);
   //   };
@@ -48,12 +48,12 @@ const CalendarDiary = ({ setCalendarType }) => {
 
 
   // json 데이터 가져오기
-  //로컬: http://localhost:5000/diary
+  //로컬: http://localhost:3000/diary
   // git: https://my-json-server.typicode.com/koalnuFinalProject3/FinalProject/diary
   useEffect(() => {
     Promise.all([
-      axios.get('http://localhost:5000/diary'),
-      axios.get('http://localhost:5000/emotion')
+      axios.get('http://localhost:3000/diary'),
+      axios.get('http://localhost:3000/emotion')
     ])
       .then(([diaryRes, emotionRes]) => {
         setDiary(diaryRes.data);
@@ -122,7 +122,7 @@ const CalendarDiary = ({ setCalendarType }) => {
   //감정 수정 
   const updateEmotion = async (emotionMatch, emotionId) => {
     try {
-      const response = await axios.put(`http://localhost:5000/emotion/${emotionMatch.id}`, {
+      const response = await axios.put(`http://localhost:3000/emotion/${emotionMatch.id}`, {
         id: emotionMatch.id,
         emotion: parseInt(emotionId),
         selectedDate: emotionMatch.selectedDate,
@@ -139,7 +139,7 @@ const CalendarDiary = ({ setCalendarType }) => {
   // 감정 생성
   const createEmotion = async (emotionId, date) => {
     try {
-      const response = await axios.post('http://localhost:5000/emotion', {
+      const response = await axios.post('http://localhost:3000/emotion', {
         emotion: parseInt(emotionId),
         selectedDate: date,
       });
@@ -151,7 +151,7 @@ const CalendarDiary = ({ setCalendarType }) => {
   };
 
   const fetchEmotions = async () => {
-    const res = await axios.get('http://localhost:5000/emotion');
+    const res = await axios.get('http://localhost:3000/emotion');
     setEmotions(res.data);
   };
 
