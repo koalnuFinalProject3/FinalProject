@@ -31,7 +31,7 @@ const CalendarDiaryModal = ({ diaryObj, selectedDate, setIsModalOpen }) => {
         }
         const addDiaryEntry = async (newEntry) => {
             try {
-                const response = await axios.post('http://localhost:5000/diary', newEntry);
+                const response = await axios.post('http://localhost:3000/diary', newEntry);
                 console.log('일기 추가 성공:', response.data);
                 setIsModalOpen(false);
                 // 추가 로직 (예: 상태 업데이트 등)
@@ -44,7 +44,7 @@ const CalendarDiaryModal = ({ diaryObj, selectedDate, setIsModalOpen }) => {
     }
     /* 일기 수정 */
     const editDiary = () => {
-        axios.put(`http://localhost:5000/diary/${diaryObj.id}`, {
+        axios.put(`http://localhost:3000/diary/${diaryObj.id}`, {
             id: diaryObj.id,
             selectedDate: diaryObj.selectedDate,
             title:title,
