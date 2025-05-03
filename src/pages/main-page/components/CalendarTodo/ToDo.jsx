@@ -16,9 +16,9 @@ const ToDo = ({
   console.log(filteredEvents, 'filteredEvent');
 
   // filteredCheckedEvents에 checked 상태를 추가한 새로운 배열 상태 관리
-  // const [todoList, setTodoList] = useState(
-  //   filteredCheckedEvents.map((event) => ({ ...event, checked: false }))
-  // );
+  const [todoList, setTodoList] = useState(
+    filteredEvents.map((event) => ({ ...event, checked: false }))
+  );
 
   // 체크된 할 일 개수 계산
   const completedCount = filteredEvents.filter(event => event.endYn).length;
@@ -66,7 +66,11 @@ const ToDo = ({
       <ul>
         {filteredEvents.map((event, index) => (
           <li key={index}>
-            <div>{event.contents}</div>
+            <div
+              className={event.endYn ? styles.completedText : ''}
+            >
+              {event.contents}
+            </div>
             <div className={styles.editIcons}>
               <div>
                 <label className={styles.checkboxContainer}>

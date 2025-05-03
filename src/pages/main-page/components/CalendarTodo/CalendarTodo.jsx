@@ -25,11 +25,6 @@ const CalendarTodo = ({ setCalendarType }) => {
       setIsLoading(true);
       const data = await getTodos();
       setTodos(data || []);
-
-
-
-
-
     } catch (err) {
       console.log('Failed to fetch todos:', err.message);
     } finally {
@@ -57,11 +52,16 @@ const CalendarTodo = ({ setCalendarType }) => {
     date: todo.selectedDate,
   }));
 
+  function randomIDGenerate(){
+    return '_' + Math.random().toString(36).substr(2, 9);
+  }
+
   const handleAddTodo = async (e) => {
     e.preventDefault();
     if (!newTodoContent.trim()) return null;
 
     const newTodo = {
+      id : randomIDGenerate(),
       contents: newTodoContent,
       selectedDate: selectedDate,
       endYn: false,
@@ -79,9 +79,16 @@ const CalendarTodo = ({ setCalendarType }) => {
     }
   };
 
-  const handleDeleteTodo = (id) => {
-    const newTodoList = todoList.filter((_, i) => i !== index);
-    setTodoList(newTodoList);
+  const handleDeleteTodo = async (id) => {
+    try {
+      setIsLoading(true);
+      await deleteTodo(id);
+      await fetchTodos();
+    } catch (err) {
+      console.error('삭제 실패:', err);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
     // 체크 상태 변경 함수
@@ -102,7 +109,6 @@ const CalendarTodo = ({ setCalendarType }) => {
 
   return (
     <div className="calendarArea">
-      todo
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}
         dateClick={handleDateClick}

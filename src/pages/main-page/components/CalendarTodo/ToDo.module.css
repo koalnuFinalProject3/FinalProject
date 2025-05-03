@@ -1,7 +1,7 @@
 .modalcontainer{
   width: 100vw;
   max-width: 50rem;
-  height: 88vh;
+  height: 60vh;
 }
 .progressContainerContainer{
   width: 80%;
@@ -75,6 +75,21 @@ li{
   display: flex;
   justify-content: space-between;
   padding: 0.2rem;
+}
+.completedText {
+  position: relative;
+  color: inherit; 
+}
+.completedText::after {
+  content: '';
+  position: absolute;
+  top: 25%;
+  left: 0;
+  width: 100%;
+  height: 0.2rem;
+  background-color: #4caf4fab ;
+  pointer-events: none;
+  transform: translateY(-50%);
 }
 .editIcons{
   display: flex;
