@@ -1,14 +1,8 @@
 import React from 'react';
 import styles from './CardDefault.module.css';
 import { AnimatePresence, motion } from 'motion/react';
-import depressedChar from '../../../../../assets/images/depressedChar.png';
-import happyChar from '../../../../../assets/images/happyChar.png';
-import joyChar from '../../../../../assets/images/joyChar.png';
-import sadChar from '../../../../../assets/images/sadChar.png';
-import sosoChar from '../../../../../assets/images/sosoChar.png';
+import { emotionImageArray } from '../../../../../components/common/EmotionAssets';
 const CardDefault = () => {
-  const emojis = [depressedChar, happyChar, joyChar, sadChar, sosoChar];
-
   return (
     <div className={styles.container}>
       <h1>느낌 한 조각</h1>
@@ -20,7 +14,11 @@ const CardDefault = () => {
           animate={{ x: ['0%', '-100%'] }}
           transition={{ repeat: Infinity, duration: 12, ease: 'linear' }}
         >
-          {[...emojis, ...emojis, ...emojis].map((emoji, i) => (
+          {[
+            ...emotionImageArray,
+            ...emotionImageArray,
+            ...emotionImageArray,
+          ].map((emoji, i) => (
             <img
               key={i}
               src={emoji}
