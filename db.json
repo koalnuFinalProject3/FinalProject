@@ -175,51 +175,51 @@
   ],
   "emotionTypes": [
     {
-      "id": 1,
+      "id": "1",
       "text": "우울해요",
-      "image": "depressedChar.png"
-    },
-    {
-      "id": 2,
-      "text": "슬퍼요",
       "image": "sadChar.png"
     },
     {
-      "id": 3,
+      "id": "2",
+      "text": "슬퍼요",
+      "image": "depressedChar.png"
+    },
+    {
+      "id": "3",
       "text": "그냥 그래요",
       "image": "sosoChar.png"
     },
     {
-      "id": 4,
+      "id": "4",
       "text": "기뻐요",
-      "image": "joyChar.png"
+      "image": "happyChar.png"
     },
     {
-      "id": 5,
+      "id": "5",
       "text": "행복해요",
-      "image": "happyChar.png"
+      "image": "joyChar.png"
     }
   ],
   "dailyEmotions": [
     {
-      "id": 1,
+      "id": "1",
       "selectedDate": "2025-05-01",
       "emotionId": 3
     },
     {
-      "id": 2,
+      "id": "2",
       "selectedDate": "2025-05-02",
       "emotionId": 5
     },
     {
-      "id": 3,
+      "id": "3",
       "selectedDate": "2025-05-03",
       "emotionId": 4
     }
   ],
   "recommendedMusic": [
     {
-      "id": 1,
+      "id": "1",
       "emotionId": "1",
       "title": "이별택시",
       "artist": "정엽",
@@ -453,72 +453,72 @@
   ],
   "emotion": [
     {
-      "id": 1,
+      "id": "1",
       "selectedDate": "2025-04-25",
       "emotion": 3
     },
     {
-      "id": 2,
+      "id": "2",
       "selectedDate": "2025-04-26",
       "emotion": 2
     },
     {
-      "id": 3,
+      "id": "3",
       "selectedDate": "2025-04-27",
       "emotion": 4
     },
     {
-      "id": 4,
+      "id": "4",
       "selectedDate": "2025-04-28",
       "emotion": 5
     },
     {
-      "id": 5,
+      "id": "5",
       "selectedDate": "2025-04-29",
       "emotion": 1
     },
     {
-      "id": 6,
+      "id": "6",
       "selectedDate": "2025-04-30",
       "emotion": 3
     },
     {
-      "id": 7,
+      "id": "7",
       "selectedDate": "2025-05-01",
       "emotion": 4
     },
     {
-      "id": 8,
+      "id": "8",
       "selectedDate": "2025-05-02",
       "emotion": 2
     },
     {
-      "id": 9,
-      "selectedDate": "2025-05-03",
-      "emotion": 5
+      "id": "9",
+      "emotion": 2,
+      "selectedDate": "2025-05-03"
     },
     {
-      "id": 10,
+      "id": "10",
       "selectedDate": "2025-04-20",
       "emotion": 2
     },
     {
-      "id": 11,
+      "id": "11",
       "selectedDate": "2025-04-21",
       "emotion": 5
     },
     {
-      "id": 12,
+      "id": "12",
       "selectedDate": "2025-04-22",
       "emotion": 4
     },
     {
-      "id": 13,
+      "id": "13",
       "selectedDate": "2025-04-23",
       "emotion": 1
     },
     {
-      "id": 14,
+      "id": "14",
       "selectedDate": "2025-04-24",
       "emotion": 3
     },
