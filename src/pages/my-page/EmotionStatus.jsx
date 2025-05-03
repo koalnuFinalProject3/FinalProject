@@ -1,18 +1,22 @@
-import useEmotionStore from '../../stores/useEmotionStore';
-import useEmotions from '../../hooks/useEmotions';
-import profile from '../../assets/images/Img_landing.png';
+
 import styles from './MyPage.module.css';
+import useTodayEmotion from '../../hooks/useTodayEmotion';
+import useEmotionMent from '../../hooks/useEmotionMent';
 
 const EmotionStatus = () => {
-  const { emotionId } = useEmotionStore();
-  const emotions = useEmotions();
+  const todayEmotion = useTodayEmotion();
+  const emotionId = todayEmotion?.id;
+  const { data: ment, isLoading, isError } = useEmotionMent(emotionId);
 
-  const matchedEmotion = emotions.find((e) => e.id === emotionId);
-  const emoji = matchedEmotion
-    ? require(`../../assets/images/${matchedEmotion.image}`)
-    : profile;
+  let text = '감정이 선택되지 않았습니다.';
 
-  const text = matchedEmotion?.text || '감정이 선택되지않았습니다.';
+  if (isLoading) {
+    text = '글귀를 불러오는 중입니다...';
+  } else if (isError) {
+    text = '글귀를 불러오지 못했어요.';
+  } else if (ment) {
+    text = ment;
+  }
 
   return (
     <div className={styles.emotionStatus}>

@@ -26,6 +26,7 @@ const EmotionChart = ({ startDate, endDate }) => {
           오늘 하루의 감정을 기록해보세요 😊
         </p>
       ) : (
+       <div style={{ height: '180px' }}>  {/* 높이 제한 */}
         <Pie
           data={{
             labels,
@@ -34,11 +35,11 @@ const EmotionChart = ({ startDate, endDate }) => {
                 label: '감정 횟수',
                 data,
                 backgroundColor: [
-                  '#FFD93D',
+                  '#6E6E6E',              
                   '#A1E3A1',
                   '#7FD5A3',
                   '#4F9D92',
-                  '#6E6E6E',
+                  '#FFD93D',
                 ],
                 borderColor: '#ffffff',
                 borderWidth: 2,
@@ -47,6 +48,7 @@ const EmotionChart = ({ startDate, endDate }) => {
           }}
           options={{
             responsive: true,
+            maintainAspectRatio: false,
             plugins: {
               legend: {
                 position: 'bottom',
@@ -54,6 +56,7 @@ const EmotionChart = ({ startDate, endDate }) => {
             },
           }}
         />
+        </div>
       )}
     </div>
   );

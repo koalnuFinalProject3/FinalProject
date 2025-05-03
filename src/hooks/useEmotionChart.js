@@ -3,43 +3,44 @@ import axios from 'axios';
 
 const useEmotionChart = (startDate, endDate) => {
   const [emotionStats, setEmotionStats] = useState({
-    labels: [],    // 감정 이름들 또는 ID들
-    data: [],      // 각 감정의 빈도 수
+    labels: [],
+    data: [],
   });
 
   useEffect(() => {
     if (!startDate || !endDate) return;
 
-    const fetchEmotions = async () => {
+    const fetchEmotionStats = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/emotion'); // JSON Server 주소
-        const emotionList = res.data;
+        const [typesRes, dailyRes] = await Promise.all([
+          axios.get('http://localhost:3000/emotionTypes'),
+          axios.get('http://localhost:3000/dailyEmotions'),
+        ]);
 
-        const filtered = emotionList.filter((item) => {
-          return (
-            item.seletedDate >= startDate &&
-            item.seletedDate <= endDate
-          );
-        });
+        const emotionTypes = typesRes.data;
+        const dailyEmotions = dailyRes.data;
 
-        // 감정별 카운팅 (1~5번 감정 기준)
-        const emotionCounts = [0, 0, 0, 0, 0]; // index 0 → emotion 1
+        const filtered = dailyEmotions.filter((item) =>
+          item.selectedDate >= startDate && item.selectedDate <= endDate
+        );
+
+        const counts = Array(emotionTypes.length).fill(0); // e.g., [0, 0, 0, 0, 0]
 
         filtered.forEach((item) => {
-          const idx = item.emotion - 1;
-          if (idx >= 0 && idx < 5) emotionCounts[idx]++;
+          const idx = item.emotionId - 1;
+          if (idx >= 0 && idx < counts.length) counts[idx]++;
         });
 
         setEmotionStats({
-          labels: ['매우 좋음', '좋음', '보통', '나쁨', '매우 나쁨'], // 필요 시 hook 바깥으로 뺄 수 있음
-          data: emotionCounts,
+          labels: emotionTypes.map((e) => e.text),
+          data: counts,
         });
-      } catch (err) {
-        console.error('감정 데이터 조회 실패:', err);
+      } catch (error) {
+        console.error('감정 통계 조회 실패:', error);
       }
     };
 
-    fetchEmotions();
+    fetchEmotionStats();
   }, [startDate, endDate]);
 
   return emotionStats;
