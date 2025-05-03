@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import Modal from '../../../../components/common/Modal';
 import useModal from '../../../../hooks/useModal';
 import ToDo from './ToDo';
+
 import {
   createTodo,
   deleteTodo,
@@ -12,7 +13,6 @@ import {
   updateTodo,
 } from '../../../../apis/todoApi';
 import styles from './CalendarTodo.module.css';
-
 const CalendarTodo = ({ setCalendarType }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [newTodoContent, setNewTodoContent] = useState('');
@@ -56,6 +56,7 @@ const CalendarTodo = ({ setCalendarType }) => {
   const events = todos.map((todo) => ({
     title: todo.contents,
     date: todo.selectedDate,
+
     classNames: todo.endYn
       ? [styles['fc-event-done']]
       : [styles['fc-event-not-done']],

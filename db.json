@@ -39,14 +39,14 @@
       "endYn": true
     },
     {
-      "id": "4524",
-      "contents": "이제 삭제랑 수정도 넣어야겠지?",
+      "id": "_2bd6ydizy",
+      "contents": "리액트 3강",
       "selectedDate": "2025-05-01",
       "endYn": true
     },
     {
-      "id": "e148",
-      "contents": "삭제랑 수정은 어떻게 하냐.. 그리고 이거 디자인은 어떻게 하냐",
+      "id": "_jamrypgms",
+      "contents": "리액트 4강",
       "selectedDate": "2025-05-01",
       "endYn": true
     },
@@ -507,3 +507,4 @@
     }
   ]
 }
+
