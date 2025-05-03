@@ -31,10 +31,14 @@ const MyPage = () => {
   const {isLoggedIn} = useUserStore();
   const navigate = useNavigate();
 
+  const getToday = () => {
+    return new Date().toISOString().split('T')[0];
+  };
+
   const [periodInfo, setPeriodInfo] = useState({
     type: '일간',
-    startDate: '2025-05-01',
-    endDate: '2025-05-01',
+    startDate: getToday(),
+    endDate: getToday(),
   });
 
   const handlePeriodChange = (type, startDate, endDate) => {
