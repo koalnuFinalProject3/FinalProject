@@ -72,14 +72,14 @@ const Login = () => {
                 placeholder="아이디를 입력해주세요.."
                 value={id}
                 onChange={(e) => setId(e.target.value)}
-                required='true'
+                required={true}
               />
               <input
                 type="password"
                 placeholder="비밀번호를 입력해주세요.."
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                required='true'
+                required={true}
               />
                 <motion.button type="submit" className={styles.btn}>로그인</motion.button>
               </form>

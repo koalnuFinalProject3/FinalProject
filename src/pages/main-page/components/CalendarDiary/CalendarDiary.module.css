@@ -1,12 +1,26 @@
 .emotionArea {
     width: 25rem;
     position: absolute;
-    top: 0px;
-    right: 0;
+    top: -10rem;
+    /* left: 300px; */
+    right: 0rem;
     /* background-color: pink; */
     padding: 10px 0 10px 10px;
-}
 
+}
+.emotionQuestionArea{
+    width: 100%;
+    font-family: var(--font-kotra);
+    font-size: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: #BFA57F;
+    margin-bottom: 0.3rem;
+}
+.emotionQuestionArea>img{
+    margin-left: 5px;
+}
 .emotionSlide{
     border-radius: 5rem;
     background-color: white;
@@ -33,4 +47,17 @@
 }
 .title{
     background-color: green;
+}
+.diaryItem{
+    position: relative;
+}
+.diaryItem>img{
+    position: absolute;
+    bottom: -3.6rem;
+    right: 0;left: 0;
+    margin: auto;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 2px solid white;
 }

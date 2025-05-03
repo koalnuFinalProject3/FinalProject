@@ -31,7 +31,7 @@ const Modal = ({ isOpen, onClose, children, title }) => {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
             transition={{ duration: 0.2 }}
-            className={styles.modalContent}
+            className={`${styles.modalContent}  modalDiaryContent`}
             onClick={(e) => e.stopPropagation()}
           >
             <div className={styles.modalHeader}>

@@ -41,3 +41,6 @@
   cursor: pointer;
   padding: 0;
 }
+.closeButton:hover{
+  background-color: transparent;
+}

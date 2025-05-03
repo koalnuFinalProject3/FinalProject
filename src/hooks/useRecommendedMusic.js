@@ -1,14 +1,23 @@
-const musicByEmotion = {
-    1: ['우울할 땐 잔잔한 피아노', 'Lo-fi Rain'],
-    2: ['슬픈 감성 발라드', '눈물이 뚝뚝'],
-    3: ['잔잔한 Acoustic', '무드 있는 하루'],
-    4: ['신나는 팝', 'Dance Time!'],
-    5: ['에너제틱 EDM', '행복 바이브 업!'],
-  };
-  
-  const useRecommendedMusic = (emotionId) => {
-    return musicByEmotion[emotionId] || [];
-  };
-  
-  export default useRecommendedMusic;
-  
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+
+const useRecommendedMusic = (emotionId) => {
+  return useQuery({
+    queryKey: ['recommendedMusic', emotionId],
+    queryFn: async () => {
+      const id = Number(emotionId); // ← 안전한 형변환(숫자타입으로 db.json하고 맞춰놓은것!)
+      if (!id) return null;
+
+      const res = await axios.get(`http://localhost:3000/recommendedMusic?emotionId=${id}`);
+      const all = res.data;
+
+      if (all.length === 0) return null;
+
+      const randomIndex = Math.floor(Math.random() * all.length);
+      return all[randomIndex];
+    },
+    enabled: !!emotionId,
+  });
+};
+
+export default useRecommendedMusic;
