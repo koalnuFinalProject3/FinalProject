@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './CardDetail.module.css';
 import closeIcon from '../../../../../assets/icons/closeMd.svg';
 import { emotionImages } from '../../../../../components/common/EmotionAssets';
@@ -46,7 +46,10 @@ const CardDetail = ({ selectedCard, handleClickBack }) => {
     setIsEditing(false);
     setEditedContent(selectedCard.diaryContent);
   };
-
+  useEffect(() => {
+    // selectedCard가 변경될 때마다 editedContent 상태 갱신
+    setEditedContent(selectedCard.diaryContent);
+  }, [selectedCard]);
   return (
     <div className={styles.cardContainer}>
       <img
@@ -89,9 +92,11 @@ const CardDetail = ({ selectedCard, handleClickBack }) => {
           </>
         ) : (
           <>
-            <button className={styles.editButton} onClick={handleEdit}>
-              수정하기
-            </button>
+            {selectedCard.diaryTitle !== '내용 없음' && (
+              <button className={styles.editButton} onClick={handleEdit}>
+                수정하기
+              </button>
+            )}
             <p className={styles.content}>{selectedCard.diaryContent}</p>
           </>
         )}
