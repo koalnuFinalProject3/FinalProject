@@ -278,6 +278,7 @@ const CalendarDiary = ({ setCalendarType }) => {
         }))}
         eventContent={renderEventContent}
         dateClick={handleDateClick}
+        eventClick={handleDateClick}
         droppable={true}
         drop={handleDrop}
         /* －－－－－－－－－－－－－－ */
