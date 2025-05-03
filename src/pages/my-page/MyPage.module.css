@@ -217,6 +217,9 @@
 
   /* 감정차트 */
   .chartContainer {
+    height: 400px;
+    position: relative;
+    padding: 0.5rem 0;
     font-family: 'KOTRAHOPE', sans-serif;
   }
   
