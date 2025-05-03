@@ -93,47 +93,47 @@
   ],
   "emotion": [
     {
-      "id": 1,
-      "selectedDate": "2025-05-01",
-      "emotion": 3
+      "id": "1",
+      "emotion": 2,
+      "selectedDate": "2025-05-01"
     },
     {
-      "id": 2,
+      "id": "2",
       "selectedDate": "2025-05-02",
       "emotion": 2
     },
     {
-      "id": 3,
+      "id": "3",
       "selectedDate": "2025-05-03",
       "emotion": 4
     },
     {
-      "id": 4,
+      "id": "4",
       "selectedDate": "2025-05-04",
       "emotion": 5
     },
     {
-      "id": 5,
+      "id": "5",
       "selectedDate": "2025-05-05",
       "emotion": 1
     },
     {
-      "id": 6,
+      "id": "6",
       "selectedDate": "2025-05-06",
       "emotion": 3
     },
     {
-      "id": 7,
+      "id": "7",
       "selectedDate": "2025-05-07",
       "emotion": 4
     },
     {
-      "id": 8,
+      "id": "8",
       "selectedDate": "2025-05-08",
       "emotion": 2
     },
     {
-      "id": 9,
+      "id": "9",
       "selectedDate": "2025-05-09",
       "emotion": 5
     }
@@ -178,14 +178,14 @@
     {
       "id": "670c",
       "selectedDate": "2025-04-29",
-      "title": "특별하지 않은 날",
-      "contents": "아무 일도 없었다. \n나쁜 일도..\n좋은 일도.."
+      "title": "특별하지 않은?",
+      "contents": "아무 일도 없었다. \n나쁜 일도..\n좋은 일도..\nㅎㅎ"
     },
     {
       "id": "6464",
       "selectedDate": "2025-04-02",
       "title": "만우절은 즐거워",
-      "contents": "몸도 들뜨고 마음도 가벼워!"
+      "contents": "몸도 들뜨고 마음도 가벼워! ㅎㅎ"
     }
   ]
 }

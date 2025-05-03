@@ -10,7 +10,8 @@ const useDiaryStore = create((set) => ({
     diary: [],
     setDiary: (data) => set({ diary: data }),
     emotions:[],
-    setEmotions: (data)=> set({emotions : data})
+    setEmotions: (data)=> set({emotions : data}),
+    resetEmotions: () => set({ emotions: [] }),
   }));
   
   export default useDiaryStore;

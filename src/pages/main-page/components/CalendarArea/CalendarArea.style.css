@@ -83,5 +83,6 @@
 
 /* 일일 박스 크기 설정 */
 .fc-daygrid-day-frame.fc-scrollgrid-sync-inner{
-  height: 100px;
+  height: 6.5rem;
+  overflow: hidden;
 }
