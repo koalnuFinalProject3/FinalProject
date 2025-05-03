@@ -11,3 +11,17 @@ export const createTodo = async (todo) => {
   console.log('보내기', data);
   return data;
 };
+
+/* 아니면 지우기... 👇🏻*/
+export const deleteTodo = async (id) => {
+  const { data } = await instance.delete(`/todos/${id}`);
+  console.log('삭제된 항목:', data);
+  return data;
+};
+/* 아니면 지우기 ... 👆🏻 */
+
+
+export const updateTodo = async (id, updatedData) => {
+  const { data } = await instance.patch(`/todos/${id}`, updatedData);
+  return data;
+};

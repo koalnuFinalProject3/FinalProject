@@ -32,10 +32,40 @@
   font-size: 70%;
   position: absolute;
 }
+
+.inputArea{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.inputArea input{
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #000;
+  width: 100%;
+  margin-top: 1.5rem;
+  margin-right: 1.5rem;
+}
+.inputArea input:disabled{
+  background: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #000;
+  width: 100%;
+  margin-top: 1.5rem;
+  margin-right: 1.5rem;
+}
 .buttonPlus{
   background-color: #56AC68;
   border-radius: 50%;
   aspect-ratio: 1 / 1;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.buttonPlus img{
 }
 ul{
   padding: 0;
@@ -44,8 +74,9 @@ li{
   list-style: none;
   display: flex;
   justify-content: space-between;
+  padding: 0.2rem;
 }
-.editIcon{
+.editIcons{
   display: flex;
 }
 
@@ -75,6 +106,9 @@ li{
   width: 18px;
   background-color: #eee;
   border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* 체크되었을 때 스타일 */
@@ -96,12 +130,18 @@ li{
 }
 
 /* 체크 아이콘 모양 (✔) */
-.checkmark:after {
-  left: 6px;
-  top: 2px;
-  width: 4px;
-  height: 8px;
-  border: solid white;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
+.checkmark svg{
+  transform: scale(0.8);
+}
+
+.editIcons button{
+  background-color: transparent;
+  padding: 0;
+}
+.editIcons button:hover{
+  background-color: transparent;
+}
+
+.deleteBtn{
+  transform: scale(0.9);
 }

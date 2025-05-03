@@ -1,34 +1,33 @@
 import React, { useState } from 'react';
 import styles from '../CalendarTodo/Todo.module.css';
 
-
-const ToDo = ({ updateEvents, isLoading, setNewTodoContent, newTodoContent, handleAddTodo, selectedDate, filteredEvents, setFilteredEvents }) => {
+const ToDo = ({
+  updateEvents,
+  isLoading,
+  setNewTodoContent,
+  newTodoContent,
+  handleAddTodo,
+  handleDeleteTodo,
+  handleCheckChange,
+  selectedDate,
+  filteredEvents,
+  setFilteredEvents,
+}) => {
   console.log(filteredEvents, 'filteredEvent');
-  // filteredEvents에 checked 상태를 추가한 새로운 배열 상태 관리
-  const [todoList, setTodoList] = useState(
-    filteredEvents.map((event) => ({ ...event, checked: false }))
-  );
+
+  // filteredCheckedEvents에 checked 상태를 추가한 새로운 배열 상태 관리
+  // const [todoList, setTodoList] = useState(
+  //   filteredCheckedEvents.map((event) => ({ ...event, checked: false }))
+  // );
 
   // 체크된 할 일 개수 계산
-  const completedCount = todoList.filter((event) => event.checked).length;
-  const totalCount = todoList.length;
+  const completedCount = filteredEvents.filter(event => event.endYn).length;
+  const totalCount = filteredEvents.length;
 
   // 진행률 계산: 체크된 할 일 수 / 전체 할 일 수 * 100
   const progress =
     totalCount === 0 ? 0 : Math.round((completedCount / totalCount) * 100);
 
-  // 체크 상태 변경 함수
-  const handleCheckChange = (index) => {
-    const newTodoList = [...todoList];
-    newTodoList[index].checked = !newTodoList[index].checked;
-    setTodoList(newTodoList);
-  };
-
-  // 할 일 삭제 함수
-  const handleDelete = (index) => {
-    const newTodoList = todoList.filter((_, i) => i !== index);
-    setTodoList(newTodoList);
-  };
 
   return (
     <div className={styles.modalcontainer}>
@@ -42,38 +41,43 @@ const ToDo = ({ updateEvents, isLoading, setNewTodoContent, newTodoContent, hand
         <div className={styles.progressText}>{progress}%</div>
       </div>
       <form onSubmit={handleAddTodo}>
-            <div>
-              <input
-                type="text"
-                value={newTodoContent}
-                onChange={(e) => setNewTodoContent(e.target.value)}
-                placeholder="write a todo here"
-                disabled={isLoading}
-              />
-              <button
-                type="submit"
-                disabled={isLoading || !newTodoContent.trim()}
-              >
-                {isLoading ? 'Adding...' : 'Add Task'}
-              </button>
-            </div>
-          </form>
+        <div className={styles.inputArea}>
+          <input
+            type="text"
+            value={newTodoContent}
+            onChange={(e) => setNewTodoContent(e.target.value)}
+            placeholder="write a todo here"
+            disabled={isLoading}
+          />
+          <button
+            type="submit"
+            disabled={isLoading || !newTodoContent.trim()}
+            className={styles.buttonPlus}
+          >
+            {isLoading ? (
+              'Adding...'
+            ) : (
+              <img src="/src/assets/icons/add.svg" alt="추가" style={{ opacity: isLoading ? 0 : 1 }} />
+            )}
+          </button>
+        </div>
+      </form>
       {/* <div>todo:</div> */}
       <ul>
         {filteredEvents.map((event, index) => (
           <li key={index}>
             <div>{event.contents}</div>
-            <div className={styles.editIcon}>
+            <div className={styles.editIcons}>
               <div>
                 <label className={styles.checkboxContainer}>
                   <input
                     type="checkbox"
-                    checked={event.checked}
+                    checked={!!event.endYn}
                     onChange={() => handleCheckChange(index)}
                   />
                   <span className={styles.checkmark}>
                     {/* 체크박스가 체크되었을 때만 SVG 체크 아이콘 표시 */}
-                    {event.checked && (
+                    {event.endYn && (
                       <svg
                         width="15"
                         height="12"
@@ -93,7 +97,7 @@ const ToDo = ({ updateEvents, isLoading, setNewTodoContent, newTodoContent, hand
                   </span>
                 </label>
               </div>
-              <div>
+              <button className={styles.deleteBtn} onClick={() => handleDeleteTodo(event.id)}>
                 <svg
                   width="18"
                   height="20"
@@ -106,14 +110,11 @@ const ToDo = ({ updateEvents, isLoading, setNewTodoContent, newTodoContent, hand
                     fill="#B3B3B3"
                   />
                 </svg>
-              </div>
+              </button>
             </div>
           </li>
         ))}
       </ul>
-      <button className={styles.buttonPlus}>
-        <img src="/src/assets/icons/add.svg" alt="추가" />
-      </button>
     </div>
   );
 };
