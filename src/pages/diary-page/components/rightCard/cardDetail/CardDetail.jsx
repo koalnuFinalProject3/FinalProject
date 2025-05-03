@@ -18,7 +18,6 @@ const CardDetail = ({ selectedCard, handleClickBack }) => {
 
   const handleSave = async () => {
     try {
-      // 서버에 데이터 수정 요청
       await updateDiary(selectedCard.id, {
         selectedDate: selectedCard.date,
         contents: editedContent,
@@ -26,11 +25,10 @@ const CardDetail = ({ selectedCard, handleClickBack }) => {
         emotion: selectedCard.emotion,
       });
 
-      // 수정된 내용을 로컬 상태에 반영
-      setEditedContent(editedContent);
-      alert('일기 수정 완료!');
+      // alert('일기 수정 완료!');
+      setIsEditing(false);
 
-      // selectedCard 상태 갱신 (UI 즉시 반영)
+      // 수정된 카드 데이터를 상위 컴포넌트로 전달
       handleClickBack({
         ...selectedCard,
         diaryContent: editedContent,
@@ -41,22 +39,24 @@ const CardDetail = ({ selectedCard, handleClickBack }) => {
     }
   };
 
-  const handleback = () => {
-    // 수정 취소
+  const handleCancel = () => {
+    // 수정 취소 시 내용 복구 및 닫기
     setIsEditing(false);
     setEditedContent(selectedCard.diaryContent);
+    handleClickBack(null); // 닫기만 하기
   };
+
   useEffect(() => {
-    // selectedCard가 변경될 때마다 editedContent 상태 갱신
     setEditedContent(selectedCard.diaryContent);
   }, [selectedCard]);
+
   return (
     <div className={styles.cardContainer}>
       <img
         src={closeIcon}
         alt="closeIcon"
         className={styles.icon}
-        onClick={handleClickBack}
+        onClick={() => handleClickBack(null)} // 단순 닫기
       />
 
       <div className={styles.header}>
@@ -85,7 +85,7 @@ const CardDetail = ({ selectedCard, handleClickBack }) => {
               <button className={styles.editButton} onClick={handleSave}>
                 저장
               </button>
-              <button className={styles.backButton} onClick={handleback}>
+              <button className={styles.backButton} onClick={handleCancel}>
                 취소하기
               </button>
             </div>
