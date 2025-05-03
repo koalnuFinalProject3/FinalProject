@@ -28,24 +28,12 @@
       "id": "_5xc53r40h",
       "contents": "ㅇㄴ",
       "selectedDate": "2025-05-08",
-      "endYn": true
+      "endYn": false
     },
     {
       "id": "_eh6hqay5c",
       "contents": "asdfasdfasdfasdfasdfasd",
       "selectedDate": "2025-05-08",
-      "endYn": true
-    },
-    {
-      "id": "_2bd6ydizy",
-      "contents": "리액트 3강",
-      "selectedDate": "2025-05-01",
-      "endYn": false
-    },
-    {
-      "id": "_jamrypgms",
-      "contents": "리액트 4강",
-      "selectedDate": "2025-05-01",
       "endYn": false
     }
   ],
