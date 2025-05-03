@@ -4,9 +4,9 @@ import interactionPlugin from '@fullcalendar/interaction';
 import { useEffect, useState } from 'react';
 import Modal from '../../../../components/common/Modal';
 import useModal from '../../../../hooks/useModal';
-import styles from '../CalendarTodo/CalendarTodo.module.css';
 import ToDo from './ToDo';
 import { createTodo, deleteTodo, getTodos, updateTodo } from '../../../../apis/todoApi';
+import styles from './CalendarTodo.module.css';
 
 const CalendarTodo = ({ setCalendarType }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -50,6 +50,7 @@ const CalendarTodo = ({ setCalendarType }) => {
   const events = todos.map((todo) => ({
     title: todo.contents,
     date: todo.selectedDate,
+    classNames: todo.endYn ? [styles['fc-event-done']] : [styles['fc-event-not-done']],
   }));
 
   function randomIDGenerate(){
@@ -108,7 +109,7 @@ const CalendarTodo = ({ setCalendarType }) => {
   };
 
   return (
-    <div className="calendarArea">
+    <div className='calendarArea'>
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}
         dateClick={handleDateClick}
@@ -138,8 +139,8 @@ const CalendarTodo = ({ setCalendarType }) => {
         handleWindowResize={true}
         locale="ko"
         dayCellContent={(arg) => {
-          return <span>{arg.date.getDate()}</span>;
-        }}
+          return <span>{arg.date.getDate()}</span>
+      }}
       />
       {isOpen && (
         <Modal
