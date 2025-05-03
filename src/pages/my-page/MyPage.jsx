@@ -1,3 +1,8 @@
+import EmotionStatus from './EmotionStatus';
+import RecommendedMusic from './RecommendedMusic';
+import PeriodTabs from './PeriodTabs';
+import EmotionChart from './EmotionChart';
+import TodoChart from './TodoChart';
 
 import profile from '../../assets/images/Img_landing.png';
 import styles from './MyPage.module.css';
@@ -9,6 +14,7 @@ import sad from '../../assets/images/sadChar.png';
 import soso from '../../assets/images/sosoChar.png';
 import joy from '../../assets/images/joyChar.png';
 import depressed from '../../assets/images/depressedChar.png';
+import { useEffect, useState } from 'react';
 
 const imageMap = {
   'happyChar.png': happy,
@@ -19,8 +25,7 @@ const imageMap = {
 };
 
 const MyPage = () => {
-  
-  const {isLoggedIn} = useUserStore();
+  const { isLoggedIn } = useUserStore();
   const navigate = useNavigate();
 
   const getToday = () => {
@@ -38,18 +43,15 @@ const MyPage = () => {
   };
 
   const todayEmotion = useTodayEmotion();
-  console.log("mypage==>>>>todayemotion",todayEmotion);
-  const emoji = todayEmotion
-    ? imageMap[todayEmotion.image]
-    : profile;
-    console.log("mypage==>>>>emoji",emoji);
+  console.log('mypage==>>>>todayemotion', todayEmotion);
+  const emoji = todayEmotion ? imageMap[todayEmotion.image] : profile;
+  console.log('mypage==>>>>emoji', emoji);
 
-    useEffect(() => {
-      if (!isLoggedIn) {
-        navigate('/');
-      }
-    }, [isLoggedIn]);
-
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate('/');
+    }
+  }, [isLoggedIn]);
 
   return (
     <div className={styles.myPageContainer}>
