@@ -103,15 +103,16 @@ const CalendarTodo = ({ setCalendarType }) => {
 
   // 체크 상태 변경 함수
   const handleCheckChange = async (index) => {
-    const updatedEvent = { ...filteredEvents[index] };
-    updatedEvent.endYn = !updatedEvent.endYn;
-
     try {
-      await updateTodo(updatedEvent.id, { endYn: updatedEvent.endYn });
+      const updatedEvent = { ...filteredEvents[index] };
+      updatedEvent.endYn = !updatedEvent.endYn;
+
+      // 먼저 로컬 상태를 즉시 업데이트하여 UI에 반영
       const newFiltered = [...filteredEvents];
       newFiltered[index] = updatedEvent;
       setFilteredEvents(newFiltered);
-      fetchTodos(); // 최신 상태 반영
+
+      await updateTodo(updatedEvent.id, updatedEvent);
     } catch (error) {
       console.error('체크 상태 업데이트 실패:', error.message);
     }

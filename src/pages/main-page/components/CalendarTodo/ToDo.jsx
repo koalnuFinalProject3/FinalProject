@@ -1,33 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from '../CalendarTodo/Todo.module.css';
 
 const ToDo = ({
-  updateEvents,
   isLoading,
   setNewTodoContent,
   newTodoContent,
   handleAddTodo,
   handleDeleteTodo,
   handleCheckChange,
-  selectedDate,
   filteredEvents,
-  setFilteredEvents,
 }) => {
-  console.log(filteredEvents, 'filteredEvent');
-
-  // filteredCheckedEvents에 checked 상태를 추가한 새로운 배열 상태 관리
-  const [todoList, setTodoList] = useState(
-    filteredEvents.map((event) => ({ ...event, checked: false }))
-  );
-
   // 체크된 할 일 개수 계산
-  const completedCount = filteredEvents.filter(event => event.endYn).length;
+  const completedCount = filteredEvents.filter((event) => event.endYn).length;
   const totalCount = filteredEvents.length;
 
   // 진행률 계산: 체크된 할 일 수 / 전체 할 일 수 * 100
   const progress =
     totalCount === 0 ? 0 : Math.round((completedCount / totalCount) * 100);
-
 
   return (
     <div className={styles.modalcontainer}>
@@ -57,22 +46,19 @@ const ToDo = ({
             {isLoading ? (
               'Adding...'
             ) : (
-              <img src="/src/assets/icons/add.svg" alt="추가" style={{ opacity: isLoading ? 0 : 1 }} />
+              <img
+                src="/src/assets/icons/add.svg"
+                alt="추가"
+                style={{ opacity: isLoading ? 0 : 1 }}
+              />
             )}
           </button>
         </div>
       </form>
-      {/* <div>todo:</div> */}
       <ul>
         {filteredEvents.map((event, index) => (
-          <li key={index}>
-<<<<<<< HEAD
+          <li key={event.id}>
             <div className={event.endYn ? styles.completedText : ''}>
-=======
-            <div
-              className={event.endYn ? styles.completedText : ''}
-            >
->>>>>>> 95ea032343f739fe07107b7536dff6f6eeb949f0
               {event.contents}
             </div>
             <div className={styles.editIcons}>
@@ -84,7 +70,6 @@ const ToDo = ({
                     onChange={() => handleCheckChange(index)}
                   />
                   <span className={styles.checkmark}>
-                    {/* 체크박스가 체크되었을 때만 SVG 체크 아이콘 표시 */}
                     {event.endYn && (
                       <svg
                         width="15"
@@ -105,7 +90,10 @@ const ToDo = ({
                   </span>
                 </label>
               </div>
-              <button className={styles.deleteBtn} onClick={() => handleDeleteTodo(event.id)}>
+              <button
+                className={styles.deleteBtn}
+                onClick={() => handleDeleteTodo(event.id)}
+              >
                 <svg
                   width="18"
                   height="20"
