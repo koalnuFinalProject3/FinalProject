@@ -1,0 +1,42 @@
+.fc-event-done{
+  text-decoration: line-through;
+  color: #000; 
+  background-color: #ffffff;
+  border: none;
+  border-bottom: 1px solid #c4c9c7;
+  position: relative;
+  width: 85%;
+}
+.fc-event-done::after{
+  content: '';
+  position: absolute;
+  height: 0.1rem; /* 선의 두께 */
+  border-radius: 0.1rem;
+  background-color: #B7D589;
+  width:100%; 
+  top: 50%; /* 가운데 정렬 */
+  left: 0;
+  transform: translateY(-50%); /* 정확히 세로 중앙에 오도록 조정 */
+}
+.fc-event-done::before {
+  content: '';
+  position: absolute;
+  top: 0.3rem; /* 필요 시 조정 */
+  right: -1.2rem;
+  width: 1rem;
+  height: 1rem;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='15' height='12' fill='none' viewBox='0 0 15 12'><path d='M1 6L5.24264 10.2426L13.727 1.75732' stroke='%23B7D589' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+
+.fc-event-not-done{
+  background-color: white;
+  border:none;
+  border-bottom: 1px solid #B7D589;
+}
+
+div[class*="fc-event-title"] {
+  color: #000;
+}

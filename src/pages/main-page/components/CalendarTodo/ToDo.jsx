@@ -1,33 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from '../CalendarTodo/Todo.module.css';
 
-const ToDo = ({ selectedDate, filteredEvents, updateEvents }) => {
-  console.log(filteredEvents, 'filteredEvent');
-  // filteredEvents에 checked 상태를 추가한 새로운 배열 상태 관리
-  const [todoList, setTodoList] = useState(
-    filteredEvents.map((event) => ({ ...event, checked: false }))
-  );
-
+const ToDo = ({
+  isLoading,
+  setNewTodoContent,
+  newTodoContent,
+  handleAddTodo,
+  handleDeleteTodo,
+  handleCheckChange,
+  filteredEvents,
+}) => {
   // 체크된 할 일 개수 계산
-  const completedCount = todoList.filter((event) => event.checked).length;
-  const totalCount = todoList.length;
+  const completedCount = filteredEvents.filter((event) => event.endYn).length;
+  const totalCount = filteredEvents.length;
 
   // 진행률 계산: 체크된 할 일 수 / 전체 할 일 수 * 100
   const progress =
     totalCount === 0 ? 0 : Math.round((completedCount / totalCount) * 100);
-
-  // 체크 상태 변경 함수
-  const handleCheckChange = (index) => {
-    const newTodoList = [...todoList];
-    newTodoList[index].checked = !newTodoList[index].checked;
-    setTodoList(newTodoList);
-  };
-
-  // 할 일 삭제 함수
-  const handleDelete = (index) => {
-    const newTodoList = todoList.filter((_, i) => i !== index);
-    setTodoList(newTodoList);
-  };
 
   return (
     <div className={styles.modalcontainer}>
@@ -40,22 +29,48 @@ const ToDo = ({ selectedDate, filteredEvents, updateEvents }) => {
         </div>
         <div className={styles.progressText}>{progress}%</div>
       </div>
-      {/* <div>todo:</div> */}
+      <form onSubmit={handleAddTodo}>
+        <div className={styles.inputArea}>
+          <input
+            type="text"
+            value={newTodoContent}
+            onChange={(e) => setNewTodoContent(e.target.value)}
+            placeholder="write a todo here"
+            disabled={isLoading}
+          />
+          <button
+            type="submit"
+            disabled={isLoading || !newTodoContent.trim()}
+            className={styles.buttonPlus}
+          >
+            {isLoading ? (
+              'Adding...'
+            ) : (
+              <img
+                src="/src/assets/icons/add.svg"
+                alt="추가"
+                style={{ opacity: isLoading ? 0 : 1 }}
+              />
+            )}
+          </button>
+        </div>
+      </form>
       <ul>
         {filteredEvents.map((event, index) => (
-          <li key={index}>
-            <div>{event.title}</div>
-            <div className={styles.editIcon}>
+          <li key={event.id}>
+            <div className={event.endYn ? styles.completedText : ''}>
+              {event.contents}
+            </div>
+            <div className={styles.editIcons}>
               <div>
                 <label className={styles.checkboxContainer}>
                   <input
                     type="checkbox"
-                    checked={event.checked}
+                    checked={!!event.endYn}
                     onChange={() => handleCheckChange(index)}
                   />
                   <span className={styles.checkmark}>
-                    {/* 체크박스가 체크되었을 때만 SVG 체크 아이콘 표시 */}
-                    {event.checked && (
+                    {event.endYn && (
                       <svg
                         width="15"
                         height="12"
@@ -75,7 +90,10 @@ const ToDo = ({ selectedDate, filteredEvents, updateEvents }) => {
                   </span>
                 </label>
               </div>
-              <div>
+              <button
+                className={styles.deleteBtn}
+                onClick={() => handleDeleteTodo(event.id)}
+              >
                 <svg
                   width="18"
                   height="20"
@@ -88,14 +106,11 @@ const ToDo = ({ selectedDate, filteredEvents, updateEvents }) => {
                     fill="#B3B3B3"
                   />
                 </svg>
-              </div>
+              </button>
             </div>
           </li>
         ))}
       </ul>
-      <button className={styles.buttonPlus}>
-        <img src="/src/assets/icons/add.svg" alt="추가" />
-      </button>
     </div>
   );
 };

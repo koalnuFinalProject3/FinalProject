@@ -1,12 +1,4 @@
-// src/pages/my-page/MyPage.jsx
-import React, { useState, useEffect  } from 'react';
-import EmotionStatus from './EmotionStatus';
-import RecommendedMusic from './RecommendedMusic';
-import PeriodTabs from './PeriodTabs';
-import EmotionChart from './EmotionChart';
-import TodoChart from './TodoChart';
-import useEmotionStore from '../../stores/useEmotionStore';
-import useEmotions from '../../hooks/useEmotions';
+
 import profile from '../../assets/images/Img_landing.png';
 import styles from './MyPage.module.css';
 import useUserStore from '../../stores/useUserStore';
