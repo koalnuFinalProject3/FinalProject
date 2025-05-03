@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef  } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import interactionPlugin, { Draggable } from '@fullcalendar/interaction';
@@ -159,18 +159,18 @@ const CalendarDiary = ({ setCalendarType }) => {
 
   // 드랍시 발생 이벤트!
   const handleDrop = async (info) => {
-    if (isHandlingDrop.current) return; 
+    if (isHandlingDrop.current) return;
     isHandlingDrop.current = true;
 
     const clickDate = parseInt(info.dateStr.replace(/-/g, ''));
     const today = getTodayDate();
 
-    if (clickDate > today){
+    if (clickDate > today) {
       alert("미래의 감정표현은 할 수 없어요!")
       isHandlingDrop.current = false;
       return;
-    } 
-      
+    }
+
     console.log("날짜에 드래그 했어요!")
     const emotionId = info.draggedEl.dataset.id; // 드래그한 emotion 코드
     // console.log('emotionId',emotionId);
@@ -195,14 +195,14 @@ const CalendarDiary = ({ setCalendarType }) => {
     isHandlingDrop.current = false;
   };
 
-  
+
   /* 날짜에 보여지는 것 */
   function renderEventContent(eventInfo) {
     //id 불러오기(일기)
     const eventId = eventInfo.event._def.publicId;
 
     const matchedItems = diary.filter(item => item.id === eventId);
-    console.log('matchedItems',matchedItems)
+    console.log('matchedItems', matchedItems)
     console.log('eventInfo', eventInfo.event.startStr);
     //날짜 일치하는 이모지 불러오기
     const emotion = emotions.find(item => item.selectedDate === matchedItems[0].selectedDate);
@@ -245,13 +245,17 @@ const CalendarDiary = ({ setCalendarType }) => {
     );
   }
 
-
+  // <div>감정을 기록하세요!</div>
+  // <div>감정 아이콘을 오늘 날짜로 끌어다 놓아보세요.</div>
   return (
     <div className='calendarArea'>
       {/* 이모티콘 영역 */}
       <div id='external-events' className={styles.emotionArea}>
         <div className={styles.emotionQuestionArea}>
-          감정 한 조각 표현하기 <img src={question} alt='question' />
+          감정 한 조각 표현하기
+          <div className={styles.question}>
+            <img src={question} alt='question' />
+          </div>
         </div>
         <div className={styles.emotionSlide} >
           <img className={`${styles.emotionStick} emotionStick`} data-id='1' src={sad} />
@@ -268,9 +272,9 @@ const CalendarDiary = ({ setCalendarType }) => {
         events={diary.map(item => ({
           id: item.id,
           title: item.title,
-          start: item.selectedDate,        // 날짜
-          contents: item.contents,  // 커스텀 데이터
-          // emotion: item.emotion     // 커스텀 데이터
+          start: item.selectedDate,
+          contents: item.contents,
+          // emotion: item.emotion    
         }))}
         eventContent={renderEventContent}
         dateClick={handleDateClick}
