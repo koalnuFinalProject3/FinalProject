@@ -53,10 +53,15 @@ li{
 .checkboxContainer {
   display: inline-block;
   position: relative;
-  padding-left: 24px;
+  /* padding-left: 24px; */
   cursor: pointer;
   font-size: 16px;
   user-select: none;
+  height: 1.5rem;
+  width: 1.5rem;
+  aspect-ratio: 1/1;
+  margin-right: 1.5rem;
+  margin-top: 0.35rem;
 }
 
 /* 기본 체크박스 숨김 */
@@ -69,8 +74,8 @@ li{
 /* 커스텀 체크박스 */
 .checkmark {
   position: absolute;
-  top: -0.7rem;
-  left: -1rem;
+  top: -0.15rem;
+  left: -0.15rem;
   height: 18px;
   width: 18px;
   background-color: #eee;
