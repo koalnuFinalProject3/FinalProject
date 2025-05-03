@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef  } from 'react';
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import interactionPlugin, { Draggable } from '@fullcalendar/interaction';
@@ -8,25 +8,28 @@ import CalendarDiaryModal from './CalendarDiaryModal/CalendarDiaryModal';
 import styles from './CalendarDiary.module.css'
 import axios from 'axios';
 import useDiaryStore from '../../../../stores/useDiaryStore';
+
 // 감정 이모지
 import sad from '../../../../assets/images/sadChar.png';
 import soso from '../../../../assets/images/sosoChar.png';
 import happy from '../../../../assets/images/joyChar.png';
 import joy from '../../../../assets/images/happyChar.png';
 import depressed from '../../../../assets/images/depressedChar.png';
-
 import question from '../../../../assets/icons/question.svg'
 
 
 const CalendarDiary = ({ setCalendarType }) => {
 
   //일기
-  const { diary, setDiary, emotions, setEmotions,resetEmotions } = useDiaryStore();
+  const { diary, setDiary, emotions, setEmotions, resetEmotions } = useDiaryStore();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
   const [change, setChange] = useState(false);
   const [diaryObj, setDiaryobj] = useState({});
+
+  // 두 번 실행을 막는 기능!
+  const isHandlingDrop = useRef(false);
   /* ------------------------------------------------------------ */
   // useEffect(() => {
   //   resetEmotions();
@@ -64,7 +67,7 @@ const CalendarDiary = ({ setCalendarType }) => {
       .catch(error => {
         console.error('데이터 가져오기 실패:', error);
       });
-  }, [isModalOpen, change ]);
+  }, [isModalOpen, change]);
 
   /* ----------------------------------------------------------- */
   //YYYY-MM-DD 반환환
@@ -101,14 +104,14 @@ const CalendarDiary = ({ setCalendarType }) => {
   };
 
   /* ---------------------------------------------------------------------------- */
-
+  // 감정들 드래그앤 드랍 기능
   useEffect(() => {
     const draggableEl = document.getElementById('external-events');
     if (draggableEl) {
       new Draggable(draggableEl, {
         itemSelector: '.emotionStick',
         eventData: function (eventEl) {
-          // console.log('evnetEl',eventEl.dataset.id);
+          console.log('드래그해요!', eventEl.dataset.id);
           return {
             emotion: eventEl.dataset.id,
             // image: eventEl.src,
@@ -132,7 +135,6 @@ const CalendarDiary = ({ setCalendarType }) => {
       setChange(!change);
     } catch (error) {
       console.error('수정 실패:', error);
-      alert('수정 실패');
     }
   };
 
@@ -150,43 +152,63 @@ const CalendarDiary = ({ setCalendarType }) => {
     }
   };
 
-  const fetchEmotions = async () => {
-    const res = await axios.get('http://localhost:3000/emotion');
-    setEmotions(res.data);
-  };
+  // const fetchEmotions = async () => {
+  //   const res = await axios.get('http://localhost:3000/emotion');
+  //   setEmotions(res.data);
+  // };
 
   // 드랍시 발생 이벤트!
   const handleDrop = async (info) => {
-    console.log("handleDrop")
-    const emotionId = info.draggedEl.dataset.id;
-    const droppedDate = info.dateStr;
-    const emotionMatch = emotions.find(item => item.selectedDate === droppedDate);
-    console.log(emotionMatch);
+    if (isHandlingDrop.current) return; 
+    isHandlingDrop.current = true;
+
+    const clickDate = parseInt(info.dateStr.replace(/-/g, ''));
+    const today = getTodayDate();
+
+    if (clickDate > today){
+      alert("미래의 감정표현은 할 수 없어요!")
+      isHandlingDrop.current = false;
+      return;
+    } 
+      
+    console.log("날짜에 드래그 했어요!")
+    const emotionId = info.draggedEl.dataset.id; // 드래그한 emotion 코드
+    // console.log('emotionId',emotionId);
+    const droppedDate = info.dateStr; // 드롭한 해당 날짜
+    const emotionMatch = emotions.find(item => item.selectedDate === droppedDate); // 드롭한 날짜와 동일한 이모션 객체 불러오기
+    console.log("emotionMatch", emotionMatch);
 
     try {
       if (emotionMatch) {
+        // 수정시
         await updateEmotion(emotionMatch, emotionId);
       } else {
+        // 새로 이모지 붙일 시
         await createEmotion(emotionId, droppedDate);
       }
 
-      await fetchEmotions();
+      // await fetchEmotions();
     } catch (error) {
       console.error('드롭 처리 중 오류 발생:', error);
     }
+
+    isHandlingDrop.current = false;
   };
 
+  
   /* 날짜에 보여지는 것 */
   function renderEventContent(eventInfo) {
     //id 불러오기(일기)
     const eventId = eventInfo.event._def.publicId;
+
     const matchedItems = diary.filter(item => item.id === eventId);
+    console.log('matchedItems',matchedItems)
+    console.log('eventInfo', eventInfo.event.startStr);
     //날짜 일치하는 이모지 불러오기
     const emotion = emotions.find(item => item.selectedDate === matchedItems[0].selectedDate);
     // console.log('emo', emotion ? emotion.emotion : 0);
 
-    console.log("redering emotion,", emotion);
-
+    console.log("rendering emotion,", emotion);
 
     // 이미지 경로 지정
     let emotionImg = null;
@@ -241,6 +263,7 @@ const CalendarDiary = ({ setCalendarType }) => {
       </div>
 
       <FullCalendar
+        key={change} // 값 변경시 리랜더링
         plugins={[dayGridPlugin, interactionPlugin]}
         events={diary.map(item => ({
           id: item.id,
