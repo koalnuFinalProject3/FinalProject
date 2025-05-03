@@ -2,15 +2,14 @@
   border: 0.2rem solid var(--color-green-dark);
   border-radius: 8px;
   padding: 3rem;
-
   flex: 1;
   margin: 6rem 5rem 6rem 0;
   background-color: #f4f2ee;
   position: relative;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-  position: relative;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
 .icon {
   color: #222;
   background-color: var(--color-green-dark);
@@ -40,14 +39,17 @@
   background-color: lightgray;
   margin: 0 20px;
 }
+
 .avatarImg {
   width: 100%;
 }
+
 .date {
   font-size: 2rem;
   color: #2a5c39;
   font-weight: 800;
 }
+
 .title {
   font-size: 1.3rem;
   font-weight: 600;
@@ -75,11 +77,61 @@
   align-self: flex-end;
   margin-bottom: 8px;
 }
+.backButton {
+  background-color: #ab1010;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-bottom: 8px;
+}
+.backButton:hover {
+  background-color: #ffd1d1;
+}
 
+/* 수정 폼 부분 스타일 */
+.textarea {
+  width: 80%;
+  height: 150px;
+  padding: 12px;
+  font-size: 16px;
+  resize: vertical;
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+  margin-bottom: 16px;
+  background-color: #fff;
+}
+
+.textarea:focus {
+  outline: none;
+  border: 1px solid #4caf50;
+}
+
+.saveButton {
+  background-color: #4caf50;
+}
+
+.saveButton:hover {
+  background-color: #e1ffe2;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 30px;
+}
 .content {
   font-size: 2rem;
   line-height: 1.6;
   text-align: center;
   color: #222;
-  /* word-break: keep-all; */
+}
+
+.titleInput {
+  font-size: 18px;
+  width: 100%;
+  padding: 4px;
+  margin-top: 4px;
 }

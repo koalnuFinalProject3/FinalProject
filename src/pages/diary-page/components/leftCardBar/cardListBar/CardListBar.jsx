@@ -77,6 +77,7 @@ const CardListBar = ({ handleClickCard }) => {
                   diaryContent={relatedDiary ? relatedDiary.title : '내용 없음'}
                   onClick={() =>
                     handleClickCard({
+                      id: relatedDiary ? relatedDiary.id : undefined,
                       date: emotion.selectedDate,
                       emotion: emotion.emotion,
                       diaryContent: relatedDiary
