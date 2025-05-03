@@ -3,7 +3,8 @@ import styles from '../CalendarTodo/Todo.module.css';
 
 const ToDo = ({ selectedDate, filteredEvents, updateEvents }) => {
   console.log(filteredEvents, 'filteredEvent');
-  // filteredEvents에 checked 상태를 추가한 새로운 배열 상태 관리
+
+  // filteredCheckedEvents에 checked 상태를 추가한 새로운 배열 상태 관리
   const [todoList, setTodoList] = useState(
     filteredEvents.map((event) => ({ ...event, checked: false }))
   );
@@ -44,8 +45,10 @@ const ToDo = ({ selectedDate, filteredEvents, updateEvents }) => {
       <ul>
         {filteredEvents.map((event, index) => (
           <li key={index}>
-            <div>{event.title}</div>
-            <div className={styles.editIcon}>
+            <div className={event.endYn ? styles.completedText : ''}>
+              {event.contents}
+            </div>
+            <div className={styles.editIcons}>
               <div>
                 <label className={styles.checkboxContainer}>
                   <input

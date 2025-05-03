@@ -1,6 +1,7 @@
 {
   "todos": [
     {
+<<<<<<< HEAD
       "id": "1a2b",
       "selectedDate": "2025-05-01",
       "contents": "회의 준비하기",
@@ -132,6 +133,35 @@
       "id": "5o6p",
       "selectedDate": "2025-05-09",
       "contents": "팀 회의",
+=======
+      "contents": "ㄴㄴㄴ",
+      "selectedDate": "2025-05-13",
+      "endYn": false,
+      "id": 5
+    },
+    {
+      "contents": "ㅁㄴㅇㄻㄴㅇㄹ",
+      "selectedDate": "2025-05-30",
+      "endYn": false,
+      "id": 6
+    },
+    {
+      "contents": "ㅁㄴㅇㄹ",
+      "selectedDate": "2025-06-14",
+      "endYn": false,
+      "id": 7
+    },
+    {
+      "id": "_4glnxggzq",
+      "contents": "66",
+      "selectedDate": "2025-04-30",
+      "endYn": false
+    },
+    {
+      "id": "_48p8lwwyt",
+      "contents": "6666",
+      "selectedDate": "2025-05-04",
+>>>>>>> de24b6d (feat: 2 todomodal inner - check, delete function)
       "endYn": false
     }
   ],
