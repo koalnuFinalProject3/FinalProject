@@ -44,7 +44,6 @@ const CardDetail = ({ selectedCard, handleClickBack }) => {
     // 수정 취소 시 내용 복구 및 닫기
     setIsEditing(false);
     setEditedContent(selectedCard.diaryContent);
-    handleClickBack(null); // 닫기만 하기
   };
 
   useEffect(() => {

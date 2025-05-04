@@ -52,7 +52,7 @@ const CalendarDiary = ({ setCalendarType }) => {
   useEffect(() => {
     Promise.all([
       axios.get('http://localhost:3000/diary'),
-      axios.get('http://localhost:3000/emotion'),
+      axios.get('http://localhost:3000/emotion')
     ])
       .then(([diaryRes, emotionRes]) => {
         setDiary(diaryRes.data);
@@ -122,14 +122,11 @@ const CalendarDiary = ({ setCalendarType }) => {
   //감정 수정
   const updateEmotion = async (emotionMatch, emotionId) => {
     try {
-      const response = await axios.put(
-        `http://localhost:3000/emotion/${emotionMatch.id}`,
-        {
-          id: emotionMatch.id,
-          emotion: parseInt(emotionId),
-          selectedDate: emotionMatch.selectedDate,
-        }
-      );
+      const response = await axios.put(`http://localhost:3000/emotion/${emotionMatch.id}`, {
+        id: emotionMatch.id,
+        emotion: parseInt(emotionId),
+        selectedDate: emotionMatch.selectedDate,
+      });
       console.log('수정 성공:', response.data);
       toast.success('수정 성공');
       setChange(!change);

@@ -189,12 +189,12 @@
     {
       "id": "1",
       "text": "우울해요",
-      "image": "depressedChar.png"
+      "image": "sadChar.png"
     },
     {
       "id": "2",
       "text": "슬퍼요",
-      "image": "sadChar.png"
+      "image": "depressedChar.png"
     },
     {
       "id": "3",
@@ -204,12 +204,12 @@
     {
       "id": "4",
       "text": "기뻐요",
-      "image": "joyChar.png"
+      "image": "happyChar.png"
     },
     {
       "id": "5",
       "text": "행복해요",
-      "image": "happyChar.png"
+      "image": "joyChar.png"
     }
   ],
   "dailyEmotions": [
@@ -465,129 +465,79 @@
   ],
   "emotion": [
     {
-      "id": "3cdb",
-      "emotion": 3,
-      "selectedDate": "2025-05-02"
+      "id": "1",
+      "selectedDate": "2025-04-25",
+      "emotion": 3
     },
     {
-      "id": "bd8a",
-      "emotion": 4,
-      "selectedDate": "2025-05-02"
+      "id": "2",
+      "selectedDate": "2025-04-26",
+      "emotion": 2
     },
     {
-      "id": "58e5",
+      "id": "3",
+      "selectedDate": "2025-04-27",
+      "emotion": 4
+    },
+    {
+      "id": "4",
+      "selectedDate": "2025-04-28",
+      "emotion": 5
+    },
+    {
+      "id": "5",
+      "selectedDate": "2025-04-29",
+      "emotion": 1
+    },
+    {
+      "id": "6",
+      "selectedDate": "2025-04-30",
+      "emotion": 3
+    },
+    {
+      "id": "7",
+      "selectedDate": "2025-05-01",
+      "emotion": 4
+    },
+    {
+      "id": "8",
+      "selectedDate": "2025-05-02",
+      "emotion": 2
+    },
+    {
+      "id": "9",
       "emotion": 2,
-      "selectedDate": "2025-05-01"
-    },
-    {
-      "id": "6e30",
-      "emotion": 3,
-      "selectedDate": "2025-05-01"
-    },
-    {
-      "id": "a9a4",
-      "emotion": 4,
-      "selectedDate": "2025-05-01"
-    },
-    {
-      "id": "4b02",
-      "emotion": 4,
-      "selectedDate": "2025-05-01"
-    },
-    {
-      "id": "c53c",
-      "emotion": 5,
-      "selectedDate": "2025-04-30"
-    },
-    {
-      "id": "dedf",
-      "emotion": 5,
-      "selectedDate": "2025-04-30"
-    },
-    {
-      "id": "a4b8",
-      "emotion": 5,
       "selectedDate": "2025-05-03"
     },
     {
-      "id": "60a3",
-      "emotion": 5,
-      "selectedDate": "2025-05-03"
+      "id": "10",
+      "selectedDate": "2025-04-20",
+      "emotion": 2
     },
     {
-      "id": "a771",
-      "emotion": 2,
-      "selectedDate": "2025-05-04"
+      "id": "11",
+      "selectedDate": "2025-04-21",
+      "emotion": 5
     },
     {
-      "id": "38f9",
-      "emotion": 2,
-      "selectedDate": "2025-05-04"
+      "id": "12",
+      "selectedDate": "2025-04-22",
+      "emotion": 4
     },
     {
-      "id": "93d2",
-      "emotion": 2,
-      "selectedDate": "2025-05-08"
+      "id": "13",
+      "selectedDate": "2025-04-23",
+      "emotion": 1
     },
     {
-      "id": "61e1",
-      "emotion": 2,
-      "selectedDate": "2025-05-08"
+      "id": "14",
+      "selectedDate": "2025-04-24",
+      "emotion": 3
     },
     {
-      "id": "d5d7",
-      "emotion": 3,
-      "selectedDate": "2025-04-29"
-    },
-    {
-      "id": "1404",
-      "emotion": 2,
-      "selectedDate": "2025-05-06"
-    },
-    {
-      "id": "fb44",
-      "emotion": 2,
-      "selectedDate": "2025-05-06"
-    },
-    {
-      "id": "ca6c",
-      "emotion": 3,
-      "selectedDate": "2025-05-06"
-    },
-    {
-      "id": "b89d",
-      "emotion": 3,
-      "selectedDate": "2025-05-06"
-    },
-    {
-      "id": "8ea4",
-      "emotion": 3,
-      "selectedDate": "2025-05-07"
-    },
-    {
-      "id": "be3b",
-      "emotion": 3,
-      "selectedDate": "2025-05-07"
-    },
-    {
-      "id": "b5e6",
-      "emotion": 2,
-      "selectedDate": "2025-05-14"
-    },
-    {
-      "id": "4d5a",
-      "emotion": 2,
-      "selectedDate": "2025-05-14"
-    },
-    {
-      "id": "eb07",
+      "id": "b61c",
       "emotion": 1,
-      "selectedDate": "2025-05-14"
-    },
-    {
-      "id": "b1ce",
-      "emotion": 1,
-      "selectedDate": "2025-05-14"
+      "selectedDate": "2025-05-08"
     }
   ],
   "diary": [
@@ -621,9 +571,8 @@
     {
       "id": "d5",
       "selectedDate": "2025-04-29",
-      "title": "나른한 하루... 뭐지 이 날씨?",
-      "contents": "내가 알던 바람이 아니라구... 그냥 침대에 쓰러져서 하루 종일 누워 있었다. 저녁엔 어쩌다 보니 먹은 불고기, 배 터지게 먹었음. 💥",
-      "emotion": 1
+      "title": "나른한 하루... 뭐지 이 날씨??",
+      "contents": "내가 알던 바람이 아니라구... 그냥 침대에 쓰러져서 하루 종일 누워 있었다. 저녁엔 어쩌다 보니 먹은 불고기, 배 터지게 먹었음. 💥"
     },
     {
       "selectedDate": "2025-04-30",
