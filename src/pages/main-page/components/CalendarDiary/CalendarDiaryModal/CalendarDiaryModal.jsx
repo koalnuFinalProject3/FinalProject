@@ -3,22 +3,22 @@ import useDiaryStore from '../../../../../stores/useDiaryStore';
 import axios from 'axios';
 
 const CalendarDiaryModal = ({ diaryObj, selectedDate, setIsModalOpen }) => {
-    // 제목 & 내용
-    const [title, setTitle] = useState('');
-    const [content, setContent] = useState('');
+  // 제목 & 내용
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
 
-    const { } = useDiaryStore();
+  const {} = useDiaryStore();
 
-    useEffect(() => {
-        if (diaryObj) {
-            setTitle(diaryObj.title);
-            setContent(diaryObj.contents);
-        } else {
-            setTitle('');
-            setContent('');
-        }
-        console.log(diaryObj)
-    }, [diaryObj]);
+  useEffect(() => {
+    if (diaryObj) {
+      setTitle(diaryObj.title);
+      setContent(diaryObj.contents);
+    } else {
+      setTitle('');
+      setContent('');
+    }
+    console.log(diaryObj);
+  }, [diaryObj]);
 
     /* 새 일기 작성 */
     const createDiray = () => {
@@ -59,57 +59,59 @@ const CalendarDiaryModal = ({ diaryObj, selectedDate, setIsModalOpen }) => {
             });
     }
 
-    // console.log('내용',content);
-    // console.log('제목',title);
-    return (
-        <div>
-            <div className='diaryModalTopArea'>
-                <p className='seletedDate'>{selectedDate}</p>
-                <p>
-                    <span className='diaryModalTitle'>제목:</span>
-                    {diaryObj ?
-                        <input
-                            className='diaryModalTitleInput'
-                            placeholder='제목을 작성해주세요.'
-                            onChange={(e) => { setTitle(e.target.value) }}
-                            value={title}
-                        />
-                        : (
-                            <input
-                                className='diaryModalTitleInput'
-                                placeholder='제목을 작성해주세요.'
-                                onChange={(e) => { setTitle(e.target.value) }}
-                            />
-                        )}
-                </p>
-            </div>
+  // console.log('내용',content);
+  // console.log('제목',title);
+  return (
+    <div>
+      <div className="diaryModalTopArea">
+        <p className="seletedDate">{selectedDate}</p>
+        <p>
+          <span className="diaryModalTitle">제목:</span>
+          {diaryObj ? (
+            <input
+              className="diaryModalTitleInput"
+              placeholder="제목을 작성해주세요."
+              onChange={(e) => {
+                setTitle(e.target.value);
+              }}
+              value={title}
+            />
+          ) : (
+            <input
+              className="diaryModalTitleInput"
+              placeholder="제목을 작성해주세요."
+              onChange={(e) => {
+                setTitle(e.target.value);
+              }}
+            />
+          )}
+        </p>
+      </div>
 
-            <div className='diaryModalContextArea'>
-                {diaryObj ?
-                    (
-                        <textarea
-                            className='diaryModalContext'
-                            value={content}
-                            onChange={(e) => setContent(e.target.value)}
-                        >
-                        </textarea>
-                    ) : (
-                        <textarea
-                            className='diaryModalContext'
-                            placeholder='내용을 작성해주세요.'
-                            onChange={(e) => setContent(e.target.value)}
-                        ></textarea>
-                    )}
-            </div>
-            <div className='diaryModalBtnArea'>
-                {diaryObj ? (
-                    <button onClick={editDiary}>수정하기</button>
-                ) : (
-                    <button onClick={createDiray}>기록 저장하기</button>
-                )}
-            </div>
-        </div>
-    )
-}
+      <div className="diaryModalContextArea">
+        {diaryObj ? (
+          <textarea
+            className="diaryModalContext"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+          ></textarea>
+        ) : (
+          <textarea
+            className="diaryModalContext"
+            placeholder="내용을 작성해주세요."
+            onChange={(e) => setContent(e.target.value)}
+          ></textarea>
+        )}
+      </div>
+      <div className="diaryModalBtnArea">
+        {diaryObj ? (
+          <button onClick={editDiary}>수정하기</button>
+        ) : (
+          <button onClick={createDiray}>기록 저장하기</button>
+        )}
+      </div>
+    </div>
+  );
+};
 
-export default CalendarDiaryModal
+export default CalendarDiaryModal;
