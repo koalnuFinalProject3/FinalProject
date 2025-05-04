@@ -5,6 +5,8 @@ import { AnimatePresence, motion } from 'motion/react';
 import { useNavigate } from 'react-router-dom';
 import useUserStore from '../../stores/useUserStore';
 import profileImage from '../../assets/images/Img_landing.png';
+import logo from '../../assets/images/Img_landing.png';
+import character from '../../assets/images/Img_character.png';
 
 const svg = {
   start: { pathLength: 0, fill: 'rgba(23, 124, 61, 0)' },
@@ -15,7 +17,6 @@ const svg = {
 };
 
 const Login = () => {
-
   const [isIntro, setIsIntro] = useState(true);
   const navigate = useNavigate();
 
@@ -54,10 +55,7 @@ const Login = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1 }}
             >
-              <img
-                src="src/assets/images/Img_landing.png"
-                alt="캐릭터 이미지"
-              />
+              <img src={logo} alt="캐릭터 이미지" />
             </motion.div>
 
             <motion.div
@@ -67,21 +65,23 @@ const Login = () => {
               transition={{ duration: 1, delay: 1 }}
             >
               <form onSubmit={handleLogin}>
-              <input
-                type="text"
-                placeholder="아이디를 입력해주세요.."
-                value={id}
-                onChange={(e) => setId(e.target.value)}
-                required={true}
-              />
-              <input
-                type="password"
-                placeholder="비밀번호를 입력해주세요.."
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required={true}
-              />
-                <motion.button type="submit" className={styles.btn}>로그인</motion.button>
+                <input
+                  type="text"
+                  placeholder="아이디를 입력해주세요.."
+                  value={id}
+                  onChange={(e) => setId(e.target.value)}
+                  required={true}
+                />
+                <input
+                  type="password"
+                  placeholder="비밀번호를 입력해주세요.."
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required={true}
+                />
+                <motion.button type="submit" className={styles.btn}>
+                  로그인
+                </motion.button>
               </form>
             </motion.div>
           </>
@@ -129,7 +129,7 @@ const Login = () => {
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <img src="public/Group_68.png" />
+            <img src={character} />
             나의 조각 모으기
           </motion.div>
         )}
