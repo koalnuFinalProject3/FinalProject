@@ -1,13 +1,39 @@
 .emotionArea {
     width: 25rem;
     position: absolute;
-    top: -10rem;
+    top: -7rem;
     /* left: 300px; */
     right: 0rem;
     /* background-color: pink; */
     padding: 10px 0 10px 10px;
-
 }
+
+.question{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-left: 3px;
+}
+.question::after{
+    content: "감정 아이콘을 오늘 날짜로 끌어다 놓아보세요.";
+    font-family: var(--font-kotra);
+    font-size: 0.9rem;
+    position: absolute;
+    top: -1.5rem;
+    right: -1rem;
+    border-radius: 5px;
+    border: 1px solid #cccccce2;
+    background-color: white;
+    padding: 7px;
+    width: 210px;
+    color: rgb(52, 52, 52);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+.question:hover::after {
+    opacity: 1;
+  }
 .emotionQuestionArea{
     width: 100%;
     font-family: var(--font-kotra);
@@ -50,6 +76,10 @@
 }
 .diaryItem{
     position: relative;
+    height: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .diaryItem>img{
     position: absolute;

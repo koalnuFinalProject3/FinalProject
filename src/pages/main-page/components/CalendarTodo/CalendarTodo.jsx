@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 import Modal from '../../../../components/common/Modal';
 import useModal from '../../../../hooks/useModal';
 import ToDo from './ToDo';
+import addCalendarIcon from '../../../../assets/icons/addCalendar.svg?url';
+
 
 import {
   createTodo,
@@ -20,9 +22,15 @@ const CalendarTodo = ({ setCalendarType }) => {
   const [todos, setTodos] = useState([]);
   const { isOpen, open, close } = useModal();
   const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedEvent, setSelectedEvent] = useState(null); 
   const handleDateClick = (info) => {
     setSelectedDate(info.dateStr); // 날짜 선택 시 selectedDate 상태 업데이트
     setNewTodoContent('');
+    open();
+  };
+  const handleEventClick = (info) => {
+    setSelectedDate(info.event.startStr);  // 이벤트의 날짜로 설정
+    setSelectedEvent(info.event);  // 클릭한 이벤트 객체 저장
     open();
   };
   const fetchTodos = async () => {
@@ -38,6 +46,15 @@ const CalendarTodo = ({ setCalendarType }) => {
     }
   };
 
+  // todos 배열을 이벤트 형식에 맞게 변환
+  const events = todos.map((todo) => ({
+    title: todo.contents,
+    date: todo.selectedDate,
+    classNames: todo.endYn
+      ? [styles['fc-event-done'], ['event-container']]
+      : [styles['fc-event-not-done'], ['event-container']],
+  }));
+
   useEffect(() => {
     fetchTodos();
   }, []);
@@ -52,15 +69,10 @@ const CalendarTodo = ({ setCalendarType }) => {
     }
   }, [selectedDate, todos]);
 
-  // todos 배열을 이벤트 형식에 맞게 변환
-  const events = todos.map((todo) => ({
-    title: todo.contents,
-    date: todo.selectedDate,
-
-    classNames: todo.endYn
-      ? [styles['fc-event-done']]
-      : [styles['fc-event-not-done']],
-  }));
+  const handleCloseModal = () => {
+    fetchTodos(); // 데이터를 새로 fetch
+    close(); // 모달 닫기
+  };
 
   function randomIDGenerate() {
     return '_' + Math.random().toString(36).substr(2, 9);
@@ -121,8 +133,10 @@ const CalendarTodo = ({ setCalendarType }) => {
   return (
     <div className="calendarArea">
       <FullCalendar
+        className={styles.todoCalendar}
         plugins={[dayGridPlugin, interactionPlugin]}
         dateClick={handleDateClick}
+        eventClick={handleEventClick} 
         events={events}
         initialView="dayGridMonth"
         customButtons={{
@@ -144,12 +158,15 @@ const CalendarTodo = ({ setCalendarType }) => {
           center: 'title',
           end: 'today prev,next',
         }}
-        height={700}
+        height={750}
         contentHeight={500}
         handleWindowResize={true}
         locale="ko"
         dayCellContent={(arg) => {
           return <span>{arg.date.getDate()}</span>;
+        }}
+        dayCellDidMount={(arg) => {
+          arg.el.classList.add('dayContainer'); // 원하는 class 추가
         }}
       />
       {isOpen && (
@@ -162,7 +179,7 @@ const CalendarTodo = ({ setCalendarType }) => {
                 )}월 ${Number(selectedDate.split('-')[2])}일`
               : ''
           }
-          onClose={close}
+          onClose={handleCloseModal}
         >
           <ToDo
             isLoading={isLoading}

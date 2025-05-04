@@ -20,15 +20,16 @@
   border: none !important;
 }
 /* 캘린더 첫번째 행 선 */
-#root > div._appLayout_lr6lw_11 > div._appLayoutCenter_lr6lw_21 > div > div:nth-child(2) > div > div > div.fc-view-harness.fc-view-harness-active > div > table > thead > tr > th > div{
+.fc-scroller-harness{
   border-top: 1px solid var( --color-gray);
   border-bottom: 1px solid var( --color-gray);
-  height: 2.5rem;
+  height: 2rem;
   display: flex;
   align-items: center;
 }
+.fc-scroller{overflow: hidden; scrollbar-width: none;  }
 /* 캘린더 아래부분 선 */
-#root > div._appLayout_lr6lw_11 > div._appLayoutCenter_lr6lw_21 > div > div:nth-child(2) > div > div > div.fc-view-harness.fc-view-harness-active{
+.fc-view-harness{
   border-bottom: 1px solid var( --color-gray);
 }
 
@@ -85,4 +86,23 @@
 .fc-daygrid-day-frame.fc-scrollgrid-sync-inner{
   height: 6.5rem;
   overflow: hidden;
+  cursor: pointer;
 }
+.sadDiary{background-color: #6B7773; border: 1px solid #6B7773}
+.depressedDiary{background-color: #3A7751; border: 1px solid #3A7751}
+.sosoDiary{background-color: #61AF72; border: 1px solid #61AF72}
+.joyDiary{background-color: #B7D589; border: 1px solid #B7D589}
+.happyDiary{background-color: #FAE68D; border: 1px solid #FAE68D}
+.noneDiary{background-color: rgb(177, 222, 255);}
+
+}
+/* background - 충돌 영역*/
+:root {
+  --fc-today-bg-color: #DABC71; 
+}
+.fc-today-button{
+  background-color: #DABC71 !important;
+  border: 1px solid #af9656 !important;
+  opacity: 1 !important;
+}
+

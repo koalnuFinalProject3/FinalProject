@@ -3,6 +3,7 @@ import styles from './CardDetail.module.css';
 import closeIcon from '../../../../../assets/icons/closeMd.svg';
 import { emotionImages } from '../../../../../components/common/EmotionAssets';
 import { updateDiary } from '../../../../../apis/diary';
+import { toast } from 'react-toastify';
 
 const CardDetail = ({ selectedCard, handleClickBack }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -25,7 +26,7 @@ const CardDetail = ({ selectedCard, handleClickBack }) => {
         emotion: selectedCard.emotion,
       });
 
-      // alert('일기 수정 완료!');
+      // toast.success('일기 수정 완료!');
       setIsEditing(false);
 
       // 수정된 카드 데이터를 상위 컴포넌트로 전달
@@ -35,7 +36,7 @@ const CardDetail = ({ selectedCard, handleClickBack }) => {
       });
     } catch (error) {
       console.error('에러 발생:', error);
-      alert('수정에 실패했습니다.');
+      toast.error('수정에 실패했습니다.');
     }
   };
 
@@ -43,7 +44,6 @@ const CardDetail = ({ selectedCard, handleClickBack }) => {
     // 수정 취소 시 내용 복구 및 닫기
     setIsEditing(false);
     setEditedContent(selectedCard.diaryContent);
-    handleClickBack(null); // 닫기만 하기
   };
 
   useEffect(() => {

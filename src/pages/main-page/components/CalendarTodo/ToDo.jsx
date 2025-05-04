@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './ToDo.module.css';
+import add from '../../../../assets/icons/add.svg';
 
 const ToDo = ({
   isLoading,
@@ -43,13 +44,26 @@ const ToDo = ({
             disabled={isLoading || !newTodoContent.trim()}
             className={styles.buttonPlus}
           >
-            {isLoading ? (
-              'Adding...'
+            {/* {isLoading ? (
+              'loading...'
             ) : (
               <img
-                src="/src/assets/icons/add.svg"
+                src={add}
                 alt="추가"
                 style={{ opacity: isLoading ? 0 : 1 }}
+              />
+            )} */}
+            {isLoading ? (
+              <img
+              src={add}
+              alt="추가"
+              style={{ opacity: isLoading ? 1 : 1 }}
+            />
+            ) : (
+              <img
+                src={add}
+                alt="추가"
+                style={{ opacity: isLoading ? 1 : 1 }}
               />
             )}
           </button>
@@ -57,13 +71,13 @@ const ToDo = ({
       </form>
       <ul>
         {filteredEvents.map((event, index) => (
-          <li key={event.id}>
+          <li key={event.id} className={styles.todoItem}>
             <div className={event.endYn ? styles.completedText : ''}>
               {event.contents}
             </div>
             <div className={styles.editIcons}>
-              <div>
-                <label className={styles.checkboxContainer}>
+              <div className={styles.checkboxContainer}>
+                <label >
                   <input
                     type="checkbox"
                     checked={!!event.endYn}
