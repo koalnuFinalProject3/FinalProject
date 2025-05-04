@@ -53,6 +53,18 @@ const EmotionChart = ({ startDate, endDate }) => {
               legend: {
                 position: 'bottom',
               },
+              tooltip: {
+                callbacks: {
+                  label: function (tooltipItem) {
+                    const dataset = tooltipItem.dataset;
+                    const total = dataset.data.reduce((acc, val) => acc + val, 0);
+                    const value = dataset.data[tooltipItem.dataIndex];
+                    const percentage = ((value / total) * 100).toFixed(1);
+                    const label = tooltipItem.label || '';
+                    return `${label}: ${value} (${percentage}%)`;
+                  },
+                },
+              },
             },
           }}
         />

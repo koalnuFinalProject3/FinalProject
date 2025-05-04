@@ -94,10 +94,10 @@ const SideNav = () => {
             <img src={diary} alt="diary" />
             <span>내 일기</span>
           </Link>
-          <Link to="test" className={styles.aCenter}>
+          {/* <Link to="test" className={styles.aCenter}>
             <img src={setting} alt="setting" />
             <span>설정하기</span>
-          </Link>
+          </Link> */}
           <div className={styles.aCenter} onClick={handleLogout}>
             <img src={logout} alt="logout" />
             <span>로그아웃</span>
