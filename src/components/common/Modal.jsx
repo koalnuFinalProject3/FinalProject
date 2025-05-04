@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import styles from './Modal.module.css';
+import closeIcon from '../../assets/icons/closeLg.svg'
 
 const Modal = ({ isOpen, onClose, children, title }) => {
   // 간단하게 body 스크롤 막기
@@ -41,7 +42,7 @@ const Modal = ({ isOpen, onClose, children, title }) => {
                 className={styles.closeButton}
                 aria-label="모달 닫기"
               >
-                ×
+                <img src={closeIcon}/>
               </button>
             </div>
             <div>{children}</div>

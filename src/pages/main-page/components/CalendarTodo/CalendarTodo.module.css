@@ -1,11 +1,19 @@
+.calendarArea {
+  height: auto;
+  overflow: visible; /* 또는 hidden */
+}
+.fc-scroller {
+  overflow: hidden !important;
+}
 .fc-event-done{
   text-decoration: line-through;
   color: #000; 
-  background-color: #ffffff;
+  background-color: transparent;
   border: none;
-  border-bottom: 1px solid #c4c9c7;
+  /* border-bottom: 1px solid #c4c9c7; */
   position: relative;
   width: 85%;
+  margin-bottom: 5px;
 }
 .fc-event-done::after{
   content: '';
@@ -29,14 +37,22 @@
   background-repeat: no-repeat;
   background-size: contain;
 }
-
-
 .fc-event-not-done{
   background-color: white;
   border:none;
   border-bottom: 1px solid #B7D589;
+  margin-bottom: 5px;
 }
 
 div[class*="fc-event-title"] {
   color: #000;
+  padding-left: 4px;
+}
+div[class*="fc-daygrid-day"]  {
+  /* cursor: pointer;  */
+  /* cursor: url('/src/assets/images/customAddCursor.png') 16 16, pointer; */
+}
+:global(.dayContainer){
+  cursor: url('/src/assets/images/customAddCursor.png') 16 16, pointer;
+  /* cursor: pointer;  */
 }

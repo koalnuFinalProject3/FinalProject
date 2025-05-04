@@ -94,3 +94,15 @@
 .joyDiary{background-color: #B7D589; border: 1px solid #B7D589}
 .happyDiary{background-color: #FAE68D; border: 1px solid #FAE68D}
 .noneDiary{background-color: rgb(177, 222, 255);}
+
+}
+/* background - 충돌 영역*/
+:root {
+  --fc-today-bg-color: #DABC71; 
+}
+.fc-today-button{
+  background-color: #DABC71 !important;
+  border: 1px solid #af9656 !important;
+  opacity: 1 !important;
+}
+
