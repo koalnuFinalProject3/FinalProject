@@ -86,3 +86,12 @@
   height: 6.5rem;
   overflow: hidden;
 }
+
+:root {
+  --fc-today-bg-color: #DABC71; 
+}
+.fc-today-button{
+  background-color: #DABC71 !important;
+  border: 1px solid #af9656 !important;
+  opacity: 1 !important;
+}
