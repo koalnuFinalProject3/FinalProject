@@ -1,63 +1,14 @@
 {
   "todos": [
     {
-      "id": "1a2b",
-      "selectedDate": "2025-05-01",
-      "contents": "회의 준비하기",
-      "endYn": true
-    },
-    {
-      "id": "2b3c",
-      "selectedDate": "2025-05-01",
-      "contents": "점심 메뉴 고민하기",
-      "endYn": true
-    },
-    {
-      "id": "3c4d",
-      "selectedDate": "2025-05-02",
-      "contents": "운동 30분 하기",
-      "endYn": true
-    },
-    {
       "endYn": true,
       "id": "4d5e"
-    },
-    {
-      "id": "96ce",
-      "contents": "저렇게 나오네",
-      "selectedDate": "2025-05-01",
-      "endYn": true
-    },
-    {
-      "id": "ad2a",
-      "contents": "ㄹㅇㅋㅋ",
-      "selectedDate": "2025-05-01",
-      "endYn": false
-    },
-    {
-      "id": "_2bd6ydizy",
-      "contents": "리액트 3강",
-      "selectedDate": "2025-05-01",
-      "endYn": false
-    },
-    {
-      "id": "_jamrypgms",
-      "contents": "리액트 4강",
-      "selectedDate": "2025-05-01",
-      "endYn": false
-    },
-    {
-      "id": "7b70",
-      "contents": "이거 맞음? ㄹㅇㅋㅋ",
-      "selectedDate": "2025-05-01",
-      "endYn": true
     },
     {
       "id": "5e6f",
       "selectedDate": "2025-05-03",
       "contents": "친구에게 연락하기",
       "endYn": true
-
     },
     {
       "endYn": false,
@@ -100,18 +51,11 @@
       "contents": "데이터가",
       "selectedDate": "2025-05-02",
       "endYn": true
-
     },
     {
       "id": "1k2l",
       "selectedDate": "2025-05-06",
       "contents": "일기 작성",
-      "endYn": false
-    },
-    {
-      "id": "2l3m",
-      "selectedDate": "2025-05-06",
-      "contents": "장보기",
       "endYn": false
     },
     {
@@ -126,7 +70,7 @@
       "id": "4n5o",
       "selectedDate": "2025-05-08",
       "contents": "디자인 시안 검토",
-      "endYn": false
+      "endYn": true
     },
     {
       "endYn": true,
@@ -145,18 +89,6 @@
       "endYn": true
     },
     {
-      "id": "_2bd6ydizy",
-      "contents": "리액트 3강",
-      "selectedDate": "2025-05-01",
-      "endYn": false
-    },
-    {
-      "id": "_jamrypgms",
-      "contents": "리액트 4강",
-      "selectedDate": "2025-05-01",
-      "endYn": false
-    },
-    {
       "id": "_5p8l8bxnc",
       "contents": "ㅂ2",
       "selectedDate": "2025-05-11",
@@ -166,75 +98,140 @@
       "id": "_dd0cwmfce",
       "contents": "abc",
       "selectedDate": "2025-05-13",
+      "endYn": true
+    },
+    {
+      "id": "_9xr3d6fxh",
+      "contents": "123",
+      "selectedDate": "2025-05-08",
+      "endYn": true
+    },
+    {
+      "id": "_0nqk822ni",
+      "contents": "안녕하세요",
+      "selectedDate": "2025-05-14",
+      "endYn": true
+    },
+    {
+      "id": "_4p1adgn9z",
+      "contents": "333",
+      "selectedDate": "2025-05-01",
       "endYn": false
     },
     {
-      "id": "_zz8knn100",
-      "contents": "안녕하세요",
-      "selectedDate": "2025-05-07",
+      "id": "_4ydx5p6eu",
+      "contents": "여기서 추가하나",
+      "selectedDate": "2025-05-01",
+      "endYn": false
+    },
+    {
+      "id": "_g9qjh775b",
+      "contents": "미래!",
+      "selectedDate": "2025-05-24",
+      "endYn": false
+    },
+    {
+      "id": "_lvbc769dv",
+      "contents": "ㅎㅇㅎㅇㅎㅇ",
+      "selectedDate": "2025-05-23",
+      "endYn": false
+    },
+    {
+      "id": "_iti97tj8c",
+      "contents": "ㅁㄴㅇㅁㄴㅇㅁㄴ",
+      "selectedDate": "2025-05-22",
+      "endYn": false
+    },
+    {
+      "id": "_70vkvi1cl",
+      "contents": "ㅂㅈㄷㅂㅈㄷㅂㅈ",
+      "selectedDate": "2025-05-10",
+      "endYn": false
+    },
+    {
+      "id": "_tur92tajx",
+      "contents": "일기 작성",
+      "selectedDate": "2025-05-06",
+      "endYn": false
+    },
+    {
+      "id": "_63zc1iwgn",
+      "contents": "1",
+      "selectedDate": "2025-05-09",
+      "endYn": false
+    },
+    {
+      "id": "_z32qo35tz",
+      "contents": "2",
+      "selectedDate": "2025-05-09",
       "endYn": true
+    },
+    {
+      "id": "_vjrcet3i7",
+      "contents": "3",
+      "selectedDate": "2025-05-09",
+      "endYn": false
+    },
+    {
+      "id": "_uxekuit16",
+      "contents": "4",
+      "selectedDate": "2025-05-09",
+      "endYn": false
+    },
+    {
+      "id": "_59ytbw6qm",
+      "contents": "ㅇㅎㅇ",
+      "selectedDate": "2025-05-07",
+      "endYn": false
     }
   ],
   "emotionTypes": [
     {
-      "id": 1,
+      "id": "1",
       "text": "우울해요",
       "image": "depressedChar.png"
     },
     {
-
-      "id": 2,
-
+      "id": "2",
       "text": "슬퍼요",
       "image": "sadChar.png"
     },
     {
-
-      "id": 3,
-
+      "id": "3",
       "text": "그냥 그래요",
       "image": "sosoChar.png"
     },
     {
-
-      "id": 4,
-
+      "id": "4",
       "text": "기뻐요",
       "image": "joyChar.png"
     },
     {
-
-      "id": 5,
-
+      "id": "5",
       "text": "행복해요",
       "image": "happyChar.png"
     }
   ],
   "dailyEmotions": [
     {
-
-      "id": 1,
-
+      "id": "1",
       "selectedDate": "2025-05-01",
       "emotionId": 3
     },
     {
-
-      "id": 2,
+      "id": "2",
       "selectedDate": "2025-05-02",
       "emotionId": 5
     },
     {
-      "id": 3,
+      "id": "3",
       "selectedDate": "2025-05-03",
       "emotionId": 4
     }
   ],
   "recommendedMusic": [
     {
-
-      "id": 1,
-
+      "id": "1",
       "emotionId": "1",
       "title": "이별택시",
       "artist": "정엽",
@@ -453,7 +450,7 @@
         "당신의 기분 좋은 에너지가 주변을 환하게 만들고 있어요."
       ],
       "id": "938f"
-    },                                                                       
+    },
     {
       "emotionId": "5",
       "quotes": [
@@ -467,79 +464,132 @@
     }
   ],
   "emotion": [
-
     {
-      "id": 1,
-      "selectedDate": "2025-04-25",
-      "emotion": 3
+      "id": "3cdb",
+      "emotion": 3,
+      "selectedDate": "2025-05-02"
     },
     {
-      "id": 2,
-      "selectedDate": "2025-04-26",
-      "emotion": 2
+      "id": "bd8a",
+      "emotion": 4,
+      "selectedDate": "2025-05-02"
     },
     {
-      "id": 3,
-      "selectedDate": "2025-04-27",
-      "emotion": 4                                                                                                                                                                             
+      "id": "58e5",
+      "emotion": 2,
+      "selectedDate": "2025-05-01"
     },
     {
-      "id": 4,
-      "selectedDate": "2025-04-28",
-      "emotion": 5
+      "id": "6e30",
+      "emotion": 3,
+      "selectedDate": "2025-05-01"
     },
     {
-      "id": 5,
-      "selectedDate": "2025-04-29",
-      "emotion": 1
+      "id": "a9a4",
+      "emotion": 4,
+      "selectedDate": "2025-05-01"
     },
     {
-      "id": 6,
-      "selectedDate": "2025-04-30",
-      "emotion": 3
+      "id": "4b02",
+      "emotion": 4,
+      "selectedDate": "2025-05-01"
     },
     {
-      "id": 7,
-      "selectedDate": "2025-05-01",
-      "emotion": 4
+      "id": "c53c",
+      "emotion": 5,
+      "selectedDate": "2025-04-30"
     },
     {
-      "id": 8,
-      "selectedDate": "2025-05-02",
-      "emotion": 2
+      "id": "dedf",
+      "emotion": 5,
+      "selectedDate": "2025-04-30"
     },
     {
-      "id": 9,
-      "selectedDate": "2025-05-03", 
-      "emotion": 5
+      "id": "a4b8",
+      "emotion": 5,
+      "selectedDate": "2025-05-03"
     },
     {
-      "id": 10,
-      "selectedDate": "2025-04-20",
-      "emotion": 2
+      "id": "60a3",
+      "emotion": 5,
+      "selectedDate": "2025-05-03"
     },
     {
-      "id": 11,
-      "selectedDate": "2025-04-21",
-      "emotion": 5
+      "id": "a771",
+      "emotion": 2,
+      "selectedDate": "2025-05-04"
     },
     {
-      "id": 12,
-      "selectedDate": "2025-04-22",
-      "emotion": 4
+      "id": "38f9",
+      "emotion": 2,
+      "selectedDate": "2025-05-04"
     },
     {
-      "id": 13,
-      "selectedDate": "2025-04-23",
-      "emotion": 1
+      "id": "93d2",
+      "emotion": 2,
+      "selectedDate": "2025-05-08"
     },
     {
-      "id": 14,
-      "selectedDate": "2025-04-24",
-      "emotion": 3
+      "id": "61e1",
+      "emotion": 2,
+      "selectedDate": "2025-05-08"
+    },
+    {
+      "id": "d5d7",
+      "emotion": 3,
+      "selectedDate": "2025-04-29"
+    },
+    {
+      "id": "1404",
+      "emotion": 2,
+      "selectedDate": "2025-05-06"
+    },
+    {
+      "id": "fb44",
+      "emotion": 2,
+      "selectedDate": "2025-05-06"
+    },
+    {
+      "id": "ca6c",
+      "emotion": 3,
+      "selectedDate": "2025-05-06"
+    },
+    {
+      "id": "b89d",
+      "emotion": 3,
+      "selectedDate": "2025-05-06"
+    },
+    {
+      "id": "8ea4",
+      "emotion": 3,
+      "selectedDate": "2025-05-07"
+    },
+    {
+      "id": "be3b",
+      "emotion": 3,
+      "selectedDate": "2025-05-07"
+    },
+    {
+      "id": "b5e6",
+      "emotion": 2,
+      "selectedDate": "2025-05-14"
+    },
+    {
+      "id": "4d5a",
+      "emotion": 2,
+      "selectedDate": "2025-05-14"
+    },
+    {
+      "id": "eb07",
+      "emotion": 1,
+      "selectedDate": "2025-05-14"
+    },
+    {
+      "id": "b1ce",
+      "emotion": 1,
+      "selectedDate": "2025-05-14"
     }
   ],
-
   "diary": [
     {
       "id": "d1",
@@ -576,11 +626,11 @@
       "emotion": 1
     },
     {
-      "id": "d6",
       "selectedDate": "2025-04-30",
+      "contents": "오늘은 그냥 산책 나갔는데, 걷다 보니 생각보다 많은 것들이 떠올랐다. 왜 이렇게 좋은 기분이지? 바람 맞으며 혼자 나만의 시간을 보냈다. 💨",
       "title": "산책은 뭔가 다른 기분...",
-      "contents": "오늘은 그냥 걷고 싶어서 산책 나갔는데, 걷다 보니 생각보다 많은 것들이 떠올랐다. 왜 이렇게 좋은 기분이지? 바람 맞으며 혼자 나만의 시간을 보냈다. 💨",
-      "emotion": 3
+      "emotion": 3,
+      "id": "d6"
     },
     {
       "id": "d7",
@@ -630,6 +680,18 @@
       "title": "날씨 좋아서 소풍 갈 뻔했다",
       "contents": "날씨 좋으니까 소풍 가고 싶었지만, 결국 집에서 업무하고 있었다. 내일은 꼭 소풍 갈 거야! 아니면 무조건 놀러 간다! 🏞️",
       "emotion": 3
+    },
+    {
+      "id": "ea69",
+      "selectedDate": "2025-05-03",
+      "title": "qwe",
+      "contents": "qwe"
+    },
+    {
+      "id": "9084",
+      "selectedDate": "2025-05-04",
+      "title": "123",
+      "contents": "123123"
     }
   ]
 }
