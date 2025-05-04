@@ -7,50 +7,14 @@
       "endYn": true
     },
     {
-      "id": "2b3c",
-      "selectedDate": "2025-05-01",
-      "contents": "점심 메뉴 고민하기",
-      "endYn": true
-    },
-    {
       "id": "3c4d",
       "selectedDate": "2025-05-02",
       "contents": "운동 30분 하기",
-      "endYn": true
+      "endYn": false
     },
     {
       "endYn": true,
       "id": "4d5e"
-    },
-    {
-      "id": "96ce",
-      "contents": "저렇게 나오네",
-      "selectedDate": "2025-05-01",
-      "endYn": true
-    },
-    {
-      "id": "ad2a",
-      "contents": "ㄹㅇㅋㅋ",
-      "selectedDate": "2025-05-01",
-      "endYn": false
-    },
-    {
-      "id": "_2bd6ydizy",
-      "contents": "리액트 3강",
-      "selectedDate": "2025-05-01",
-      "endYn": false
-    },
-    {
-      "id": "_jamrypgms",
-      "contents": "리액트 4강",
-      "selectedDate": "2025-05-01",
-      "endYn": false
-    },
-    {
-      "id": "7b70",
-      "contents": "이거 맞음? ㄹㅇㅋㅋ",
-      "selectedDate": "2025-05-01",
-      "endYn": true
     },
     {
       "id": "5e6f",
@@ -131,39 +95,9 @@
       "id": "5o6p"
     },
     {
-      "id": "_5xc53r40h",
-      "contents": "ㅇㄴ",
-      "selectedDate": "2025-05-08",
-      "endYn": true
-    },
-    {
-      "id": "_eh6hqay5c",
-      "contents": "asdfasdfasdfasdfasdfasd",
-      "selectedDate": "2025-05-08",
-      "endYn": true
-    },
-    {
-      "id": "_2bd6ydizy",
-      "contents": "리액트 3강",
-      "selectedDate": "2025-05-01",
-      "endYn": false
-    },
-    {
-      "id": "_jamrypgms",
-      "contents": "리액트 4강",
-      "selectedDate": "2025-05-01",
-      "endYn": false
-    },
-    {
       "id": "_5p8l8bxnc",
       "contents": "ㅂ2",
       "selectedDate": "2025-05-11",
-      "endYn": false
-    },
-    {
-      "id": "_dd0cwmfce",
-      "contents": "abc",
-      "selectedDate": "2025-05-13",
       "endYn": false
     },
     {
@@ -171,6 +105,30 @@
       "contents": "안녕하세요",
       "selectedDate": "2025-05-07",
       "endYn": true
+    },
+    {
+      "id": "_vi1gjqtun",
+      "contents": "fs",
+      "selectedDate": "2025-05-13",
+      "endYn": true
+    },
+    {
+      "id": "_3g6rzijfw",
+      "contents": "f",
+      "selectedDate": "2025-05-13",
+      "endYn": false
+    },
+    {
+      "id": "_jilham2sx",
+      "contents": "xcvxcv",
+      "selectedDate": "2025-04-28",
+      "endYn": false
+    },
+    {
+      "id": "_8uv714fab",
+      "contents": "xcvxcvxcvxcvcxvxcvxvcxvxcvxcvxcvxcvxcvxcvxcv",
+      "selectedDate": "2025-04-28",
+      "endYn": false
     }
   ],
   "emotionTypes": [
@@ -469,8 +427,8 @@
     },
     {
       "id": "4",
-      "selectedDate": "2025-04-28",
-      "emotion": 5
+      "emotion": 1,
+      "selectedDate": "2025-04-28"
     },
     {
       "id": "5",
@@ -484,13 +442,13 @@
     },
     {
       "id": "7",
-      "selectedDate": "2025-05-01",
-      "emotion": 4
+      "emotion": 5,
+      "selectedDate": "2025-05-01"
     },
     {
       "id": "8",
-      "selectedDate": "2025-05-02",
-      "emotion": 2
+      "emotion": 3,
+      "selectedDate": "2025-05-02"
     },
     {
       "id": "9",
