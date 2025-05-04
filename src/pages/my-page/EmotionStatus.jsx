@@ -3,6 +3,7 @@ import styles from './MyPage.module.css';
 import useTodayEmotion from '../../hooks/useTodayEmotion';
 import useEmotionMent from '../../hooks/useEmotionMent';
 
+
 const EmotionStatus = () => {
   const todayEmotion = useTodayEmotion();
   const emotionId = todayEmotion?.id;
