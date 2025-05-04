@@ -1,24 +1,43 @@
 import { useState, useEffect } from 'react';
 import useDiaryStore from '../../../../../stores/useDiaryStore';
 import axios from 'axios';
+// 감정 이모지
+import sad from '../../../../../assets/images/sadChar.png';
+import soso from '../../../../../assets/images/sosoChar.png';
+import happy from '../../../../../assets/images/joyChar.png';
+import joy from '../../../../../assets/images/happyChar.png';
+import depressed from '../../../../../assets/images/depressedChar.png';
 
 const CalendarDiaryModal = ({ diaryObj, selectedDate, setIsModalOpen }) => {
-  // 제목 & 내용
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
 
-  const {} = useDiaryStore();
+    // 제목 & 내용
+    const [title, setTitle] = useState('');
+    const [content, setContent] = useState('');
+    const [emoImg, setEmoImg] = useState(null);
 
-  useEffect(() => {
-    if (diaryObj) {
-      setTitle(diaryObj.title);
-      setContent(diaryObj.contents);
-    } else {
-      setTitle('');
-      setContent('');
-    }
-    console.log(diaryObj);
-  }, [diaryObj]);
+    const { emotion } = useDiaryStore();
+    
+    useEffect(() => {
+        setEmoImg(null);
+        if (diaryObj) {
+            setTitle(diaryObj.title);
+            setContent(diaryObj.contents);
+            switch (parseInt(emotion)) {
+                case 1: setEmoImg(sad); break;
+                case 2: setEmoImg(depressed);  break;
+                case 3: setEmoImg(soso); break;
+                case 4: setEmoImg(joy); break;
+                case 5: setEmoImg(happy); break;
+                default: setEmoImg(null);
+            }
+        } else {
+            setTitle('');
+            setContent('');
+            setEmoImg(null);
+        }
+        console.log(diaryObj)
+    }, [diaryObj]);
+    console.log('nameEmo', emoImg)
 
     /* 새 일기 작성 */
     const createDiray = () => {
@@ -47,7 +66,7 @@ const CalendarDiaryModal = ({ diaryObj, selectedDate, setIsModalOpen }) => {
         axios.put(`http://localhost:3000/diary/${diaryObj.id}`, {
             id: diaryObj.id,
             selectedDate: diaryObj.selectedDate,
-            title:title,
+            title: title,
             contents: content,
         })
             .then(response => {
@@ -59,34 +78,33 @@ const CalendarDiaryModal = ({ diaryObj, selectedDate, setIsModalOpen }) => {
             });
     }
 
-  // console.log('내용',content);
-  // console.log('제목',title);
-  return (
-    <div>
-      <div className="diaryModalTopArea">
-        <p className="seletedDate">{selectedDate}</p>
-        <p>
-          <span className="diaryModalTitle">제목:</span>
-          {diaryObj ? (
-            <input
-              className="diaryModalTitleInput"
-              placeholder="제목을 작성해주세요."
-              onChange={(e) => {
-                setTitle(e.target.value);
-              }}
-              value={title}
-            />
-          ) : (
-            <input
-              className="diaryModalTitleInput"
-              placeholder="제목을 작성해주세요."
-              onChange={(e) => {
-                setTitle(e.target.value);
-              }}
-            />
-          )}
-        </p>
-      </div>
+
+    // console.log('내용',content);
+    // console.log('제목',title);
+    return (
+        <div className='modalDiaryArea'>
+            <div className='emotionDiaryArea'>오늘의 감정:{emoImg&& <img src={emoImg}/>}</div>
+            <div className='diaryModalTopArea'>
+                <p className='seletedDate'>{selectedDate}</p>
+                <p>
+                    <span className='diaryModalTitle'>제목:</span>
+                    {diaryObj ?
+                        <input
+                            className='diaryModalTitleInput'
+                            placeholder='제목을 작성해주세요.'
+                            onChange={(e) => { setTitle(e.target.value) }}
+                            value={title}
+                        />
+                        : (
+                            <input
+                                className='diaryModalTitleInput'
+                                placeholder='제목을 작성해주세요.'
+                                onChange={(e) => { setTitle(e.target.value) }}
+                            />
+                        )}
+                </p>
+            </div>
+
 
       <div className="diaryModalContextArea">
         {diaryObj ? (

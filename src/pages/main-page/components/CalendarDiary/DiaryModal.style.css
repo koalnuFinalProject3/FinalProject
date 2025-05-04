@@ -57,3 +57,18 @@
 .diaryModalBtnArea>button:active{
     background-color: var(--color-green-dark);
 }
+.emotionDiaryArea{
+    position: absolute;
+    top:-5.0rem;
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+}
+.modalDiaryArea{
+    position: relative
+}
+.emotionDiaryArea>img{
+    width: 3rem;
+    height: 3rem;
+    margin-left: 1rem;
+}

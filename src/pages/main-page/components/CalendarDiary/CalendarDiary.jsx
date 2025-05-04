@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
-import FullCalendar from '@fullcalendar/react';
-import dayGridPlugin from '@fullcalendar/daygrid';
+
+import { useState, useEffect, useRef } from 'react';
+import FullCalendar from '@fullcalendar/react'
+import dayGridPlugin from '@fullcalendar/daygrid'
 import interactionPlugin, { Draggable } from '@fullcalendar/interaction';
 import Modal from '../../../../components/common/Modal';
 import './DiaryModal.style.css';
@@ -8,7 +9,9 @@ import CalendarDiaryModal from './CalendarDiaryModal/CalendarDiaryModal';
 import styles from './CalendarDiary.module.css';
 import axios from 'axios';
 import useDiaryStore from '../../../../stores/useDiaryStore';
+
 import { toast } from 'react-toastify';
+
 
 // 감정 이모지
 import sad from '../../../../assets/images/sadChar.png';
@@ -17,17 +20,21 @@ import happy from '../../../../assets/images/joyChar.png';
 import joy from '../../../../assets/images/happyChar.png';
 import depressed from '../../../../assets/images/depressedChar.png';
 
-import question from '../../../../assets/icons/question.svg';
+import question from '../../../../assets/icons/question.svg'
+
 
 const CalendarDiary = ({ setCalendarType }) => {
   //일기
-  const { diary, setDiary, emotions, setEmotions, resetEmotions } =
-    useDiaryStore();
+  const { diary, setDiary, emotions, setEmotions, setEmotion } = useDiaryStore();
+
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
   const [change, setChange] = useState(false);
   const [diaryObj, setDiaryobj] = useState({});
+
+  // 두 번 실행을 막는 기능!
+  const isHandlingDrop = useRef(false);
   /* ------------------------------------------------------------ */
   // useEffect(() => {
   //   resetEmotions();
@@ -50,6 +57,7 @@ const CalendarDiary = ({ setCalendarType }) => {
   //로컬: http://localhost:3000/diary
   // git: https://my-json-server.typicode.com/koalnuFinalProject3/FinalProject/diary
   useEffect(() => {
+    setEmotion(0);
     Promise.all([
       axios.get('http://localhost:3000/diary'),
       axios.get('http://localhost:3000/emotion')
@@ -94,6 +102,8 @@ const CalendarDiary = ({ setCalendarType }) => {
 
     const clickEvent = diary.find((item) => item.selectedDate == info.dateStr);
 
+    const emoCode = emotions.find(item => item.selectedDate === info.dateStr);
+    if(emoCode)   setEmotion(emoCode.emotion);
     // console.log('클릭된 이벤트 ID:', clickEvent);
     setDiaryobj(clickEvent); // 객체 담기
     setSelectedDate(info.dateStr);
@@ -101,14 +111,14 @@ const CalendarDiary = ({ setCalendarType }) => {
   };
 
   /* ---------------------------------------------------------------------------- */
-
+  // 감정들 드래그앤 드랍 기능
   useEffect(() => {
     const draggableEl = document.getElementById('external-events');
     if (draggableEl) {
       new Draggable(draggableEl, {
         itemSelector: '.emotionStick',
         eventData: function (eventEl) {
-          // console.log('evnetEl',eventEl.dataset.id);
+          console.log('드래그해요!', eventEl.dataset.id);
           return {
             emotion: eventEl.dataset.id,
             // image: eventEl.src,
@@ -150,75 +160,99 @@ const CalendarDiary = ({ setCalendarType }) => {
     }
   };
 
-  const fetchEmotions = async () => {
-    const res = await axios.get('http://localhost:3000/emotion');
-    setEmotions(res.data);
-  };
 
   // 드랍시 발생 이벤트!
   const handleDrop = async (info) => {
-    console.log('handleDrop');
-    const emotionId = info.draggedEl.dataset.id;
-    const droppedDate = info.dateStr;
-    const emotionMatch = emotions.find(
-      (item) => item.selectedDate === droppedDate
-    );
-    console.log(emotionMatch);
+
+    if (isHandlingDrop.current) {
+      console.log('중복 방지');
+      return;
+    }
+    isHandlingDrop.current = true;
+
+    const clickDate = parseInt(info.dateStr.replace(/-/g, ''));
+    const today = getTodayDate();
+    if (clickDate > today) {
+      alert("미래의 감정표현은 할 수 없어요!")
+      isHandlingDrop.current = false;
+      setChange((prev) => !prev);
+      return;
+    }
+    //해당 날짜에 다이어리 객체가 있는 가?
+    console.log(info.dateStr)
+    const beDiary = diary.find(item => item.selectedDate === info.dateStr);
+    console.log('객체가 있나요?',beDiary)
+    if(!beDiary){
+      alert("먼저 일기를 작성한 후에 감정 스티커를 붙일 수 있습니다.");
+      isHandlingDrop.current = false;
+      setChange((prev) => !prev);
+      return;
+    } 
+
+    console.log("날짜에 드래그 했어요!")
+    const emotionId = info.draggedEl.dataset.id; // 드래그한 emotion 코드
+    // console.log('emotionId',emotionId);
+    const droppedDate = info.dateStr; // 드롭한 해당 날짜
+    const emotionMatch = emotions.find(item => item.selectedDate === droppedDate); // 드롭한 날짜와 동일한 이모션 객체 불러오기
+    console.log("emotionMatch", emotionMatch);
+
 
     try {
       if (emotionMatch) {
+        // 수정시
         await updateEmotion(emotionMatch, emotionId);
       } else {
+        // 새로 이모지 붙일 시
         await createEmotion(emotionId, droppedDate);
       }
 
-      await fetchEmotions();
+      // await fetchEmotions();
     } catch (error) {
       console.error('드롭 처리 중 오류 발생:', error);
+    }finally {
+      setTimeout(() => {
+        isHandlingDrop.current = false;
+        console.log('드롭 처리 완료 후 잠금 해제');
+      }, 300); 
+      setChange((prev) => !prev);
     }
   };
+
 
   /* 날짜에 보여지는 것 */
   function renderEventContent(eventInfo) {
     //id 불러오기(일기)
     const eventId = eventInfo.event._def.publicId;
-    const matchedItems = diary.filter((item) => item.id === eventId);
+
+
+    const matchedItems = diary.filter(item => item.id === eventId);
+    console.log('matchedItems', matchedItems)
+    console.log('eventInfo', eventInfo.event.startStr);
     //날짜 일치하는 이모지 불러오기
-    const emotion = emotions.find(
-      (item) => item.selectedDate === matchedItems[0].selectedDate
-    );
+    const emotion = emotions.find(item => item.selectedDate === matchedItems[0]?.selectedDate);
     // console.log('emo', emotion ? emotion.emotion : 0);
 
-    console.log('redering emotion,', emotion);
+    console.log("rendering emotion,", emotion);
+
 
     // 이미지 경로 지정
     let emotionImg = null;
-    let color = null;
+    let colorEmotion = '';
     switch (emotion?.emotion) {
-      case 1:
-        emotionImg = sad;
-        break;
-      case 2:
-        emotionImg = depressed;
-        break;
-      case 3:
-        emotionImg = soso;
-        break;
-      case 4:
-        emotionImg = joy;
-        break;
-      case 5:
-        emotionImg = happy;
-        break;
-      default:
-        emotionImg = null;
+
+      case 1: emotionImg = sad; colorEmotion='sadDiary'; break;
+      case 2: emotionImg = depressed; colorEmotion='depressedDiary'; break;
+      case 3: emotionImg = soso; colorEmotion='sosoDiary'; break;
+      case 4: emotionImg = joy; colorEmotion='joyDiary'; break;
+      case 5: emotionImg = happy; colorEmotion='happyDiary'; break;
+      default: emotionImg = null; colorEmotion='noneDiary';
     }
 
     return (
       <div className="barArea">
         {matchedItems.map((item, index) => (
           <>
-            <div key={index} className={styles.diaryItem}>
+            <div key={index} className={`${styles.diaryItem} ${colorEmotion}`}>
               {item.title}
               {emotion ? (
                 // emotionImg ? (
@@ -236,12 +270,21 @@ const CalendarDiary = ({ setCalendarType }) => {
     );
   }
 
+
+  // <div>감정을 기록하세요!</div>
+  // <div>감정 아이콘을 오늘 날짜로 끌어다 놓아보세요.</div>
+
   return (
     <div className="calendarArea">
       {/* 이모티콘 영역 */}
       <div id="external-events" className={styles.emotionArea}>
         <div className={styles.emotionQuestionArea}>
-          감정 한 조각 표현하기 <img src={question} alt="question" />
+
+          감정 한 조각 표현하기
+          <div className={styles.question}>
+            <img src={question} alt='question' />
+          </div>
+
         </div>
         <div className={styles.emotionSlide}>
           <img
@@ -273,18 +316,27 @@ const CalendarDiary = ({ setCalendarType }) => {
       </div>
 
       <FullCalendar
+        key={change} // 값 변경시 리랜더링
         plugins={[dayGridPlugin, interactionPlugin]}
         events={diary.map((item) => ({
           id: item.id,
           title: item.title,
-          start: item.selectedDate, // 날짜
-          contents: item.contents, // 커스텀 데이터
-          // emotion: item.emotion     // 커스텀 데이터
+          start: item.selectedDate,
+          contents: item.contents,
+          // emotion: item.emotion    
+
         }))}
         eventContent={renderEventContent}
         dateClick={handleDateClick}
+        eventClick={handleDateClick}
         droppable={true}
         drop={handleDrop}
+        eventReceive={(info) => {
+          const beDiary = diary.find(item => item.selectedDate === info.dateStr);
+          if(beDiary) return;
+          console.log("eventReceive 방지용", info);
+          setChange((prev) => !prev);
+        }}
         /* －－－－－－－－－－－－－－ */
         initialView="dayGridMonth"
         customButtons={{

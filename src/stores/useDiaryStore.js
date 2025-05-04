@@ -6,6 +6,7 @@ const useDiaryStore = create((set) => ({
     title: '',
     contents: "",
     emotion: 0,
+    setEmotion: (data) => set({emotion: data}),
     /* Array */
     diary: [],
     setDiary: (data) => set({ diary: data }),

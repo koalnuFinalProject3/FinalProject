@@ -15,7 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  // <StrictMode>
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
       <ToastContainer
@@ -24,5 +24,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         theme="colored"
       />
     </QueryClientProvider>
-  </StrictMode>
+  // </StrictMode>
 );
